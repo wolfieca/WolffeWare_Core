@@ -20,6 +20,7 @@ public class History extends WWBaseObject {
     private User user;
     private Date promiseDate;
     private Long promiseAmount;
+    private boolean containsPHI;
     private String comments;
     
     //Accessors
@@ -198,6 +199,14 @@ public class History extends WWBaseObject {
      */
     public void setContactType(String contactType) {
         this.contactType = contactType;
+    }
+
+    public boolean getContainsPHI() {
+        return containsPHI;
+    }
+
+    public void setContainsPHI(boolean containsPHI) {
+        this.containsPHI = containsPHI;
     }
     
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class WWBaseObject implements Securable, Serializable {
 
+    private long objStoreID;
     /**
      * The Access Control List for this object
      */
@@ -89,4 +90,37 @@ public class WWBaseObject implements Securable, Serializable {
     public ArrayList<Group> Groups (){
         return null; // WWBaseObject is not a member of any groups.
     }
+
+    public long getObjStoreID() {
+        return objStoreID;
+    }
+
+    public void setObjStoreID(long objStoreID) {
+        this.objStoreID = objStoreID;
+    }
+
+    public AccessControlList getACL() {
+        return ACL;
+    }
+
+    public void setACL(AccessControlList ACL) {
+        this.ACL = ACL;
+    }
+
+    public ArrayList<WWBaseObject> getAccessors() {
+        return accessors;
+    }
+
+    public void setAccessors(ArrayList<WWBaseObject> accessors) {
+        this.accessors = accessors;
+    }
+
+    public WWBaseObject getWriter() {
+        return writer;
+    }
+
+    public void setWriter(WWBaseObject writer) {
+        this.writer = writer;
+    }
+    
 }
