@@ -9,8 +9,8 @@ package Core;
 
 
 public class Permission  extends WWBaseObject {
-    private final Permission inheritFrom;
-    private final boolean deny;
+    private Permission inheritFrom;
+    private boolean deny;
     private int permissions;
     
     static final int NONE = 0x00;
@@ -145,4 +145,21 @@ public class Permission  extends WWBaseObject {
         //this.allowPermissions = this.inheritFrom.allowPermissions;
         //this.denyPermissions = this.inheritFrom.denyPermissions;
     }
+
+    public Permission getInheritFrom() {
+        return inheritFrom;
+    }
+
+    public void setInheritFrom(Permission inheritFrom) {
+        this.inheritFrom = inheritFrom;
+    }
+
+    public boolean isDeny() {
+        return deny;
+    }
+
+    public void setDeny(boolean deny) {
+        this.deny = deny;
+    }
+    
 }

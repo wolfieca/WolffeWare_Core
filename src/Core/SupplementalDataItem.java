@@ -11,6 +11,7 @@ package Core;
  */
 public class SupplementalDataItem extends WWBaseObject{
     private String name;
+    private int line;
     private boolean PHI;
     private String theData;
 
@@ -63,6 +64,14 @@ public class SupplementalDataItem extends WWBaseObject{
         String origData = this.theData;
         this.theData = theData;
         return origData;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line = line;
     }
     
 }

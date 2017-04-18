@@ -43,7 +43,8 @@ public class Debt extends WWBaseObject implements Reportable {
     private long agencyFees;
     private long totalPaid;
     private long currBalance;
-    private BitSet debtStatus;
+    private long debtStatus;
+    private long debtStatus2;
     private Date dateReceived;
     private Date dateToPurge;
     private Date dateLastPaid;
@@ -54,7 +55,7 @@ public class Debt extends WWBaseObject implements Reportable {
     private double interestOverflow; //(needed?)
     private Date dateOrigReported;
     private Date dateLastReported;
-    private BitSet debtStatus2; //(Actually unneeded.)
+    //private BitSet debtStatus2; //(Actually unneeded.)
     private long origPrinBalance;
     private Date dateOrigInterest;
     private short interestRate;
@@ -270,7 +271,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * returns the status field as-is.
      * @return
      */
-    public BitSet getDebtStatus() {
+    public long getDebtStatus() {
         return debtStatus;
     }
 
@@ -362,7 +363,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * Get the second set of status items (most likely unneeded).
      * @return
      */
-    public BitSet getDebtStatus2() {
+    public long getDebtStatus2() {
         return debtStatus2;
     }
 
@@ -595,7 +596,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * Set the debt status flags. Restricted.
      * @param debtStatus
      */
-    public void setDebtStatus(BitSet debtStatus) {
+    public void setDebtStatus(long debtStatus) {
         this.debtStatus = debtStatus;
     }
 
@@ -686,7 +687,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * Set the second set of Debt Flags. Restricted. May be redundant.
      * @param debtStatus2
      */
-    public void setDebtStatus2(BitSet debtStatus2) {
+    public void setDebtStatus2(int debtStatus2) {
         this.debtStatus2 = debtStatus2;
     }
 

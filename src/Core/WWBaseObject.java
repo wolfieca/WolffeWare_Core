@@ -123,4 +123,14 @@ public class WWBaseObject implements Securable, Serializable {
         this.writer = writer;
     }
     
+    public long getBits ( long field, int startPos, int length){
+        return ( field & (2^length-1) << startPos) >> startPos;
+    }
+    public long setBits ( long field, int startPos, int length, int value){
+        if ( value > (2^length - 1) ) {
+            return -1;
+        }
+        long iField = field & ~((2^length-1) << startPos);
+        return iField | (value) << startPos;
+    }
 }
