@@ -126,21 +126,21 @@ public class User  extends Actor{
         this.userCaps = userCaps;
     }
 
-    /**
-     *
-     * @return
-     */
-    public AccessControlList getACL() {
-        return ACL;
-    }
+//    /**
+//     *
+//     * @return
+//     */
+//    public AccessControlList getACL() {
+//        return ACL;
+//    }
 
-    /**
-     *
-     * @param ACL
-     */
-    protected void setACL(AccessControlList ACL) {
-        this.ACL = ACL;
-    }
+//    /**
+//     *
+//     * @param ACL
+//     */
+//    protected void setACL(AccessControlList ACL) {
+//        this.ACL = ACL;
+//    }
 
     /**
      *
