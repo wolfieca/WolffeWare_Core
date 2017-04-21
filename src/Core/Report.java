@@ -6,6 +6,6 @@ package Core;
  */
 
 
-public class Report {
+public class Report extends Document{
     
 }
