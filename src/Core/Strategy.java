@@ -7,6 +7,6 @@ package Core;
  */
 
 
-public class Strategy {
+public class Strategy extends WWBaseObject {
     
 }
