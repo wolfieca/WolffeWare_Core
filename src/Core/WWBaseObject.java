@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 
 public class WWBaseObject implements Securable, Serializable {
-
+    /**
+     * The Global ID for this object
+     */
     private long objStoreID;
     /**
      * The Access Control List for this object
