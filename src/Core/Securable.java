@@ -16,7 +16,7 @@ public interface Securable {
      * @param requestedAccess the access requested
      * @return true if the access is allowed, false otherwise
      */
-    public boolean CanAccess(Actor requestor, short requestedAccess);
+    public boolean CanAccess(Actor requestor, int requestedAccess);
 
     /**
      * Grant the specified access to the requesting object
@@ -25,7 +25,7 @@ public interface Securable {
      * @return true if the request has been honored, false, otherwise
      * @throws AccessDeniedException if the access is denied
      */
-    public boolean RequestAccess(Actor requestor, short requestedAccess) throws AccessDeniedException;
+    public boolean RequestAccess(Actor requestor, int requestedAccess) throws AccessDeniedException;
     
     /**
      * Relinquish access to this object. To simplify resource management, all
