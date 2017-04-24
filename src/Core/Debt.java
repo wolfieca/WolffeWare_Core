@@ -1,7 +1,6 @@
 package Core;
 
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.Date;
 
 /**
@@ -13,7 +12,6 @@ import java.util.Date;
 
 public class Debt extends WWBaseObject implements Reportable {
     private Debtor debtor;
-    private int debtID;
     private ArrayList<Debtor> PreviousDebtors;
     private boolean mergeable;
     private boolean matchable;
