@@ -1,4 +1,4 @@
-Wpackage Core;
+package Core;
 
 /**
  *
