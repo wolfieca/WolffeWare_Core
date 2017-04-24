@@ -34,7 +34,7 @@ public class WWBaseObject implements Securable, Serializable {
      * @return
      */
     @Override
-    public boolean CanAccess(Actor requestor, short requestAccess){
+    public boolean CanAccess(Actor requestor, int requestAccess){
         return ACL.requestAccess(requestor, requestAccess) != 0;
     }
 
@@ -45,7 +45,7 @@ public class WWBaseObject implements Securable, Serializable {
      * @return
      */
     @Override
-    public boolean RequestAccess(Actor requestor, short requestAccess) 
+    public boolean RequestAccess(Actor requestor, int requestAccess) 
         throws AccessDeniedException {
         if (ACL.requestAccess(requestor, requestAccess) != 0) {
             //Is write access being requested?
