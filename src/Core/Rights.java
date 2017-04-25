@@ -47,8 +47,8 @@ public class Rights extends WWBaseObject {
          rightNames.put("Base.EventListener", lastPosition++);
          rightNames.put("Base.ReassignThreads", lastPosition++);
          rightNames.put("Base.ImpersonateUser", lastPosition++);
-         rightNames.put("Base.ViewPHI",lastPosition++);
-         rightNames.put("Base.UpdatePHI", lastPosition++);
+         rightNames.put("Base.PHI.View",lastPosition++);
+         rightNames.put("Base.PHI.Update", lastPosition++);
          rightNames.put("Base.AddSupplemtalCategory", lastPosition++);
          rightNames.put("Base.DelSupplementalCategpry", lastPosition++);
          //Rights Definitions for built-in objects
