@@ -27,7 +27,11 @@ public class Debtor extends WWBaseObject implements Reportable {
     // Locked debtors can't be changed outside of those changes needed for
     // payment processing.
     private boolean locked;
-    // Begin PHI data fields..
+    // Begin PHI data fields...
+    // The level of access to the PHI fields is controlled by the 
+    // Account.PHI.Read and Account.PHI.Write rights. If the requestor doesn't
+    // have Read access, only a limited subset of the PHI data will be returned:
+    // namely lastName and the last four digits of ssn. 
     // Primary Demographic Data
     private String lastName;
     private String firstName;
@@ -632,6 +636,12 @@ public class Debtor extends WWBaseObject implements Reportable {
         return 0;
     }
 
+    public int detachDebt(int[] debtsToSplit){
+        return 0;
+    }
+    public int attachDebt(int[] debtsToSplit){
+        return 0;
+    }
     /**
      * Update the interest on the account. Iterate over each debt and have
      * them update their interest. The debtor cannot be locked. Locked debts 
