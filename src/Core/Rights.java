@@ -238,6 +238,17 @@ public class Rights extends WWBaseObject {
                  rightSet3 &= 0 << (rightNames.get(module+"."+right));
          }
      }
+    public long getRights(String module, String right) throws OutOfBoundsException{
+        if ( rightNames.get(module+"."+right) != null ) {
+            if(rightNames.get(module+"."+right)<=63)
+                return rightSet1 & (1<<rightNames.get(module+"."+right));
+            else if (rightNames.get(module+"."+right)<=127)
+                return rightSet2 & (1<<rightNames.get(module+"."+right));
+            else if ( rightNames.get(module+"."+right) <= 191)
+                return rightSet3 & (1<<rightNames.get(module+"."+right));
+            else throw ( new OutOfBoundsException());
+        } else throw (new OutOfBoundsException());
+    }
 
     /**
      *
