@@ -14,6 +14,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 public class WorkQueue extends WWBaseObject {
     private int maxQueueSize;
     private PriorityBlockingQueue<Debtor> workQueue;
+    private PriorityBlockingQueue<Debtor> reserveQueue;
 
     /**
      *
