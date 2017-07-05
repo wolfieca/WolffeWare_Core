@@ -527,7 +527,7 @@ public class Debtor extends WWBaseObject implements Reportable {
 
     /**
      * Matchable debtors are allowed to be processed by the match-finding 
-     * services, looking for debtors and debts that can be consilidated into 
+     * services, looking for debtors and debts that can be consolidated into 
      * single debts.
      * @return
      */
@@ -544,7 +544,7 @@ public class Debtor extends WWBaseObject implements Reportable {
     }
 
     /**
-     * A mergable debtor is capable of having new debtors/debts merged into it.w
+     * A mergeable debtor is capable of having new debtors/debts merged into it.
      * @return
      */
     public boolean isMergeable() {
