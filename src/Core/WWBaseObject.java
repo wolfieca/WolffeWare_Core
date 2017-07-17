@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 
 public class WWBaseObject implements Securable, Serializable {
+    private Actor caller;
     /**
      * The Global ID for this object
      */
@@ -93,41 +94,111 @@ public class WWBaseObject implements Securable, Serializable {
         return null; // WWBaseObject is not a member of any groups.
     }
 
+    /**
+     * Get the implied caller for this instance. The caller is the Actor that
+     * is considered to be the requester for this instance of the object. The
+     * default for this varies by context. It will generally be the Actor that
+     * caused this object to be instantiated in the first place. For performance
+     * reasons, though, we probably will not be just discarding objects as soon
+     * as the current Actor is done with them, opening the possibility that the
+     * caller will be changed subsequently.
+     * @return
+     */
+    public Actor getCaller() {
+        return caller;
+    }
+
+    /**
+     *
+     * @param caller
+     */
+    public void setCaller(Actor caller) {
+        this.caller = caller;
+    }
+
+    /**
+     *
+     * @return
+     */
     public long getObjStoreID() {
         return objStoreID;
     }
 
+    /**
+     *
+     * @param objStoreID
+     */
     public void setObjStoreID(long objStoreID) {
         this.objStoreID = objStoreID;
     }
 
+    /**
+     *
+     * @return
+     */
     public AccessControlList getACL() {
         return ACL;
     }
 
+    /**
+     *
+     * @param ACL
+     */
     public void setACL(AccessControlList ACL) {
         this.ACL = ACL;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<WWBaseObject> getAccessors() {
         return accessors;
     }
 
+    /**
+     *
+     * @param accessors
+     */
     public void setAccessors(ArrayList<WWBaseObject> accessors) {
         this.accessors = accessors;
     }
 
+    /**
+     *
+     * @return
+     */
     public WWBaseObject getWriter() {
         return writer;
     }
 
+    /**
+     *
+     * @param writer
+     */
     public void setWriter(WWBaseObject writer) {
         this.writer = writer;
     }
     
+    /**
+     *
+     * @param field
+     * @param startPos
+     * @param length
+     * @return
+     */
     public long getBits ( long field, int startPos, int length){
         return ( field & (2^length-1) << startPos) >> startPos;
     }
+
+    /**
+     *
+     * @param field
+     * @param startPos
+     * @param length
+     * @param value
+     * @return
+     */
     public long setBits ( long field, int startPos, int length, int value){
         if ( value > (2^length - 1) ) {
             return -1;

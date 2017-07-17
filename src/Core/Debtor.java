@@ -33,26 +33,26 @@ public class Debtor extends WWBaseObject implements Reportable {
     // have Read access, only a limited subset of the PHI data will be returned:
     // namely lastName and the last four digits of ssn. 
     // Primary Demographic Data
-    private String lastName;
-    private String firstName;
-    private String middleName;
-    private String suffix;
+    private DemographicField<String> lastName;
+    private DemographicField<String> firstName;
+    private DemographicField<String> middleName;
+    private DemographicField<String> suffix;
 
-    private String title;
-    private String phone;
+    private DemographicField<String> title;
+    private DemographicField<String> phone;
     // Wizard does not put SSN or birthdate in the MASTER data, and we have to
     // put it in the NI window, even though it is always pertinent
-    private String ssn;
-    private Date birthDate;
+    private DemographicField<String> ssn;
+    private DemographicField<Date> birthDate;
     // Wizard system puts most of the address in the Ancil A1 window, keeping
     // only the City, State, and Zip portions here. I don't see a real reason
     // to carry that practice over.
-    private String addressLine1;
-    private String addressLine2;
-    private String addressLine3;
-    private String city;
-    private String state;
-    private String zip;
+    private DemographicField<String> addressLine1;
+    private DemographicField<String> addressLine2;
+    private DemographicField<String> addressLine3;
+    private DemographicField<String> city;
+    private DemographicField<String> state;
+    private DemographicField<String> zip;
     // End PHI data fields
     
     // Begin working data fields
@@ -78,7 +78,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Retrieve the last name of the debtor
      * @return
      */
-    public String getLastName() {
+    public DemographicField<String> getLastName() {
         return lastName;
     }
 
@@ -86,7 +86,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Set the last name of the debtor
      * @param lastName
      */
-    protected void setLastName(String lastName) {
+    protected void setLastName(DemographicField<String> lastName) {
         this.lastName = lastName;
     }
 
@@ -94,7 +94,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Retrieve the first name of the debtor
      * @return
      */
-    public String getFirstName() {
+    public DemographicField<String> getFirstName() {
         return firstName;
     }
 
@@ -102,7 +102,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Set the first name of the debtor
      * @param firstName
      */
-    protected void setFirstName(String firstName) {
+    protected void setFirstName(DemographicField<String> firstName) {
         this.firstName = firstName;
     }
 
@@ -110,7 +110,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Get the debtor middle name
      * @return
      */
-    public String getMiddleName() {
+    public DemographicField<String> getMiddleName() {
         return middleName;
     }
 
@@ -118,7 +118,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param middleName
      */
-    protected void setMiddleName(String middleName) {
+    protected void setMiddleName(DemographicField<String> middleName) {
         this.middleName = middleName;
     }
 
@@ -126,7 +126,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @return
      */
-    public String getSuffix() {
+    public DemographicField<String> getSuffix() {
         return suffix;
     }
 
@@ -134,7 +134,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param suffix
      */
-    protected void setSuffix(String suffix) {
+    protected void setSuffix(DemographicField<String> suffix) {
         this.suffix = suffix;
     }
 
@@ -142,7 +142,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Get the debtor's title/salutation
      * @return
      */
-    public String getTitle() {
+    public DemographicField<String> getTitle() {
         return title;
     }
 
@@ -150,7 +150,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param title
      */
-    protected void setTitle(String title) {
+    protected void setTitle(DemographicField<String> title) {
         this.title = title;
     }
 
@@ -158,7 +158,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Get the debtor's phone number
      * @return
      */
-    public String getPhone() {
+    public DemographicField<String> getPhone() {
         return phone;
     }
 
@@ -166,7 +166,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Set/Update the debtor's phone number
      * @param phone
      */
-    protected void setPhone(String phone) {
+    protected void setPhone(DemographicField<String> phone) {
         this.phone = phone;
     }
 
@@ -174,7 +174,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @return
      */
-    public String getSsn() {
+    public DemographicField<String> getSsn() {
         return ssn;
     }
 
@@ -182,7 +182,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param ssn
      */
-    protected void setSsn(String ssn) {
+    protected void setSsn(DemographicField<String> ssn) {
         this.ssn = ssn;
     }
 
@@ -190,7 +190,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @return
      */
-    public Date getBirthDate() {
+    public DemographicField<Date> getBirthDate() {
         return birthDate;
     }
 
@@ -198,7 +198,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param birthDate
      */
-    protected void setBirthDate(Date birthDate) {
+    protected void setBirthDate(DemographicField<Date> birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -206,7 +206,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @return
      */
-    public String getAddressLine1() {
+    public DemographicField<String> getAddressLine1() {
         return addressLine1;
     }
 
@@ -214,7 +214,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param addressLine1
      */
-    protected void setAddressLine1(String addressLine1) {
+    protected void setAddressLine1(DemographicField<String> addressLine1) {
         this.addressLine1 = addressLine1;
     }
 
@@ -222,7 +222,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @return
      */
-    public String getAddressLine2() {
+    public DemographicField<String> getAddressLine2() {
         return addressLine2;
     }
 
@@ -230,7 +230,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param addressLine2
      */
-    protected void setAddressLine2(String addressLine2) {
+    protected void setAddressLine2(DemographicField<String> addressLine2) {
         this.addressLine2 = addressLine2;
     }
 
@@ -238,7 +238,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @return
      */
-    public String getAddressLine3() {
+    public DemographicField<String> getAddressLine3() {
         return addressLine3;
     }
 
@@ -246,7 +246,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param addressLine3
      */
-    protected void setAddressLine3(String addressLine3) {
+    protected void setAddressLine3(DemographicField<String> addressLine3) {
         this.addressLine3 = addressLine3;
     }
 
@@ -254,7 +254,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @return
      */
-    public String getCity() {
+    public DemographicField<String> getCity() {
         return city;
     }
 
@@ -262,7 +262,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      *
      * @param city
      */
-    protected void setCity(String city) {
+    protected void setCity(DemographicField<String> city) {
         this.city = city;
     }
 
@@ -497,7 +497,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Get the debtor state
      * @return
      */
-    public String getState() {
+    public DemographicField<String> getState() {
         return state;
     }
 
@@ -505,7 +505,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Set the debtor state
      * @param state
      */
-    protected void setState(String state) {
+    protected void setState(DemographicField<String> state) {
         this.state = state;
     }
 
@@ -513,7 +513,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Get the debtor Zip code
      * @return
      */
-    public String getZip() {
+    public DemographicField<String> getZip() {
         return zip;
     }
 
@@ -521,7 +521,7 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Set the debtor Zip code
      * @param zip
      */
-    protected void setZip(String zip) {
+    protected void setZip(DemographicField<String> zip) {
         this.zip = zip;
     }
 

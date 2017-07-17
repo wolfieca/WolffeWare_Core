@@ -5,6 +5,10 @@
  */
 package Core;
 
+import java.sql.Time;
+import java.util.Date;
+import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte0.waiting;
+
 /**
  * A message is the Core scheduling and synchronization primitive. It is the 
  * basis of the strategy system, and controls many parts of the daily running
@@ -14,8 +18,140 @@ package Core;
  * This replaces the schedule/activity conglomerate from the original Wizard 
  * system, and should provide extra stability, flexibility, and accountability, 
  * than they do.
+ * Note that Message itself is simply the message. There is no transport
+ * mechanism specified
  * @author rserrano
  */
-public class Message {
+public class Message extends WWBaseObject {
+    private Actor sender;
+    private Actor receiver;
+    private WWBaseObject reference;
+    private boolean callerWaiting;
+    private boolean asynch;
+    private WWBaseObject[] waiters;     
+    private CommandParser instruction;
+    private String msgText;
+    private Date msgDate;
+    private Time msgTime;
+    private boolean done;
+    private boolean canDispose;
+
+    public Message() {
+    }
+
+    public Message(Actor receiver, WWBaseObject reference, boolean callerWaiting) {
+        this.receiver = receiver;
+        this.reference = reference;
+        this.callerWaiting = callerWaiting;
+    }
     
+    
+
+    public Message(Message origMessage){
+    }
+    
+    public Actor getSender() {
+        return sender;
+    }
+
+    protected void setSender(Actor sender) {
+        this.sender = sender;
+    }
+
+    public Actor getReceiver() {
+        return receiver;
+    }
+
+    protected void setReceiver(Actor receiver) {
+        this.receiver = receiver;
+    }
+
+    public WWBaseObject getReference() {
+        return reference;
+    }
+
+    protected void setReference(WWBaseObject reference) {
+        this.reference = reference;
+    }
+
+    public boolean isCallerWaiting() {
+        return callerWaiting;
+    }
+
+    protected void setWaiting(boolean waiting) {
+        this.callerWaiting = waiting;
+    }
+
+    public WWBaseObject[] getWaiters() {
+        return waiters;
+    }
+
+    protected void setWaiters(WWBaseObject[] waiters) {
+        this.waiters = waiters;
+    }
+
+    public CommandParser getInstruction() {
+        return instruction;
+    }
+
+    protected void setInstruction(CommandParser instruction) {
+        this.instruction = instruction;
+    }
+
+    public String getMsgText() {
+        return msgText;
+    }
+
+    protected void setMsgText(String msgText) {
+        this.msgText = msgText;
+    }
+
+    public Date getMsgDate() {
+        return msgDate;
+    }
+
+    protected void setMsgDate(Date msgDate) {
+        this.msgDate = msgDate;
+    }
+
+    public Time getMsgTime() {
+        return msgTime;
+    }
+
+    protected void setMsgTime(Time msgTime) {
+        this.msgTime = msgTime;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    protected void setDone(boolean done) {
+        this.done = done;
+    }
+
+    public boolean isCanDispose() {
+        return canDispose;
+    }
+
+    protected void setCanDispose(boolean canDispose) {
+        this.canDispose = canDispose;
+    }
+    
+    public boolean isAsynch() {
+        return asynch;
+    }
+
+    protected void setAsynch(boolean asynch) {
+        this.asynch = asynch;
+    }
+    
+    public void dispose(){
+    }
+
+    public void resend(){
+    }
+    
+    public void resend(Actor sendTo){
+    }
 }
