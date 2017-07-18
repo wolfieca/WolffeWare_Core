@@ -154,7 +154,7 @@ public class Rights extends WWBaseObject {
          rightSet2 = new Long(0);
          rightSet3 = new Long(0);
          
-         // loginHours by defulat are cleared (no hours allowed
+         // loginHours by default are cleared (no hours allowed
          // loginHours defaults to having 24 members (ie one element for each
          // hour of the day).
          loginHours = new HashMap<>();
@@ -169,7 +169,7 @@ public class Rights extends WWBaseObject {
      }
      
     /**
-     *
+     * Creates a new Right in the system
      * @param module
      * @param right
      * @return

@@ -6,7 +6,7 @@
 package Core;
 
 /**
- * An action statement for the CommandParser.
+ * An action statement for the CommandParser. 
  * @author rserrano
  */
 public enum verb {

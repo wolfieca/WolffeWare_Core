@@ -139,7 +139,7 @@ public class Debtor extends WWBaseObject implements Reportable {
     }
 
     /**
-     * Get the debtor's title/salutation
+     * Get the debtor title/salutation
      * @return
      */
     public DemographicField<String> getTitle() {
@@ -155,7 +155,7 @@ public class Debtor extends WWBaseObject implements Reportable {
     }
 
     /**
-     * Get the debtor's phone number
+     * Get the debtor phone number
      * @return
      */
     public DemographicField<String> getPhone() {
@@ -163,7 +163,7 @@ public class Debtor extends WWBaseObject implements Reportable {
     }
 
     /**
-     * Set/Update the debtor's phone number
+     * Set/Update the debtor phone number
      * @param phone
      */
     protected void setPhone(DemographicField<String> phone) {

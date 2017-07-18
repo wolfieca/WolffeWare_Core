@@ -232,17 +232,17 @@ public enum test {
     AREA_CODE_LT,
 
     /**
-     *
+     * true if the account is in the specified office
      */
     OFFICE,
 
     /**
-     *
+     * true if the account is not in the specified office
      */
     OFFICE_NOT,
 
     /**
-     *
+     * 
      */
     COLL_STRAT_TP,
 
