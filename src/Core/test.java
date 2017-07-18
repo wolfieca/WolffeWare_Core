@@ -14,167 +14,167 @@ public enum test {
     /**
      * Always true
      */
-    ALWAYS (),
+    ALWAYS ("If Always"),
 
     /**
      * Never true (eff NOP)
      */
-    NEVER,
+    NEVER ("If Never"),
 
     /**
      * True if account is pre-collect
      */
-    PRECOLL,
+    PRECOLL ("If Precoll"),
 
     /**
      * True if account is not pre-collect
      */
-    NOT_PRECOLL,
+    NOT_PRECOLL ("If Not Precoll"),
 
     /**
      * True if the Primary Client matches 
      */
-    PRICLI,
+    PRICLI ("If PriCli", 1),
 
     /**
      * False if the Primary Client matches 
      */
-    PRICLI_NOT,
+    PRICLI_NOT ("If Not PriCli", 1),
 
     /**
      * True is status matches 
      */
-    STATUS,
+    STATUS ("If Status", 1),
 
     /**
      * False if status matches args[1]
      */
-    STATUS_NOT,
+    STATUS_NOT ("If Status Not", 1),
 
     /**
      * True if Collector matches
      */
-    COLLECTOR,
+    COLLECTOR ("If Collector", 1),
 
     /**
      * False if collector matches
      */
-    COLLECTOR_NOT,
+    COLLECTOR_NOT ("If Not Collector", 1),
 
     /**
      * true if account has a phone number
      */
-    PHONE,
+    PHONE ("If Phone"),
 
     /**
      * true if account has no phone number
      */
-    NO_PHONE,
+    NO_PHONE ("If Not Phone"),
 
     /**
      * true if account is marked worked
      */
-    WORKED,
+    WORKED ("If Worked"),
 
     /**
      * true if account has not been worked
      */
-    NOT_WORKED,
+    NOT_WORKED ("If Not Worked"),
 
     /**
      * true if debtor has assets
      */
-    ASSETS,
+    ASSETS ("If Has Assets"),
 
     /**
      * true if the debtor does not have assets
      */
-    NO_ASSETS,
+    NO_ASSETS ("If No Assets"),
 
     /**
      * true if balance is >= the specified amount
      */
-    BAL_GE,
+    BAL_GE ("If Curr Bal >=", 1),
 
     /**
      * true if balance is < the specified amount
      */
-    BAL_LT,
+    BAL_LT ("If Curr Bal <", 1),
 
     /**
      * true if the debtor is employed
      */
-    EMPLOYMENT,
+    EMPLOYMENT ("If Employed"),
 
     /**
      * true if the debtor is not employed
      */
-    NO_EMPLOYMENT,
+    NO_EMPLOYMENT ("If Not Employed"),
 
     /**
      * true if the account has a good (not mail returned) address
      */
-    GOOD_ADDRESS,
+    GOOD_ADDRESS("If Good Address"),
 
     /**
      * true if the account does not have a good address
      */
-    NO_GOOD_ADDRESS,
+    NO_GOOD_ADDRESS ("If No Good Address"),
 
     /**
      * true if there are restrictions on the account.
      */
-    RESTRICTED,
+    RESTRICTED ("If Restricted"),
 
     /**
      * true if there are no restrictions on the account
      */
-    NOT_RESTRICTED,
+    NOT_RESTRICTED ("If Not Restricted"),
 
     /**
      * true if the debtor lives in the specified state
      */
-    STATE,
+    STATE ("If State", 1),
 
     /**
      * true if the debtor does not live in the specified state
      */
-    STATE_NOT,
+    STATE_NOT ("If State Not", 1),
 
     /**
      * true if the account is >= the specified days old
      */
-    DAYS_OLD_GE,
+    DAYS_OLD_GE ("If Days Old >=", 1),
 
     /**
      * true if the account is < the specified days old
      */
-    DAYS_OLD_LT,
+    DAYS_OLD_LT ("If Days Old <", 1),
 
     /**
      * true if any portion of the debt has been paid.
      */
-    PAID_ANY,
+    PAID_ANY ("If Paid Any"),
 
     /**
      * true if no part of the debt has been paid.
      */
-    NOT_PAID_ANY,
+    NOT_PAID_ANY ("If Paid None"),
 
     /**
      * true if the account has had mail returned
      */
-    MAIL_RETURN,
+    MAIL_RETURN ("If Mail Return"),
 
     /**
      * true if the account has never had mail returned
      */
-    NOT_MAIL_RETURN,
+    NOT_MAIL_RETURN ("If Not Mail Return"),
 
     /**
      * true if last paid date is after the specified date
      */
-    DLP_GE,
+    DLP_GE ("If DLP >=", 1),
 
     /**
      * true if last paid date is before the specified date
@@ -540,15 +540,19 @@ public enum test {
         
     }
     
-    test(WWBaseObject arg1){
+    test(String instr){
         
     }
     
-    test(WWBaseObject arg1, WWBaseObject arg2){
+    test(String instr, Integer arg1){
         
     }
     
-    test(WWBaseObject arg1, WWBaseObject arg2, WWBaseObject arg3){
+    test(String instr, Integer arg1, String arg2){
         
     }
+    test(String instr, Integer arg1, Integer arg2, Integer arg3){
+        
+    }
+    
 }
