@@ -8,10 +8,10 @@ package Core;
 /**
  * CommandParser is the base class for the token parsing classes in the 
  * system. The first argument will be the object this command is being applied
- * to.
+ * to. Basic syntax is test [args[,...] action
  * @author rserrano
  */
-public class CommandParser extends WWBaseObject{
+public class CommandParser extends WWBaseObject {
     private test test;
     private WWBaseObject[] args;
     private WWBaseObject result;

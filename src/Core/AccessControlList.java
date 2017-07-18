@@ -64,11 +64,11 @@ public class AccessControlList {
      */
 
     public int requestAccess(Actor requestor, int request){
-        if ( requestor == admin ) {
+        if ( requestor.equals(admin) ) {
             return adminPerms.checkAccess(request);
-        } else if ( requestor == owner ) {
+        } else if ( requestor.equals(owner) ) {
             return ownerPerms.checkAccess(request);
-        }else if ( requestor == group ){
+        }else if ( requestor.equals(group) ){
             return groupPerms.checkAccess(request);
         } else if ( requestor.PrimaryGroup() != null ) {
             if ( requestor.PrimaryGroup() != group.PrimaryGroup()) {

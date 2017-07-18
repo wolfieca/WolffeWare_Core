@@ -7,7 +7,6 @@ package Core;
 
 import java.sql.Time;
 import java.util.Date;
-import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte0.waiting;
 
 /**
  * A message is the Core scheduling and synchronization primitive. It is the 
@@ -34,7 +33,7 @@ public class Message extends WWBaseObject {
     private Date msgDate;
     private Time msgTime;
     private boolean done;
-    private boolean canDispose;
+    private boolean disposable;
 
     public Message() {
     }
@@ -130,12 +129,12 @@ public class Message extends WWBaseObject {
         this.done = done;
     }
 
-    public boolean isCanDispose() {
-        return canDispose;
+    public boolean isDisposable() {
+        return disposable;
     }
 
-    protected void setCanDispose(boolean canDispose) {
-        this.canDispose = canDispose;
+    protected void setDisposable(boolean disposable) {
+        this.disposable = disposable;
     }
     
     public boolean isAsynch() {

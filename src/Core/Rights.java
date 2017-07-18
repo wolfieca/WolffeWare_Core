@@ -16,16 +16,17 @@ public class Rights extends WWBaseObject {
      private Long rightSet1;
      private Long rightSet2;
      private Long rightSet3;
+     private Long rightSet4;
      private final Map<String,Integer> loginHours;
      private final Map<String,Integer> rightNames;
      private int lastPosition;
      
     /**
-     *
+     * Default constructor
      */
     public Rights (){
          // Initialize the rightNames
-         
+         //The default rightNames will not change order after release. 
          rightNames = new HashMap<>();
          //Base Right Definitions should be constant
          rightNames.put("Base.LocalLogin", lastPosition++);
@@ -153,6 +154,7 @@ public class Rights extends WWBaseObject {
          rightSet1 = new Long(0);
          rightSet2 = new Long(0);
          rightSet3 = new Long(0);
+         rightSet4 = new Long(0);
          
          // loginHours by default are cleared (no hours allowed
          // loginHours defaults to having 24 members (ie one element for each
@@ -167,7 +169,61 @@ public class Rights extends WWBaseObject {
          loginHours.put("Sat", 0);
           //loginHours.clear();
      }
-     
+    
+    /**
+     * Copy Constructor
+     * @param orig 
+     */
+    public Rights(Rights orig){
+        this.rightSet1 = orig.rightSet1;
+        this.rightSet2 = orig.rightSet2;
+        this.rightSet3 = orig.rightSet3;
+        this.rightSet4 = orig.rightSet4;
+        this.lastPosition = orig.lastPosition;
+        this.loginHours = orig.loginHours;
+        this.rightNames = orig.rightNames;
+    }
+
+    public Long getRightSet1() {
+        return rightSet1;
+    }
+
+    protected void setRightSet1(Long rightSet1) {
+        this.rightSet1 = rightSet1;
+    }
+
+    public Long getRightSet2() {
+        return rightSet2;
+    }
+
+    protected void setRightSet2(Long rightSet2) {
+        this.rightSet2 = rightSet2;
+    }
+
+    public Long getRightSet3() {
+        return rightSet3;
+    }
+
+    protected void setRightSet3(Long rightSet3) {
+        this.rightSet3 = rightSet3;
+    }
+
+    public Long getRightSet4() {
+        return rightSet4;
+    }
+
+    protected void setRightSet4(Long rightSet4) {
+        this.rightSet4 = rightSet4;
+    }
+
+    protected int getLastPosition() {
+        return lastPosition;
+    }
+
+    protected void setLastPosition(int lastPosition) {
+        this.lastPosition = lastPosition;
+    }
+    
     /**
      * Creates a new Right in the system
      * @param module
@@ -220,6 +276,8 @@ public class Rights extends WWBaseObject {
                  rightSet2 |= 1 << (rightNames.get(module+"."+right));
              else if (rightNames.get(module+"."+right) <= 191)
                  rightSet3 |= 1 << (rightNames.get(module+"."+right));
+             else if (rightNames.get(module+"."+right) <= 255)
+                 rightSet4 |= 1 << (rightNames.get(module+"."+right));
          }
      }
 
@@ -236,6 +294,8 @@ public class Rights extends WWBaseObject {
                  rightSet2 &= 0 << (rightNames.get(module+"."+right));
              else if (rightNames.get(module+"."+right) <= 191)
                  rightSet3 &= 0 << (rightNames.get(module+"."+right));
+             else if (rightNames.get(module+"."+right) <= 255)
+                 rightSet4 &= 0 << (rightNames.get(module+"."+right));
          }
      }
     public long getRights(String module, String right) throws OutOfBoundsException{
@@ -246,10 +306,13 @@ public class Rights extends WWBaseObject {
                 return rightSet2 & (1<<rightNames.get(module+"."+right));
             else if ( rightNames.get(module+"."+right) <= 191)
                 return rightSet3 & (1<<rightNames.get(module+"."+right));
+            else if ( rightNames.get(module+"."+right) <= 255)
+                return rightSet4 & (1<<rightNames.get(module+"."+right));
             else throw ( new OutOfBoundsException());
         } else throw (new OutOfBoundsException());
     }
 
+    
     /**
      *
      * @param day
