@@ -13,6 +13,6 @@ public enum MessageType {
     MESSAGE,    // Generic message. Usually intra-user.
     ACTION,     // Synchronous request
     REQUEST,    // Asynchronous request
-    SCHEDULE,   // Schedule a future message
+    SCHEDULE,   // A schedule request
     RESULT      // A result message
 }
