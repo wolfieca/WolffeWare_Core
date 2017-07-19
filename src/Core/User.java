@@ -14,9 +14,7 @@ public class User  extends Actor{
     private String userID;
     private Group primaryGroup;
     private ArrayList<Group> supplementaryGroups;
-    private Capabilities userCaps;
-    private AccessControlList ACL;
-    
+    private Rights userRights;    
     private boolean[] workHours;
     private boolean canWorkOffHours;
     private Dictionary<String, Boolean> moduleAccess;
@@ -114,33 +112,18 @@ public class User  extends Actor{
      *
      * @return
      */
-    public Capabilities getUserCaps() {
-        return userCaps;
+    public Rights getUserRights() {
+        return userRights;
     }
 
     /**
      *
-     * @param userCaps
+     * @param userRights
      */
-    protected void setUserCaps(Capabilities userCaps) {
-        this.userCaps = userCaps;
+    protected void setUserRights(Rights userRights) {
+        this.userRights = userRights;
     }
 
-//    /**
-//     *
-//     * @return
-//     */
-//    public AccessControlList getACL() {
-//        return ACL;
-//    }
-
-//    /**
-//     *
-//     * @param ACL
-//     */
-//    protected void setACL(AccessControlList ACL) {
-//        this.ACL = ACL;
-//    }
 
     /**
      *
@@ -162,7 +145,7 @@ public class User  extends Actor{
      *
      * @return
      */
-    public boolean isCanWorkOffHours() {
+    public boolean canWorkOffHours() {
         return canWorkOffHours;
     }
 
@@ -259,16 +242,16 @@ public class User  extends Actor{
      *
      * @return
      */
-    public Capabilities UserCaps(){
-        return this.userCaps;
+    public Rights UserRights(){
+        return this.userRights;
     }
 
     /**
      *
-     * @param usercaps
+     * @param userRights
      */
-    protected void UserCaps(Capabilities usercaps){
-        this.userCaps = usercaps;
+    protected void UserRights(Rights userRights){
+        this.userRights = userRights;
     }
     
     /**
