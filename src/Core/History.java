@@ -201,10 +201,18 @@ public class History extends WWBaseObject {
         this.contactType = contactType;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getContainsPHI() {
         return containsPHI;
     }
 
+    /**
+     *
+     * @param containsPHI
+     */
     public void setContainsPHI(boolean containsPHI) {
         this.containsPHI = containsPHI;
     }

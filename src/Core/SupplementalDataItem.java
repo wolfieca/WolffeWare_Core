@@ -68,10 +68,18 @@ public class SupplementalDataItem extends WWBaseObject{
         return origData;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getLine() {
         return line;
     }
 
+    /**
+     *
+     * @param line
+     */
     public void setLine(int line) {
         this.line = line;
     }

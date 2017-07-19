@@ -17,9 +17,19 @@ public class Instruction {
     private Verb action;
     private WWBaseObject result;
 
+    /**
+     *
+     */
     public Instruction() {
     }
 
+    /**
+     *
+     * @param condition
+     * @param args
+     * @param action
+     * @param result
+     */
     public Instruction(Test condition, WWBaseObject[] args, Verb action, WWBaseObject result) {
         this.condition = condition;
         this.args = args;
@@ -27,34 +37,66 @@ public class Instruction {
         this.result = result;
     }
 
+    /**
+     *
+     * @return
+     */
     public Test getCondition() {
         return condition;
     }
 
+    /**
+     *
+     * @param condition
+     */
     public void setCondition(Test condition) {
         this.condition = condition;
     }
 
+    /**
+     *
+     * @return
+     */
     public WWBaseObject[] getArgs() {
         return args;
     }
 
+    /**
+     *
+     * @param args
+     */
     public void setArgs(WWBaseObject[] args) {
         this.args = args;
     }
 
+    /**
+     *
+     * @return
+     */
     public Verb getAction() {
         return action;
     }
 
+    /**
+     *
+     * @param action
+     */
     public void setAction(Verb action) {
         this.action = action;
     }
 
+    /**
+     *
+     * @return
+     */
     public WWBaseObject getResult() {
         return result;
     }
 
+    /**
+     *
+     * @param result
+     */
     public void setResult(WWBaseObject result) {
         this.result = result;
     }

@@ -16,18 +16,34 @@ public class DemographicField<T> {
     private boolean PHI;
     private T field;
 
+    /**
+     *
+     * @return
+     */
     protected boolean isPHI() {
         return PHI;
     }
 
+    /**
+     *
+     * @param PHI
+     */
     protected void setPHI(boolean PHI) {
         this.PHI = PHI;
     }
 
+    /**
+     *
+     * @return
+     */
     protected T getField() {
         return field;
     }
 
+    /**
+     *
+     * @param field
+     */
     protected void setField(T field) {
         this.field = field;
     }

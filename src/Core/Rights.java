@@ -184,42 +184,82 @@ public class Rights extends WWBaseObject {
         this.rightNames = orig.rightNames;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getRightSet1() {
         return rightSet1;
     }
 
+    /**
+     *
+     * @param rightSet1
+     */
     protected void setRightSet1(Long rightSet1) {
         this.rightSet1 = rightSet1;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getRightSet2() {
         return rightSet2;
     }
 
+    /**
+     *
+     * @param rightSet2
+     */
     protected void setRightSet2(Long rightSet2) {
         this.rightSet2 = rightSet2;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getRightSet3() {
         return rightSet3;
     }
 
+    /**
+     *
+     * @param rightSet3
+     */
     protected void setRightSet3(Long rightSet3) {
         this.rightSet3 = rightSet3;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getRightSet4() {
         return rightSet4;
     }
 
+    /**
+     *
+     * @param rightSet4
+     */
     protected void setRightSet4(Long rightSet4) {
         this.rightSet4 = rightSet4;
     }
 
+    /**
+     *
+     * @return
+     */
     protected int getLastPosition() {
         return lastPosition;
     }
 
+    /**
+     *
+     * @param lastPosition
+     */
     protected void setLastPosition(int lastPosition) {
         this.lastPosition = lastPosition;
     }
@@ -298,6 +338,14 @@ public class Rights extends WWBaseObject {
                  rightSet4 &= 0 << (rightNames.get(module+"."+right));
          }
      }
+
+    /**
+     *
+     * @param module
+     * @param right
+     * @return
+     * @throws OutOfBoundsException
+     */
     public long getRights(String module, String right) throws OutOfBoundsException{
         if ( rightNames.get(module+"."+right) != null ) {
             if(rightNames.get(module+"."+right)<=63)

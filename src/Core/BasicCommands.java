@@ -10,7 +10,15 @@ package Core;
  * @author rserrano
  */
 public enum BasicCommands {
+
+    /**
+     *
+     */
     TEST,
+
+    /**
+     *
+     */
     WAIT,
     
 }

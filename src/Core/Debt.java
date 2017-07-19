@@ -889,10 +889,20 @@ public class Debt extends WWBaseObject implements Reportable {
         return 0;
     }
 
+    /**
+     *
+     * @param newEntry
+     * @return
+     */
     public int addHistory(History newEntry){
         return 0;
     }
     
+    /**
+     *
+     * @param position
+     * @return
+     */
     public int delHistory(int position) {
         return 0;
     }

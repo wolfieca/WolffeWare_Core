@@ -146,18 +146,34 @@ public class Permission  extends WWBaseObject {
         //this.denyPermissions = this.inheritFrom.denyPermissions;
     }
 
+    /**
+     *
+     * @return
+     */
     public Permission getInheritFrom() {
         return inheritFrom;
     }
 
+    /**
+     *
+     * @param inheritFrom
+     */
     public void setInheritFrom(Permission inheritFrom) {
         this.inheritFrom = inheritFrom;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isDeny() {
         return deny;
     }
 
+    /**
+     *
+     * @param deny
+     */
     public void setDeny(boolean deny) {
         this.deny = deny;
     }

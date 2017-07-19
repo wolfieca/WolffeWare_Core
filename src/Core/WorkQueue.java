@@ -32,18 +32,34 @@ public class WorkQueue extends WWBaseObject {
         workQueue.add(newDebtor);
     }
 
+    /**
+     *
+     * @return
+     */
     public int getMaxQueueSize() {
         return maxQueueSize;
     }
 
+    /**
+     *
+     * @param maxQueueSize
+     */
     public void setMaxQueueSize(int maxQueueSize) {
         this.maxQueueSize = maxQueueSize;
     }
 
+    /**
+     *
+     * @return
+     */
     public PriorityBlockingQueue<Debtor> getWorkQueue() {
         return workQueue;
     }
 
+    /**
+     *
+     * @param workQueue
+     */
     public void setWorkQueue(PriorityBlockingQueue<Debtor> workQueue) {
         this.workQueue = workQueue;
     }

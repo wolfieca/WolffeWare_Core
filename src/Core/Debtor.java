@@ -636,9 +636,20 @@ public class Debtor extends WWBaseObject implements Reportable {
         return 0;
     }
 
+    /**
+     *
+     * @param debtsToSplit
+     * @return
+     */
     public int detachDebt(int[] debtsToSplit){
         return 0;
     }
+
+    /**
+     *
+     * @param debtsToSplit
+     * @return
+     */
     public int attachDebt(int[] debtsToSplit){
         return 0;
     }
@@ -780,10 +791,22 @@ public class Debtor extends WWBaseObject implements Reportable {
     }
     
     // Match-related functionality.
+
+    /**
+     *
+     * @param testDebtor
+     * @return
+     */
     
     public int degreeMatch(Debtor testDebtor){
         return 0;
     }
+
+    /**
+     *
+     * @param testDebtor
+     * @return
+     */
     public boolean isMatch(Debtor testDebtor){
         return true;
     }

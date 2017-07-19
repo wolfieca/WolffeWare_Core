@@ -47,122 +47,239 @@ public class Message extends WWBaseObject {
     private boolean disposable;
     private MessagePriority priority;
 
+    /**
+     *
+     */
     public Message() {
     }
 
+    /**
+     *
+     * @param sender
+     * @param receiver
+     * @param reference
+     */
     public Message(Actor sender, Actor receiver, WWBaseObject reference) {
         this.sender = sender;
         this.receiver = receiver;
         this.reference = reference;
     }
     
-    
-
+    /**
+     *
+     * @param origMessage
+     */
     public Message(Message origMessage){
     }
     
+    /**
+     *
+     * @return
+     */
     public Actor getSender() {
         return sender;
     }
 
+    /**
+     *
+     * @param sender
+     */
     protected void setSender(Actor sender) {
         this.sender = sender;
     }
 
+    /**
+     *
+     * @return
+     */
     public Actor getReceiver() {
         return receiver;
     }
 
+    /**
+     *
+     * @param receiver
+     */
     protected void setReceiver(Actor receiver) {
         this.receiver = receiver;
     }
 
+    /**
+     *
+     * @return
+     */
     public WWBaseObject getReference() {
         return reference;
     }
 
+    /**
+     *
+     * @param reference
+     */
     protected void setReference(WWBaseObject reference) {
         this.reference = reference;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isCallerWaiting() {
         return callerWaiting;
     }
 
+    /**
+     *
+     * @param waiting
+     */
     protected void setWaiting(boolean waiting) {
         this.callerWaiting = waiting;
     }
 
+    /**
+     *
+     * @return
+     */
     public WWBaseObject[] getWaiters() {
         return waiters;
     }
 
+    /**
+     *
+     * @param waiters
+     */
     protected void setWaiters(WWBaseObject[] waiters) {
         this.waiters = waiters;
     }
 
+    /**
+     *
+     * @return
+     */
     public Instruction getInstruction() {
         return instruction;
     }
 
+    /**
+     *
+     * @param instruction
+     */
     protected void setInstruction(Instruction instruction) {
         this.instruction = instruction;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMsgText() {
         return msgText;
     }
 
+    /**
+     *
+     * @param msgText
+     */
     protected void setMsgText(String msgText) {
         this.msgText = msgText;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getMsgDate() {
         return msgDate;
     }
 
+    /**
+     *
+     * @param msgDate
+     */
     protected void setMsgDate(Date msgDate) {
         this.msgDate = msgDate;
     }
 
+    /**
+     *
+     * @return
+     */
     public Time getMsgTime() {
         return msgTime;
     }
 
+    /**
+     *
+     * @param msgTime
+     */
     protected void setMsgTime(Time msgTime) {
         this.msgTime = msgTime;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isDone() {
         return done;
     }
 
+    /**
+     *
+     * @param done
+     */
     protected void setDone(boolean done) {
         this.done = done;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isDisposable() {
         return disposable;
     }
 
+    /**
+     *
+     * @param disposable
+     */
     protected void setDisposable(boolean disposable) {
         this.disposable = disposable;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean isAsynch() {
         return asynch;
     }
 
+    /**
+     *
+     * @param asynch
+     */
     protected void setAsynch(boolean asynch) {
         this.asynch = asynch;
     }
     
+    /**
+     *
+     */
     public void dispose(){
     }
 
+    /**
+     *
+     */
     public void resend(){
     }
     
+    /**
+     *
+     * @param sendTo
+     */
     public void resend(Actor sendTo){
     }
     

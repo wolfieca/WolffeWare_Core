@@ -17,37 +17,73 @@ public class CommandParser extends WWBaseObject {
     private WWBaseObject result;
     private Verb action;
 
+    /**
+     *
+     * @return
+     */
     public Verb getAction() {
         return action;
     }
 
+    /**
+     *
+     * @param action
+     */
     public void setAction(Verb action) {
         this.action = action;
     }
 
+    /**
+     *
+     * @return
+     */
     public WWBaseObject[] getArgs() {
         return args;
     }
 
+    /**
+     *
+     * @param args
+     */
     public void setArgs(WWBaseObject[] args) {
         this.args = args;
     }
 
+    /**
+     *
+     * @return
+     */
     public WWBaseObject getResult() {
         return result;
     }
 
+    /**
+     *
+     * @param result
+     */
     public void setResult(WWBaseObject result) {
         this.result = result;
     }
 
+    /**
+     *
+     * @return
+     */
     public Test getTest() {
         return test;
     }
 
+    /**
+     *
+     * @param test
+     */
     public void setTest(Test test) {
         this.test = test;
     }
+
+    /**
+     *
+     */
     protected void ParseCommand(){
         
     }

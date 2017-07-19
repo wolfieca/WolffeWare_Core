@@ -10,9 +10,34 @@ package Core;
  * @author rserrano
  */
 public enum MessageType {
+
+    /**
+     *
+     */
     MESSAGE,    // Generic message. Usually intra-user.
+
+    /**
+     *
+     */
     ACTION,     // Synchronous request
+
+    /**
+     *
+     */
     REQUEST,    // Asynchronous request
+
+    /**
+     *
+     */
     SCHEDULE,   // A schedule request
-    RESULT      // A result message
+
+    /**
+     *
+     */
+    RESULT,     // A result message
+
+    /**
+     *
+     */
+    WORKORDER,  // A work order
 }
