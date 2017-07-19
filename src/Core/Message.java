@@ -18,30 +18,42 @@ import java.util.Date;
  * system, and should provide extra stability, flexibility, and accountability, 
  * than they do.
  * Note that Message itself is simply the message. There is no transport
- * mechanism specified
+ * mechanism specified.
+ * Also note that messages are relatively transient. Once they are finished
+ * processing, they can be disposed of and eventually deleted from the database
+ * itself. No part of the system should assume the permanence of any message. 
+ * In the hierarchy of system objects, messages are near the bottom in terms of
+ * how long they typically stick around. There is a configurable option to turn
+ * disposal on or off and another to determine retention time if disposal is on.
  * @author rserrano
  */
 public class Message extends WWBaseObject {
     private Actor sender;
     private Actor receiver;
     private WWBaseObject reference;
-    private boolean callerWaiting;
+    private MessageType messageType;
+    // callerWaiting only matters if asynch is true, in which case a result
+    // message is expected
+    private boolean callerWaiting;      
     private boolean asynch;
     private WWBaseObject[] waiters;     
-    private CommandParser instruction;
+    private Instruction instruction;
     private String msgText;
-    private Date msgDate;
+    private Date msgCDate;  // The date the message was created
+    private Time msgCTime;  // The time the message was created
+    private Date msgDate;   
     private Time msgTime;
     private boolean done;
     private boolean disposable;
+    private MessagePriority priority;
 
     public Message() {
     }
 
-    public Message(Actor receiver, WWBaseObject reference, boolean callerWaiting) {
+    public Message(Actor sender, Actor receiver, WWBaseObject reference) {
+        this.sender = sender;
         this.receiver = receiver;
         this.reference = reference;
-        this.callerWaiting = callerWaiting;
     }
     
     
@@ -89,11 +101,11 @@ public class Message extends WWBaseObject {
         this.waiters = waiters;
     }
 
-    public CommandParser getInstruction() {
+    public Instruction getInstruction() {
         return instruction;
     }
 
-    protected void setInstruction(CommandParser instruction) {
+    protected void setInstruction(Instruction instruction) {
         this.instruction = instruction;
     }
 
@@ -152,5 +164,10 @@ public class Message extends WWBaseObject {
     }
     
     public void resend(Actor sendTo){
+    }
+    
+    @Override
+    public String toString(){
+        return "";
     }
 }

@@ -6,7 +6,7 @@
 package Core;
 
 /**
- *
+ * A system message queue
  * @author odin
  */
 public class MessageQueue extends WWBaseObject{

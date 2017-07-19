@@ -145,7 +145,7 @@ public class User  extends Actor{
      *
      * @return
      */
-    public boolean canWorkOffHours() {
+    public boolean getCanWorkOffHours() {
         return canWorkOffHours;
     }
 
