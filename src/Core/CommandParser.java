@@ -8,20 +8,20 @@ package Core;
 /**
  * CommandParser is the base class for the token parsing classes in the 
  * system. The first argument will be the object this command is being applied
- * to. Basic syntax is test [args[,...] action
+ * to. Basic syntax is Test [args[,...] action
  * @author rserrano
  */
 public class CommandParser extends WWBaseObject {
-    private test test;
+    private Test test;
     private WWBaseObject[] args;
     private WWBaseObject result;
-    private verb action;
+    private Verb action;
 
-    public verb getAction() {
+    public Verb getAction() {
         return action;
     }
 
-    public void setAction(verb action) {
+    public void setAction(Verb action) {
         this.action = action;
     }
 
@@ -41,11 +41,11 @@ public class CommandParser extends WWBaseObject {
         this.result = result;
     }
 
-    public test getTest() {
+    public Test getTest() {
         return test;
     }
 
-    public void setTest(test test) {
+    public void setTest(Test test) {
         this.test = test;
     }
     protected void ParseCommand(){

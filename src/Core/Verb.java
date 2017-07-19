@@ -9,7 +9,7 @@ package Core;
  * An action statement for the CommandParser. 
  * @author rserrano
  */
-public enum verb {
+public enum Verb {
 
     /**
      *
@@ -276,15 +276,15 @@ public enum verb {
      */
     WINDOW_DATE;
     
-    verb(){
+    Verb(){
         
     }
     
-    verb(WWBaseObject arg1){
+    Verb(WWBaseObject arg1){
         
     }
     
-    verb(WWBaseObject arg1, WWBaseObject arg2){
+    Verb(WWBaseObject arg1, WWBaseObject arg2){
         
     }
 }
