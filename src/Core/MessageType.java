@@ -40,4 +40,21 @@ public enum MessageType {
      *
      */
     WORKORDER,  // A work order
+
+    /**
+     *
+     */
+    EVALUATION, // An employee evaluation
+
+    /**
+     *
+     */
+    WRITEUP,    // An employee writeup
+
+    /**
+     *
+     */
+    TICKET,     // A ticket
+    HOLD,       // A Hold
+    REMINDER,   // A Reminder
 }

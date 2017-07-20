@@ -29,7 +29,8 @@ import java.util.Date;
  */
 public class Message extends WWBaseObject {
     private Actor sender;
-    private Actor receiver;
+    private Actor receiver; 
+    private CollectionUnit targetCollector; 
     private WWBaseObject reference;
     private MessageType messageType;
     // callerWaiting only matters if asynch is true, in which case a result
@@ -43,6 +44,8 @@ public class Message extends WWBaseObject {
     private Time msgCTime;  // The time the message was created
     private Date msgDate;   
     private Time msgTime;
+    private Date expireDate;    // The date the message will expire (optional)
+    private boolean seen;       // Has the message been seen by the recipient?
     private boolean done;
     private boolean disposable;
     private MessagePriority priority;
@@ -276,12 +279,76 @@ public class Message extends WWBaseObject {
     public void resend(){
     }
     
+    public void reply(){
+        
+    }
+    public void forward() {
+        
+    }
+    
     /**
      *
      * @param sendTo
      */
     public void resend(Actor sendTo){
     }
+
+    public CollectionUnit getTargetCollector() {
+        return targetCollector;
+    }
+
+    public void setTargetCollector(CollectionUnit targetCollector) {
+        this.targetCollector = targetCollector;
+    }
+
+    public MessageType getMessageType() {
+        return messageType;
+    }
+
+    public void setMessageType(MessageType messageType) {
+        this.messageType = messageType;
+    }
+
+    public Date getMsgCDate() {
+        return msgCDate;
+    }
+
+    public void setMsgCDate(Date msgCDate) {
+        this.msgCDate = msgCDate;
+    }
+
+    public Time getMsgCTime() {
+        return msgCTime;
+    }
+
+    public void setMsgCTime(Time msgCTime) {
+        this.msgCTime = msgCTime;
+    }
+
+    public Date getExpireDate() {
+        return expireDate;
+    }
+
+    public void setExpireDate(Date expireDate) {
+        this.expireDate = expireDate;
+    }
+
+    public boolean isSeen() {
+        return seen;
+    }
+
+    public void setSeen(boolean seen) {
+        this.seen = seen;
+    }
+
+    public MessagePriority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(MessagePriority priority) {
+        this.priority = priority;
+    }
+    
     
     @Override
     public String toString(){
