@@ -24,7 +24,7 @@ public class History extends WWBaseObject {
     private String comments;
     
     //Accessors
-
+    // Development note: Setters should not really be public, IMHO.
     /**
      * Get the debtor this item is attached.
      * @return
