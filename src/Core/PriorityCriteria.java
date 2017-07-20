@@ -6,7 +6,7 @@
 package Core;
 
 /**
- *
+ * A list of the available criteria to be used for the PriorityCalculator
  * @author rserrano
  */
 public enum PriorityCriteria {
