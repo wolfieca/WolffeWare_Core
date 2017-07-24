@@ -7,6 +7,7 @@ package Core;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * A message is the Core scheduling and synchronization primitive. It is the 
@@ -31,7 +32,7 @@ public class Message extends WWBaseObject {
     private Actor sender;
     private Actor receiver; 
     private CollectionUnit targetCollector; 
-    private WWBaseObject reference;
+    private WWBaseObject[] reference;
     private MessageType messageType;
     // callerWaiting only matters if asynch is true, in which case a result
     // message is expected
@@ -40,24 +41,23 @@ public class Message extends WWBaseObject {
     private WWBaseObject[] waiters;     
     private Instruction instruction;
     private String msgText;
-    private Date msgCDate;  // The date the message was created
-    private Time msgCTime;  // The time the message was created
-    private Date msgDate;   
-    private Time msgTime;
-    private Date expireDate;    // The date the message will expire (optional)
+    private GregorianCalendar created;  // Message creation time
+    private GregorianCalendar release;  // Message release (schedule) time
+    private GregorianCalendar released; // Message released time
+    private GregorianCalendar expire;   // Message expiration time
     private boolean seen;       // Has the message been seen by the recipient?
     private boolean done;
     private boolean disposable;
     private MessagePriority priority;
 
     /**
-     *
+     * Create an empty message
      */
     public Message() {
     }
 
     /**
-     *
+     * Create a message for immediate delivery, with normal message priority
      * @param sender
      * @param receiver
      * @param reference
@@ -65,7 +65,10 @@ public class Message extends WWBaseObject {
     public Message(Actor sender, Actor receiver, WWBaseObject reference) {
         this.sender = sender;
         this.receiver = receiver;
-        this.reference = reference;
+        this.reference[0] = reference;
+        this.created = new GregorianCalendar();
+        this.seen = false;
+        this.done = false;
     }
     
     /**
@@ -111,15 +114,18 @@ public class Message extends WWBaseObject {
      *
      * @return
      */
-    public WWBaseObject getReference() {
+    public WWBaseObject[] getReference() {
         return reference;
     }
 
+    public WWBaseObject getReference(int index){
+        return reference[index];
+    }
     /**
      *
      * @param reference
      */
-    protected void setReference(WWBaseObject reference) {
+    protected void setReference(WWBaseObject[] reference) {
         this.reference = reference;
     }
 
@@ -152,7 +158,7 @@ public class Message extends WWBaseObject {
      * @param waiters
      */
     protected void setWaiters(WWBaseObject[] waiters) {
-        this.waiters = waiters;
+        this.setWaiters(waiters);
     }
 
     /**
@@ -187,37 +193,6 @@ public class Message extends WWBaseObject {
         this.msgText = msgText;
     }
 
-    /**
-     *
-     * @return
-     */
-    public Date getMsgDate() {
-        return msgDate;
-    }
-
-    /**
-     *
-     * @param msgDate
-     */
-    protected void setMsgDate(Date msgDate) {
-        this.msgDate = msgDate;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Time getMsgTime() {
-        return msgTime;
-    }
-
-    /**
-     *
-     * @param msgTime
-     */
-    protected void setMsgTime(Time msgTime) {
-        this.msgTime = msgTime;
-    }
 
     /**
      *
@@ -309,33 +284,6 @@ public class Message extends WWBaseObject {
         this.messageType = messageType;
     }
 
-    public Date getMsgCDate() {
-        return msgCDate;
-    }
-
-    public void setMsgCDate(Date msgCDate) {
-        this.msgCDate = msgCDate;
-    }
-
-    public Time getMsgCTime() {
-        return msgCTime;
-    }
-
-    public void setMsgCTime(Time msgCTime) {
-        this.msgCTime = msgCTime;
-    }
-
-    public Date getExpireDate() {
-        return expireDate;
-    }
-
-    public void setExpireDate(Date expireDate) {
-        this.expireDate = expireDate;
-    }
-
-    public boolean isSeen() {
-        return seen;
-    }
 
     public void setSeen(boolean seen) {
         this.seen = seen;
@@ -353,5 +301,69 @@ public class Message extends WWBaseObject {
     @Override
     public String toString(){
         return "";
+    }
+
+    /**
+     * @return the created
+     */
+    public GregorianCalendar getCreated() {
+        return created;
+    }
+
+    /**
+     * @return the release
+     */
+    public GregorianCalendar getRelease() {
+        return release;
+    }
+
+    /**
+     * @return the released
+     */
+    public GregorianCalendar getReleased() {
+        return released;
+    }
+
+    /**
+     * @return the expire
+     */
+    public GregorianCalendar getExpire() {
+        return expire;
+    }
+
+    /**
+     * @param created the created to set
+     */
+    protected void setCreated(GregorianCalendar created) {
+        this.created = created;
+    }
+
+    /**
+     * @param release the release to set
+     */
+    protected void setRelease(GregorianCalendar release) {
+        this.release = release;
+    }
+
+    /**
+     * @param released the released to set
+     */
+    protected void setReleased(GregorianCalendar released) {
+        this.released = released;
+    }
+
+    /**
+     * @param expire the expire to set
+     */
+    protected void setExpire(GregorianCalendar expire) {
+        this.expire = expire;
+    }
+
+
+    /**
+     * @return the seen
+     */
+    public boolean isSeen() {
+        return seen;
     }
 }
