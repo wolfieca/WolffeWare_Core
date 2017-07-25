@@ -55,6 +55,14 @@ public enum MessageType {
      *
      */
     TICKET,     // A ticket
+
+    /**
+     *
+     */
     HOLD,       // A Hold
+
+    /**
+     *
+     */
     REMINDER,   // A Reminder
 }
