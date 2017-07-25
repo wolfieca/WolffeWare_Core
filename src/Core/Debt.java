@@ -24,12 +24,14 @@ public class Debt extends WWBaseObject implements Reportable {
     private String newBizBatch;
     private int serviceType;
     private int paymentMethod;
+    private long[] owed;
     private long principalOwed;
     private long feesOwed;
     private long interestOwed;
     private long courtCostsOwed;
     private long attyFeesOwed;
     private long jiFcCfOwed;
+    private long[] paid;
     private long principalPaid;
     private long feesPaid;
     private long interestPaid;
