@@ -156,7 +156,7 @@ public class Message extends WWBaseObject {
      * @param waiters
      */
     protected void setWaiters(WWBaseObject[] waiters) {
-        this.setWaiters(waiters);
+        this.waiters = waiters;
     }
 
     /**
