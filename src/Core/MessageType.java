@@ -65,4 +65,5 @@ public enum MessageType {
      *
      */
     REMINDER,   // A Reminder
+    PROMISE,    // A Payment Promise
 }
