@@ -10,6 +10,7 @@ import java.util.Date;
 
 
 public class History extends WWBaseObject {
+    private WWBaseObject reference;
     private Debtor debtor;
     private Debt debt;
     private Date contactDate;
@@ -215,6 +216,20 @@ public class History extends WWBaseObject {
      */
     public void setContainsPHI(boolean containsPHI) {
         this.containsPHI = containsPHI;
+    }
+
+    /**
+     * @return the reference
+     */
+    protected WWBaseObject getReference() {
+        return reference;
+    }
+
+    /**
+     * @param reference the reference to set
+     */
+    protected void setReference(WWBaseObject reference) {
+        this.reference = reference;
     }
     
 }

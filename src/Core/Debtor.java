@@ -609,6 +609,21 @@ public class Debtor extends WWBaseObject implements Reportable {
     public int merge(Debtor debtorToMerge, int[] debtsToMerge){
         return 0;
     }
+    public int merge(Debt debtToMerge){
+        return 0;
+    }
+    public int merge(Debt[] debtsToMerge){
+        return 0;
+    }
+    public static int merge(Debtor primary, Debtor secondary){
+        return 0;
+    }
+    public static int merge(Debtor primary, Debtor secondary, int[] debtsToMerge){
+        return 0;
+    }
+    public static int merge(Debtor primary, Debt[] debtsToMerge){
+        return 0;
+    }
 
     // NOTE: All split operations create a copy of this debtor to attach the
     // split debts to.
@@ -636,6 +651,12 @@ public class Debtor extends WWBaseObject implements Reportable {
         return 0;
     }
 
+    public static int split(Debtor debtor, int[] debtsToSplit){
+        return 0;
+    }
+    public static int split(Debt[] debtsToSplit){
+        return 0;
+    }
     /**
      *
      * @param debtsToSplit

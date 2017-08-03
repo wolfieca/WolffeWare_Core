@@ -15,6 +15,17 @@ package Core;
 public class DemographicField<T> {
     private boolean PHI;
     private T field;
+    private enum source {
+        NBIZ,
+        SKP_TLO,
+        SKP_TUW,
+        SKP_TWN,
+        NCOA,
+        DEBTOR,
+        ACS,
+        CLIENT,
+    }
+    private source fieldSource;
 
     /**
      *
@@ -47,4 +58,19 @@ public class DemographicField<T> {
     protected void setField(T field) {
         this.field = field;
     }
+
+    /**
+     * @return the fieldSource
+     */
+    protected source getFieldSource() {
+        return fieldSource;
+    }
+
+    /**
+     * @param fieldSource the fieldSource to set
+     */
+    protected void setFieldSource(source fieldSource) {
+        this.fieldSource = fieldSource;
+    }
+    
 }
