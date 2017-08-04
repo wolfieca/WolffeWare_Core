@@ -37,6 +37,7 @@ public class Message extends WWBaseObject {
     private boolean callerWaiting;      
     private boolean asynch;
     private WWBaseObject[] waiters;     
+    private WWBaseObject evaluation;
     private Instruction instruction;
     private String msgText;
     private GregorianCalendar created;  // Message creation time

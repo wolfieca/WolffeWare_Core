@@ -6,10 +6,9 @@
 package Core;
 
 /**
- * Legal data. Based on the SupplementalData class, since it is basically a
- * special case of that class.
+ * An EmployeeEvaluation
  * @author rserrano
  */
-public class Legal extends SupplementalData{
+public class EmployeeEvaluation extends WWBaseObject{
     
 }

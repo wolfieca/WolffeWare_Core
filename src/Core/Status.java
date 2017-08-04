@@ -6,10 +6,11 @@
 package Core;
 
 /**
- * Legal data. Based on the SupplementalData class, since it is basically a
- * special case of that class.
+ * An account Status. This includes the name of the status, any description
+ * that is appropriate, and various miscellaneous data (ie bankruptcy status),
+ * for accounts in this status.
  * @author rserrano
  */
-public class Legal extends SupplementalData{
+public class Status {
     
 }

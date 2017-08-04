@@ -5,10 +5,12 @@
  */
 package Core;
 
+import java.util.concurrent.PriorityBlockingQueue;
+
 /**
  * A system message queue
  * @author odin
  */
 public class MessageQueue extends WWBaseObject{
-    
+    private PriorityBlockingQueue msgQueue;
 }
