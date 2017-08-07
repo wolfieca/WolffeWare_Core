@@ -213,4 +213,6 @@ public enum MessageType {
      * User has returned from break.
      */
     OFFBREAK,
+    UPDATE,
+    RETRIEVE,
 }

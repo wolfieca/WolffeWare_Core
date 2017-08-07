@@ -125,7 +125,7 @@ public class Message extends WWBaseObject {
      * @param reference
      */
     protected void setReference(WWBaseObject[] reference) {
-        this.reference = reference;
+        this.setReference(reference);
     }
 
     /**
@@ -141,7 +141,7 @@ public class Message extends WWBaseObject {
      * @param waiting
      */
     protected void setWaiting(boolean waiting) {
-        this.callerWaiting = waiting;
+        this.setCallerWaiting(waiting);
     }
 
     /**
@@ -157,7 +157,7 @@ public class Message extends WWBaseObject {
      * @param waiters
      */
     protected void setWaiters(WWBaseObject[] waiters) {
-        this.waiters = waiters;
+        this.setWaiters(waiters);
     }
 
     /**
@@ -358,11 +358,32 @@ public class Message extends WWBaseObject {
         this.expire = expire;
     }
 
-
     /**
      * @return the seen
      */
     public boolean isSeen() {
         return seen;
     }
+
+    /**
+     * @return the evaluation
+     */
+    public WWBaseObject getEvaluation() {
+        return evaluation;
+    }
+
+    /**
+     * @param callerWaiting the callerWaiting to set
+     */
+    protected void setCallerWaiting(boolean callerWaiting) {
+        this.callerWaiting = callerWaiting;
+    }
+
+    /**
+     * @param evaluation the evaluation to set
+     */
+    protected void setEvaluation(WWBaseObject evaluation) {
+        this.evaluation = evaluation;
+    }
+    
 }
