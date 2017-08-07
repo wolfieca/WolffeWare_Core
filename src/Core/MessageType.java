@@ -213,6 +213,16 @@ public enum MessageType {
      * User has returned from break.
      */
     OFFBREAK,
+
+    /**
+     *  Update request. Some change has been made to the referring object and
+     *  needs to be committed.
+     */
     UPDATE,
+
+    /**
+     *  Retrieve specified object. Sender has made a request for the referred 
+     *  object.
+     */
     RETRIEVE,
 }

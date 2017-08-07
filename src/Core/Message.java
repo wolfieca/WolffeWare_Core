@@ -125,7 +125,7 @@ public class Message extends WWBaseObject {
      * @param reference
      */
     protected void setReference(WWBaseObject[] reference) {
-        this.setReference(reference);
+        this.reference = reference;
     }
 
     /**
