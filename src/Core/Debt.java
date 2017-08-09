@@ -68,6 +68,36 @@ public class Debt extends WWBaseObject implements Reportable {
     
     // Active methods
 
+    public int lock(){
+        return 0;
+    }
+    public int unlock(){
+        return 0;
+    }
+    public int prohibitMatching(){
+        return 0;
+    }
+    public int allowMatching(){
+        return 0;
+    }
+    public int prohibitMerge(){
+        return 0;
+    }
+    public int allowMerge(){
+        return 0;
+    }
+    public int prohibitSplit(){
+        return 0;
+    }
+    public int allowSplit(){
+        return 0;
+    }
+    public int anchorDebt(){
+        return 0;
+    }
+    public int freeDebt(){
+        return 0;
+    }
     /**
      * Update the interest on this debt, subject to restrictions such as being
      * locked.
