@@ -12,7 +12,7 @@ package Core;
 public class CollectionUnit extends WWBaseObject{
     private int office;
     private int collector;
-    private User user;
+    private User[] user;
     private String dunningName;
     private int specialties;
     private int collectorType; //bitmask
@@ -64,7 +64,7 @@ public class CollectionUnit extends WWBaseObject{
      *
      * @return
      */
-    public User getUser() {
+    public User[] getUser() {
         return user;
     }
 
@@ -72,7 +72,7 @@ public class CollectionUnit extends WWBaseObject{
      *
      * @param user
      */
-    public void setUser(User user) {
+    public void setUser(User user[]) {
         this.user = user;
     }
 
