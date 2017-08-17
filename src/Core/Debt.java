@@ -13,6 +13,7 @@ import java.util.Date;
 public class Debt extends WWBaseObject implements Reportable {
     private Debtor debtor;
     private ArrayList<Debtor> PreviousDebtors;
+    private boolean accruesInterest;
     private boolean mergeable;
     private boolean matchable;
     private boolean splitable;
@@ -63,8 +64,6 @@ public class Debt extends WWBaseObject implements Reportable {
     private ArrayList<History> debtHist;    //History entries specific to this debt.
 
     
-    // Accessors
-    
     
     // Active methods
 
@@ -92,10 +91,19 @@ public class Debt extends WWBaseObject implements Reportable {
     public int allowSplit(){
         return 0;
     }
-    public int anchorDebt(){
+    public int anchor(){
         return 0;
     }
     public int freeDebt(){
+        return 0;
+    }
+    public int updateFeeSchedule(FeeSchedule newFeeSchedule){
+        return 0;
+    }
+    public long getPaid(int paidIndex){
+        return 0;
+    }
+    public long getOwed(int owedIndex){
         return 0;
     }
     /**
@@ -852,5 +860,61 @@ public class Debt extends WWBaseObject implements Reportable {
      */
     protected void setDebtHist(ArrayList<History> debtHist) {
         this.debtHist = debtHist;
+    }
+
+    /**
+     * @return the owed
+     */
+    public long[] getOwed() {
+        return owed;
+    }
+
+    /**
+     * @return the paid
+     */
+    public long[] getPaid() {
+        return paid;
+    }
+
+    /**
+     * @param owed the owed to set
+     */
+    protected void setOwed(long[] owed) {
+        this.setOwed(owed);
+    }
+
+    /**
+     * @param paid the paid to set
+     */
+    protected void setPaid(long[] paid) {
+        this.setPaid(paid);
+    }
+
+    /**
+     * @param accruesInterest the accruesInterest to set
+     */
+    protected void setAccruesInterest(boolean accruesInterest) {
+        this.accruesInterest = accruesInterest;
+    }
+
+    /**
+     * @param owed the owed to set
+     */
+    protected void setOwed(long[] owed) {
+        this.owed = owed;
+    }
+
+    /**
+     * @param paid the paid to set
+     */
+    protected void setPaid(long[] paid) {
+        this.paid = paid;
+    }
+
+    /**
+     * @return the accruesInterest
+     */
+    public boolean isAccruesInterest() {
+        return accruesInterest;
     }
  }
