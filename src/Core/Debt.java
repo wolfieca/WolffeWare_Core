@@ -897,19 +897,6 @@ public class Debt extends WWBaseObject implements Reportable {
         this.accruesInterest = accruesInterest;
     }
 
-    /**
-     * @param owed the owed to set
-     */
-    protected void setOwed(long[] owed) {
-        this.owed = owed;
-    }
-
-    /**
-     * @param paid the paid to set
-     */
-    protected void setPaid(long[] paid) {
-        this.paid = paid;
-    }
 
     /**
      * @return the accruesInterest
