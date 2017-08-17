@@ -880,14 +880,14 @@ public class Debt extends WWBaseObject implements Reportable {
      * @param owed the owed to set
      */
     protected void setOwed(long[] owed) {
-        this.setOwed(owed);
+        this.owed = owed;
     }
 
     /**
      * @param paid the paid to set
      */
     protected void setPaid(long[] paid) {
-        this.setPaid(paid);
+        this.paid=paid;
     }
 
     /**
