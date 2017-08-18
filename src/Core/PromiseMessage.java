@@ -9,6 +9,6 @@ package Core;
  *
  * @author odin
  */
-public class PromiseMessage {
+public class PromiseMessage extends Message{
     
 }
