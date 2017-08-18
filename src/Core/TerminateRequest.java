@@ -9,6 +9,6 @@ package Core;
  *
  * @author odin
  */
-public class TerminateRequest {
+public class TerminateRequest extends Message{
     
 }
