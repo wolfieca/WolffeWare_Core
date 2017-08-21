@@ -4,12 +4,14 @@ import java.util.GregorianCalendar;
 
 /**
  * The System class contains a variety of system-wide objects and methods that
- * can be used to manage the system as a whole
+ * can be used to manage the system as a whole. There is one, server-wide
+ * System object instance that contains all of this information, and it can
+ * only by modified by users with the correct permissions.
  * @author odin
  */
 
 
-public class System {
+public class System extends WWBaseObject{
 
     private String[] moneyNames;
     private boolean[] simpleInterest;

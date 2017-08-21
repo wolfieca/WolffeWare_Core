@@ -15,9 +15,11 @@ public class Debtor extends WWBaseObject implements Reportable {
     private Client primaryClient;
     private HashMap<Client,Integer> clients;
     private Actor collector;
+    private CollectionUnit unit;
     private int currBal;
     private int origBal;
     private int payments;
+    private boolean mailReturn;
     private Promise paymentPromise;
     private AccountStatus status;
     // Matchable debtors can be processed by the match finding routines.

@@ -13,6 +13,7 @@ import java.util.Date;
 public class Debt extends WWBaseObject implements Reportable {
     private Debtor debtor;
     private ArrayList<Debtor> PreviousDebtors;
+    private boolean accruesInterest;
     private boolean mergeable;
     private boolean matchable;
     private boolean splitable;
@@ -63,11 +64,48 @@ public class Debt extends WWBaseObject implements Reportable {
     private ArrayList<History> debtHist;    //History entries specific to this debt.
 
     
-    // Accessors
-    
     
     // Active methods
 
+    public int lock(){
+        return 0;
+    }
+    public int unlock(){
+        return 0;
+    }
+    public int prohibitMatching(){
+        return 0;
+    }
+    public int allowMatching(){
+        return 0;
+    }
+    public int prohibitMerge(){
+        return 0;
+    }
+    public int allowMerge(){
+        return 0;
+    }
+    public int prohibitSplit(){
+        return 0;
+    }
+    public int allowSplit(){
+        return 0;
+    }
+    public int anchor(){
+        return 0;
+    }
+    public int freeDebt(){
+        return 0;
+    }
+    public int updateFeeSchedule(FeeSchedule newFeeSchedule){
+        return 0;
+    }
+    public long getPaid(int paidIndex){
+        return 0;
+    }
+    public long getOwed(int owedIndex){
+        return 0;
+    }
     /**
      * Update the interest on this debt, subject to restrictions such as being
      * locked.
@@ -822,5 +860,48 @@ public class Debt extends WWBaseObject implements Reportable {
      */
     protected void setDebtHist(ArrayList<History> debtHist) {
         this.debtHist = debtHist;
+    }
+
+    /**
+     * @return the owed
+     */
+    public long[] getOwed() {
+        return owed;
+    }
+
+    /**
+     * @return the paid
+     */
+    public long[] getPaid() {
+        return paid;
+    }
+
+    /**
+     * @param owed the owed to set
+     */
+    protected void setOwed(long[] owed) {
+        this.owed = owed;
+    }
+
+    /**
+     * @param paid the paid to set
+     */
+    protected void setPaid(long[] paid) {
+        this.paid=paid;
+    }
+
+    /**
+     * @param accruesInterest the accruesInterest to set
+     */
+    protected void setAccruesInterest(boolean accruesInterest) {
+        this.accruesInterest = accruesInterest;
+    }
+
+
+    /**
+     * @return the accruesInterest
+     */
+    public boolean isAccruesInterest() {
+        return accruesInterest;
     }
  }

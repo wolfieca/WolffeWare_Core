@@ -10,13 +10,13 @@ package Core;
  * @author rserrano
  */
 public class CollectionUnit extends WWBaseObject{
-    private int office;
-    private int collector;
-    private User user;
-    private String dunningName;
+    private int office;     // The office number for this collector
+    private int collector;  // The collector number
+    private User[] user;    // User(s) attached to this collection unit.
+    private String dunningName; 
     private int specialties;
     private int collectorType; //bitmask
-    private WorkQueue collectorQueue;
+    private WorkQueue collectorQueue;   
     private int team;
     private int monthlyGoal;
     private int maxQueueSize;
@@ -64,7 +64,7 @@ public class CollectionUnit extends WWBaseObject{
      *
      * @return
      */
-    public User getUser() {
+    public User[] getUser() {
         return user;
     }
 
@@ -72,7 +72,7 @@ public class CollectionUnit extends WWBaseObject{
      *
      * @param user
      */
-    public void setUser(User user) {
+    public void setUser(User user[]) {
         this.user = user;
     }
 
