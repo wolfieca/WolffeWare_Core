@@ -12,7 +12,8 @@ import java.util.ArrayList;
 public class WWBaseObject implements Securable, Serializable {
     private Actor caller;
     /**
-     * The Global ID for this object
+     * The Global ID for this object. Useful for when all I have is the ID of
+     * an object and am trying to retrieve that information from the system.
      */
     private long objStoreID;
     /**

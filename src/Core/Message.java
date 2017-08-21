@@ -8,8 +8,8 @@ package Core;
 import java.util.GregorianCalendar;
 
 /**
- * A message is the Core scheduling and synchronization primitive. It is the 
- * basis of the strategy system, and controls many parts of the daily running
+ * A message is the Core communication, scheduling and synchronization primitive. 
+ * It is the basis of the strategy system, and controls many parts of the daily running
  * and quality of life  for users of the system. A message can be sent synchronously
  * (have an object waiting for it to be processed) or asynchronously (the message
  * is basically standalone and nothing is waiting for it to get done with). 
@@ -18,6 +18,12 @@ import java.util.GregorianCalendar;
  * than they do.
  * Note that Message itself is simply the message. There is no transport
  * mechanism specified.
+ * A message of this class is a passive message. It contains no instructions and
+ * is basically just a means of communication between users on the system. Other
+ * message classes further down the hierarchy have greater functionality.
+ * Message is the base of a hierarchy of classes implementing various pieces
+ * of system functionality as messages. Messages are also for company management
+ * functionality, such as employee evaluations, hiring/firing, etc.
  * Also note that messages are relatively transient. Once they are finished
  * processing, they can be disposed of and eventually deleted from the database
  * itself. No part of the system should assume the permanence of any message. 
@@ -38,8 +44,7 @@ public class Message extends WWBaseObject {
     private boolean asynch;
     private WWBaseObject[] waiters;     
     private WWBaseObject evaluation;
-    private Instruction instruction;
-    private String msgText;
+    private String comment;
     private GregorianCalendar created;  // Message creation time
     private GregorianCalendar release;  // Message release (schedule) time
     private GregorianCalendar released; // Message released time
@@ -57,17 +62,18 @@ public class Message extends WWBaseObject {
 
     /**
      * Create a message for immediate delivery, with normal message priority
-     * @param sender
-     * @param receiver
-     * @param reference
+     * @param sender    The sender of this message
+     * @param receiver  The intended receiver
+     * @param reference Any objects this message is in reference to.
      */
-    public Message(Actor sender, Actor receiver, WWBaseObject reference) {
+    public Message(Actor sender, Actor receiver, WWBaseObject[] reference) {
         this.sender = sender;
         this.receiver = receiver;
-        this.reference[0] = reference;
+        this.reference = reference;
         this.created = new GregorianCalendar();
         this.seen = false;
         this.done = false;
+        this.messageType = MessageType.MESSAGE;
     }
     
     /**
@@ -78,7 +84,7 @@ public class Message extends WWBaseObject {
     }
     
     /**
-     *
+     * Get the sender of this message
      * @return
      */
     public Actor getSender() {
@@ -157,39 +163,24 @@ public class Message extends WWBaseObject {
      * @param waiters
      */
     protected void setWaiters(WWBaseObject[] waiters) {
-        this.setWaiters(waiters);
+        this.waiters = waiters;
     }
 
+
     /**
-     *
+     * Get the comment (or text) for this message.
      * @return
      */
-    public Instruction getInstruction() {
-        return instruction;
+    public String getComment() {
+        return comment;
     }
 
     /**
-     *
-     * @param instruction
-     */
-    protected void setInstruction(Instruction instruction) {
-        this.instruction = instruction;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getMsgText() {
-        return msgText;
-    }
-
-    /**
-     *
+     * Set the comment for this message
      * @param msgText
      */
-    protected void setMsgText(String msgText) {
-        this.msgText = msgText;
+    protected void setComment(String msgText) {
+        this.comment = msgText;
     }
 
 

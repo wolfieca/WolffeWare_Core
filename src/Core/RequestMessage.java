@@ -6,7 +6,9 @@
 package Core;
 
 /**
- *
+ * See Message for more documentaion.
+ * A RequestMessage is like an ActionMessage, except that the caller isn't 
+ * waiting for the results.
  * @author odin
  */
 public class RequestMessage extends Message{

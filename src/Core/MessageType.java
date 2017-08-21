@@ -31,7 +31,7 @@ public enum MessageType {
 
     /**
      * A request made to schedule future activity. The message will be held
-     * until the specified time.
+     * until the specified time and then run as appropriate.
      */
     SCHEDULE,   // A schedule request
 
@@ -167,7 +167,7 @@ public enum MessageType {
 
     /**
      * The account has been cancelled. No further work should be done on the 
-     * account.
+     * account and all debts attached to the account should be notified.
      */
     CANCEL,
 
