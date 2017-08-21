@@ -20,7 +20,7 @@ public class User  extends Actor{
     private Dictionary<String, Boolean> moduleAccess;
 
     /**
-     *
+     * Create a new default user
      * @param id
      */
     public User(long id) {
@@ -28,7 +28,7 @@ public class User  extends Actor{
     }
 
     /**
-     *
+     * Create a user with the specified access token.
      * @param token
      */
     public User (String token){
@@ -36,7 +36,7 @@ public class User  extends Actor{
     }
 
     /**
-     *
+     * Create a user with the specified username and password.
      * @param userName
      * @param password
      */
@@ -45,7 +45,7 @@ public class User  extends Actor{
     }
 
     /**
-     *
+     * Get the current user's username.
      * @return
      */
     public String getUserName() {
