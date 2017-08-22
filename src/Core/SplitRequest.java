@@ -6,7 +6,8 @@
 package Core;
 
 /**
- *
+ * Split request on a Debtor. Caller just need to be notified of the final 
+ * status of the operation (including any new account numbers created)
  * @author odin
  */
 public class SplitRequest extends Message{
