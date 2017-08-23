@@ -6,7 +6,7 @@
 package Core;
 
 /**
- *
+ * The account has been purged from the system
  * @author odin
  */
 public class PurgeRequest extends Message{

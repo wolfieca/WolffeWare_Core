@@ -6,7 +6,9 @@
 package Core;
 
 /**
- *
+ * Employee has been terminated, includes date of termination, reasons, etc.
+ * Automatically locks user's account on the system. Note this is completely
+ * distinct from a legal termination.
  * @author odin
  */
 public class TerminateRequest extends Message{

@@ -6,7 +6,7 @@
 package Core;
 
 /**
- *
+ * Sent when a user either goes on or comes off break.
  * @author odin
  */
 public class UserBreak extends Message{

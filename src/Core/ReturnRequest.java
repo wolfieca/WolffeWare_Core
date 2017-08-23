@@ -6,7 +6,8 @@
 package Core;
 
 /**
- *
+ * The account has been returned to the client. No further work is to be 
+ * done on the account.
  * @author odin
  */
 public class ReturnRequest extends Message{
