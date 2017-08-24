@@ -205,6 +205,10 @@ public class Client {
     }
     private ScreenFiveTypes screenFiveType;
     private Integer fax;
+    private Long[]  aging;
+    private ClientStats[] cliStats;
+    private ClientStats[] cliStats2;
+    private Debt[] clientDebts;
     
     // Begin Methods
 
@@ -1942,6 +1946,67 @@ public class Client {
      */
     protected void setFax(Integer fax) {
         this.fax = fax;
+    }
+
+    /**
+     * @return the aging
+     */
+    public Long[] getAging() {
+        return aging;
+    }
+
+    /**
+     * @return the cliStats
+     */
+    public ClientStats[] getCliStats() {
+        return cliStats;
+    }
+
+    /**
+     * @param aging the aging to set
+     */
+    protected void setAging(Long[] aging) {
+        this.setAging(aging);
+    }
+
+    /**
+     * @param cliStats the cliStats to set
+     */
+    protected void setCliStats(ClientStats[] cliStats) {
+        this.setCliStats(cliStats);
+    }
+
+    /**
+     * @param cliStats2 the cliStats2 to set
+     */
+    protected void setCliStats2(ClientStats[] cliStats2) {
+        this.cliStats2 = cliStats2;
+    }
+
+    /**
+     * @param clientDebts the clientDebts to set
+     */
+    protected void setClientDebts(Debt[] clientDebts) {
+        this.clientDebts = clientDebts;
+    }
+
+    /**
+     * @return the cliStats2
+     */
+    public ClientStats[] getCliStats2() {
+        return cliStats2;
+    }
+
+    /**
+     * @return the clientDebts
+     */
+    public Debt[] getClientDebts() {
+        return clientDebts;
+    }
+    
+    // General interface begins here
+    public Long newbizDollars(int month){
+        return cliStats[month].getNewbizDollars();
     }
     
 }

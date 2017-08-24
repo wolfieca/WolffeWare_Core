@@ -16,7 +16,6 @@ public class ClientStats {
     private Integer year;
     private Integer month;
     private Long    receivablesThisMonth;
-    private Long[]  Aging;
     private GregorianCalendar dateThru;
     private Long    newbizDollars;
     private Long    newbizCount;
@@ -70,12 +69,6 @@ public class ClientStats {
         return receivablesThisMonth;
     }
 
-    /**
-     * @return the Aging
-     */
-    public Long[] getAging() {
-        return Aging;
-    }
 
     /**
      * @return the dateThru
@@ -315,12 +308,6 @@ public class ClientStats {
         this.receivablesThisMonth = receivablesThisMonth;
     }
 
-    /**
-     * @param Aging the Aging to set
-     */
-    protected void setAging(Long[] Aging) {
-        this.Aging = Aging;
-    }
 
     /**
      * @param dateThru the dateThru to set

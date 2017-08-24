@@ -14,6 +14,8 @@ public class Debt extends WWBaseObject implements Reportable {
     private Debtor debtor;
     private ArrayList<Debtor> PreviousDebtors;
     private boolean accruesInterest;
+    private boolean appliedToClientStatistics;
+    private boolean appliedToCollectorStatistics;
     private boolean mergeable;
     private boolean matchable;
     private boolean splitable;
