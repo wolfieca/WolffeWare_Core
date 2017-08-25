@@ -5,6 +5,8 @@
  */
 package Core;
 
+import java.util.HashMap;
+
 /**
  * A collection unit and all the support bits (work queue, etc).
  * @author rserrano
@@ -24,6 +26,8 @@ public class CollectionUnit extends WWBaseObject{
     private PriorityCalculator priorityCalculator;
     private int maxIdleDays;
     private int waitDays;
+    private HashMap<String,CollectorStats> collStats;
+    private HashMap<String,CollectorStats> collStats2;
     
     //Accessors
 
@@ -250,6 +254,34 @@ public class CollectionUnit extends WWBaseObject{
      */
     public void setWaitDays(int waitDays) {
         this.waitDays = waitDays;
+    }
+
+    /**
+     * @return the collStats
+     */
+    public HashMap<String,CollectorStats> getCollStats() {
+        return collStats;
+    }
+
+    /**
+     * @return the collStats2
+     */
+    public HashMap<String,CollectorStats> getCollStats2() {
+        return collStats2;
+    }
+
+    /**
+     * @param collStats the collStats to set
+     */
+    protected void setCollStats(HashMap<String,CollectorStats> collStats) {
+        this.collStats = collStats;
+    }
+
+    /**
+     * @param collStats2 the collStats2 to set
+     */
+    protected void setCollStats2(HashMap<String,CollectorStats> collStats2) {
+        this.collStats2 = collStats2;
     }
     
     

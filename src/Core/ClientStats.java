@@ -48,6 +48,14 @@ public class ClientStats {
     private Long    nonLaborCosts;
     private Long    mailingCosts;
 
+    
+    // Design Note: In the new design, these are calculated on the fly whenever
+    // changes are made that would require it. The Client object is also capable
+    // forcing it's ClientStats object to re-calculate itself from scratch.
+    // The calculation of these statistics needs to be top-down so that any two
+    // runs will provide the same results consistently, given that no changes 
+    // have occurred in the interim. Regardless, the Statistical calculations
+    // need to be accurate at all times.
     /**
      * @return the year
      */
@@ -534,6 +542,12 @@ public class ClientStats {
         return 0;
     }
     public int returnDebt(Debt debt){
+        return 0;
+    }
+    public int applyPayment(Payment newPayment){
+        return 0;
+    }
+    public int reversePayment(Payment newPayment){
         return 0;
     }
 }

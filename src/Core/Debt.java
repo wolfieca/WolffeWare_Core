@@ -135,6 +135,7 @@ public class Debt extends WWBaseObject implements Reportable {
         return 0;
     }
 
+    
     // Utility Methods
     /**
      * Get the current value of the specified status flags.
@@ -905,5 +906,19 @@ public class Debt extends WWBaseObject implements Reportable {
      */
     public boolean isAccruesInterest() {
         return accruesInterest;
+    }
+
+    /**
+     * @return the appliedToClientStatistics
+     */
+    public boolean isAppliedToClientStatistics() {
+        return appliedToClientStatistics;
+    }
+
+    /**
+     * @return the appliedToCollectorStatistics
+     */
+    public boolean isAppliedToCollectorStatistics() {
+        return appliedToCollectorStatistics;
     }
  }

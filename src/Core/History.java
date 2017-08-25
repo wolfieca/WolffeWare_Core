@@ -10,6 +10,7 @@ import java.util.Date;
 
 
 public class History extends WWBaseObject {
+    private Long histID;
     private WWBaseObject reference;
     private Debtor debtor;
     private Debt debt;
@@ -21,7 +22,7 @@ public class History extends WWBaseObject {
     private User user;
     private Date promiseDate;
     private Long promiseAmount;
-    private boolean containsPHI;
+    private boolean containsPHI;    //Applies to comments, primarily,
     private String comments;
     
     //Accessors

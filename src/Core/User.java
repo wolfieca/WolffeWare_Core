@@ -1,7 +1,7 @@
 package Core;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
+import java.util.HashMap;
 
 /**
  * A user on the system
@@ -17,7 +17,7 @@ public class User  extends Actor{
     private Rights userRights;    
     private boolean[] workHours;
     private boolean canWorkOffHours;
-    private Dictionary<String, Boolean> moduleAccess;
+    private HashMap<String, Boolean> moduleAccess; 
 
     /**
      * Create a new default user
@@ -25,6 +25,14 @@ public class User  extends Actor{
      */
     public User(long id) {
         super(id);
+        this.userName = "";
+        this.userID = "";
+        this.primaryGroup = null;
+        this.supplementaryGroups = new ArrayList();
+        this.userRights                = null;
+        this.workHours = new boolean[24];
+        this.canWorkOffHours = false;
+        this.moduleAccess = new HashMap();
     }
 
     /**
@@ -161,7 +169,7 @@ public class User  extends Actor{
      *
      * @return
      */
-    public Dictionary<String, Boolean> getModuleAccess() {
+    public HashMap<String, Boolean> getModuleAccess() {
         return moduleAccess;
     }
 
@@ -169,7 +177,7 @@ public class User  extends Actor{
      *
      * @param moduleAccess
      */
-    protected void setModuleAccess(Dictionary<String, Boolean> moduleAccess) {
+    protected void setModuleAccess(HashMap<String, Boolean> moduleAccess) {
         this.moduleAccess = moduleAccess;
     }
     

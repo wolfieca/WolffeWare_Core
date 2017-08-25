@@ -10,6 +10,48 @@ import java.util.HashMap;
 
 
 public class Debtor extends WWBaseObject implements Reportable {
+
+    /**
+     * @return the unit
+     */
+    public CollectionUnit getUnit() {
+        return unit;
+    }
+
+    /**
+     * @return the mailReturn
+     */
+    public boolean isMailReturn() {
+        return mailReturn;
+    }
+
+    /**
+     * @param debtor the debtor to set
+     */
+    protected void setDebtor(int debtor) {
+        this.debtor = debtor;
+    }
+
+    /**
+     * @param clients the clients to set
+     */
+    protected void setClients(HashMap<Client,Integer> clients) {
+        this.clients = clients;
+    }
+
+    /**
+     * @param unit the unit to set
+     */
+    protected void setUnit(CollectionUnit unit) {
+        this.unit = unit;
+    }
+
+    /**
+     * @param mailReturn the mailReturn to set
+     */
+    protected void setMailReturn(boolean mailReturn) {
+        this.mailReturn = mailReturn;
+    }
     // Security-related data fields are inherited from WWBaseObject
     private int debtor;
     private Client primaryClient;
