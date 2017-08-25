@@ -1,6 +1,8 @@
 package Core;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 
 /**
  * Client represents clients of the company. 
@@ -205,10 +207,10 @@ public class Client {
     }
     private ScreenFiveTypes screenFiveType;
     private Integer fax;
-    private Long[]  aging;
-    private ClientStats[] cliStats;
-    private ClientStats[] cliStats2;
-    private Debt[] clientDebts;
+    private Long[]  aging;  // Aging is fixed in size at 5 entries
+    private HashMap<String,ClientStats> cliStats;
+    private HashMap<String,ClientStats> cliStats2;
+    private ArrayList<Debt> clientDebts;
     
     // Begin Methods
 
@@ -1958,7 +1960,7 @@ public class Client {
     /**
      * @return the cliStats
      */
-    public ClientStats[] getCliStats() {
+    public HashMap<String,ClientStats> getCliStats() {
         return cliStats;
     }
 
@@ -1966,47 +1968,57 @@ public class Client {
      * @param aging the aging to set
      */
     protected void setAging(Long[] aging) {
-        this.setAging(aging);
+        this.aging = aging;
     }
 
     /**
      * @param cliStats the cliStats to set
      */
-    protected void setCliStats(ClientStats[] cliStats) {
-        this.setCliStats(cliStats);
+    protected void setCliStats(HashMap<String,ClientStats>cliStats) {
+        this.cliStats = cliStats;
     }
 
     /**
      * @param cliStats2 the cliStats2 to set
      */
-    protected void setCliStats2(ClientStats[] cliStats2) {
+    protected void setCliStats2(HashMap<String,ClientStats> cliStats2) {
         this.cliStats2 = cliStats2;
     }
 
     /**
      * @param clientDebts the clientDebts to set
      */
-    protected void setClientDebts(Debt[] clientDebts) {
+    protected void setClientDebts(ArrayList<Debt> clientDebts) {
         this.clientDebts = clientDebts;
     }
 
     /**
      * @return the cliStats2
      */
-    public ClientStats[] getCliStats2() {
+    public HashMap<String,ClientStats> getCliStats2() {
         return cliStats2;
     }
 
     /**
      * @return the clientDebts
      */
-    public Debt[] getClientDebts() {
+    public ArrayList<Debt> getClientDebts() {
         return clientDebts;
     }
     
     // General interface begins here
-    public Long newbizDollars(int month){
-        return cliStats[month].getNewbizDollars();
+    public Long newbizDollars(String month){
+        return cliStats.get(month).getNewbizDollars();
+    }
+    
+    
+    public int add(Debt newDebt){
+        clientDebts.add(newDebt);
+        return 0;
+    }
+    public int remove(Debt newDebt){
+        clientDebts.remove(newDebt);
+        return 0;
     }
     
 }

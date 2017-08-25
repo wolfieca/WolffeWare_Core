@@ -526,4 +526,14 @@ public class ClientStats {
         this.mailingCosts = mailingCosts;
     }
     
+    //Action methods begin here.
+    public int addDebt(Debt newDebt){
+        return 0;
+    }
+    public int cancelDebt(Debt debt){
+        return 0;
+    }
+    public int returnDebt(Debt debt){
+        return 0;
+    }
 }
