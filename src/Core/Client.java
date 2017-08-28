@@ -31,9 +31,25 @@ public class Client {
     private Long collectorCodes;
     private Short daysAfterClose;
     private Short daysAfterReturn;
+
+    /**
+     *
+     */
     public enum  reportSeparation{
+
+        /**
+         *
+         */
         NO_SEPARATION,
+
+        /**
+         *
+         */
         CLIENT_OFFICE,
+
+        /**
+         *
+         */
         COLLECTOR_OFFICE
     }
     private reportSeparation separateReports;
@@ -49,16 +65,52 @@ public class Client {
     private Boolean chargeSalesTax;
     private Boolean sendAckowledgment;
     private Boolean suppressReturnList;
+
+    /**
+     *
+     */
     public enum billingTypes{
+
+        /**
+         *
+         */
         NET,
+
+        /**
+         *
+         */
         GROSS,
+
+        /**
+         *
+         */
         OTHER
     }
     private billingTypes billingType;
+
+    /**
+     *
+     */
     public enum collectionChargeTypes {
+
+        /**
+         *
+         */
         NONE,
+
+        /**
+         *
+         */
         PERCENT,
+
+        /**
+         *
+         */
         FEE,
+
+        /**
+         *
+         */
         BOTH
     }
     private collectionChargeTypes collectionCharge;
@@ -70,15 +122,47 @@ public class Client {
     private Boolean separateInvoiceDebtor;
     private Boolean autoMatch;
     private Boolean matchSelfOnly;
+
+    /**
+     *
+     */
     public enum returnOrderSequences {
+
+        /**
+         *
+         */
         BY_NAME,
+
+        /**
+         *
+         */
         BY_CLI_REF,
+
+        /**
+         *
+         */
         BY_FOR
     }
     private returnOrderSequences returnOrderSequence;
+
+    /**
+     *
+     */
     public enum returnPrintFormats {
+
+        /**
+         *
+         */
         DETAILED,
+
+        /**
+         *
+         */
         INDIVIDUAL,
+
+        /**
+         *
+         */
         BORTH
     }
     private returnPrintFormats returnPrintFormat;
@@ -105,23 +189,83 @@ public class Client {
     private Boolean printPaymentBreakdown;
     private Boolean printPayComment;
     private Boolean printDateReceived;
+
+    /**
+     *
+     */
     public enum invoiceCycles{
+
+        /**
+         *
+         */
         MONTHLY,
+
+        /**
+         *
+         */
         ANNUALLY,
+
+        /**
+         *
+         */
         QUARTERLY,
+
+        /**
+         *
+         */
         SEMIANNUALLY,
+
+        /**
+         *
+         */
         ONDEMAND
     }
     private invoiceCycles invoiceCycle;
     private Short bankCode;
+
+    /**
+     *
+     */
     public enum invoiceSequence {
+
+        /**
+         *
+         */
         NONE,
+
+        /**
+         *
+         */
         ALPHABETICAL,
+
+        /**
+         *
+         */
         NUMERIC,
+
+        /**
+         *
+         */
         FOR,
+
+        /**
+         *
+         */
         CLIENT_NUMBER,
+
+        /**
+         *
+         */
         PAYMENT_TYPE,
+
+        /**
+         *
+         */
         DATE,
+
+        /**
+         *
+         */
         COLLECTION_OFFICE
     }
     private invoiceSequence primaryInvoiceSequence;
@@ -131,10 +275,30 @@ public class Client {
     private invoiceSequence pentenaryInvoiceSequence;
     private Boolean noCommissionIfFeeLT100;
     private Boolean noCommissionIfNoPlacementLast6Months;
+
+    /**
+     *
+     */
     public enum openItemStatements{
+
+        /**
+         *
+         */
         OPEN_ITEM_ONLY,
+
+        /**
+         *
+         */
         ACTIVITY,
+
+        /**
+         *
+         */
         BOTH,
+
+        /**
+         *
+         */
         NEITHER
     }
     private openItemStatements openItemStatement;
@@ -143,9 +307,25 @@ public class Client {
     private Boolean putRecordInReturnFile;
     private Boolean preCollect;
     private Boolean feesByState;
+
+    /**
+     *
+     */
     public enum acknowledgmentSequences{
+
+        /**
+         *
+         */
         ALPHABETICAL,
+
+        /**
+         *
+         */
         NUMERIC,
+
+        /**
+         *
+         */
         FOR
     }
     private Boolean chargeByLetter;
@@ -159,9 +339,25 @@ public class Client {
     private Short sCopies;
     private Short individualAcknowledgmentCode;
     private Integer strategyWaitDays;
+
+    /**
+     *
+     */
     public enum matchFlags{
+
+        /**
+         *
+         */
         ONLY_SAME_MATCH_GROUP,
+
+        /**
+         *
+         */
         ONLY_SAME_CONSOLIDATION_CLIENT,
+
+        /**
+         *
+         */
         REACTIVATE_ACTIVATE_ON_MATCH
     }
     private matchFlags matchFlag;
@@ -191,18 +387,58 @@ public class Client {
     private String billingAttentionName;
     private String clientDigitWeightFactor;
     private char invoiceCycleName;
+
+    /**
+     *
+     */
     public enum ReversalMethods{
+
+        /**
+         *
+         */
         BILL_PAYMENT_MINUS_FEE,
+
+        /**
+         *
+         */
         EXACT_REVERSAL,
+
+        /**
+         *
+         */
         REFUND_FEE_BILL_PAYMENT
     }
     private ReversalMethods reversalMethod;
     private Boolean electronicFundsTransfer;
+
+    /**
+     *
+     */
     public enum ScreenFiveTypes{
+
+        /**
+         *
+         */
         NONE,
+
+        /**
+         *
+         */
         RPS_CLIENT,
+
+        /**
+         *
+         */
         LEAD_TRACKED,
+
+        /**
+         *
+         */
         CHECK_VALIDATION,
+
+        /**
+         *
+         */
         SPECIAL_FEES
     }
     private ScreenFiveTypes screenFiveType;
@@ -2007,15 +2243,31 @@ public class Client {
     }
     
     // General interface begins here
+
+    /**
+     *
+     * @param month
+     * @return
+     */
     public Long newbizDollars(String month){
         return cliStats.get(month).getNewbizDollars();
     }
     
-    
+    /**
+     *
+     * @param newDebt
+     * @return
+     */
     public int add(Debt newDebt){
         clientDebts.add(newDebt);
         return 0;
     }
+
+    /**
+     *
+     * @param newDebt
+     * @return
+     */
     public int remove(Debt newDebt){
         clientDebts.remove(newDebt);
         return 0;

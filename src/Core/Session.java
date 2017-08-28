@@ -16,6 +16,10 @@ import java.util.HashMap;
  */
 public class Session extends WWBaseObject {
 
+    /**
+     *
+     * @return
+     */
     public static Session create() {
         return new Session();
     }
@@ -32,6 +36,12 @@ public class Session extends WWBaseObject {
     }
 
     // Create a Session for the specified user with the specified IP address.
+
+    /**
+     *
+     * @param owner
+     * @param ipAddress
+     */
     public Session(User owner, Long ipAddress) {
         this.owner = owner;
         this.ipAddress = ipAddress;

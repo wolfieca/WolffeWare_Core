@@ -123,6 +123,11 @@ public class Message extends WWBaseObject {
         return reference;
     }
 
+    /**
+     *
+     * @param index
+     * @return
+     */
     public WWBaseObject getReference(int index){
         return reference[index];
     }
@@ -244,9 +249,16 @@ public class Message extends WWBaseObject {
     public void resend(){
     }
     
+    /**
+     *
+     */
     public void reply(){
         
     }
+
+    /**
+     *
+     */
     public void forward() {
         
     }
@@ -258,31 +270,58 @@ public class Message extends WWBaseObject {
     public void resend(Actor sendTo){
     }
 
+    /**
+     *
+     * @return
+     */
     public CollectionUnit getTargetCollector() {
         return targetCollector;
     }
 
+    /**
+     *
+     * @param targetCollector
+     */
     public void setTargetCollector(CollectionUnit targetCollector) {
         this.targetCollector = targetCollector;
     }
 
+    /**
+     *
+     * @return
+     */
     public MessageType getMessageType() {
         return messageType;
     }
 
+    /**
+     *
+     * @param messageType
+     */
     public void setMessageType(MessageType messageType) {
         this.messageType = messageType;
     }
 
-
+    /**
+     *
+     * @param seen
+     */
     public void setSeen(boolean seen) {
         this.seen = seen;
     }
 
+    /**
+     *
+     * @return
+     */
     public MessagePriority getPriority() {
         return priority;
     }
 
+    /**
+     *
+     * @param priority
+     */
     public void setPriority(MessagePriority priority) {
         this.priority = priority;
     }

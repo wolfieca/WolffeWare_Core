@@ -653,18 +653,52 @@ public class Debtor extends WWBaseObject implements Reportable {
     public int merge(Debtor debtorToMerge, int[] debtsToMerge){
         return 0;
     }
+
+    /**
+     *
+     * @param debtToMerge
+     * @return
+     */
     public int merge(Debt debtToMerge){
         return 0;
     }
+
+    /**
+     *
+     * @param debtsToMerge
+     * @return
+     */
     public int merge(Debt[] debtsToMerge){
         return 0;
     }
+
+    /**
+     *
+     * @param primary
+     * @param secondary
+     * @return
+     */
     public static int merge(Debtor primary, Debtor secondary){
         return 0;
     }
+
+    /**
+     *
+     * @param primary
+     * @param secondary
+     * @param debtsToMerge
+     * @return
+     */
     public static int merge(Debtor primary, Debtor secondary, int[] debtsToMerge){
         return 0;
     }
+
+    /**
+     *
+     * @param primary
+     * @param debtsToMerge
+     * @return
+     */
     public static int merge(Debtor primary, Debt[] debtsToMerge){
         return 0;
     }
@@ -695,9 +729,21 @@ public class Debtor extends WWBaseObject implements Reportable {
         return 0;
     }
 
+    /**
+     *
+     * @param debtor
+     * @param debtsToSplit
+     * @return
+     */
     public static int split(Debtor debtor, int[] debtsToSplit){
         return 0;
     }
+
+    /**
+     *
+     * @param debtsToSplit
+     * @return
+     */
     public static int split(Debt[] debtsToSplit){
         return 0;
     }

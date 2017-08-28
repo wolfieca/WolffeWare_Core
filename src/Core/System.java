@@ -26,8 +26,20 @@ public class System extends WWBaseObject{
     private Long lastInvoiceNumber;
     private Long lastInternalBatchNumber;
     private String validInvoiceCycles;
+
+    /**
+     *
+     */
     public enum QuotaBase{
+
+        /**
+         *
+         */
         GROSS,
+
+        /**
+         *
+         */
         NET
     }
     private QuotaBase collectorQuotaBase;
@@ -38,10 +50,30 @@ public class System extends WWBaseObject{
     private boolean reminderNSF;
     
     private String[] restrictedStates;
+
+    /**
+     *
+     */
     public enum Forms{
+
+        /**
+         *
+         */
         WIDE,
+
+        /**
+         *
+         */
         NARROW,
+
+        /**
+         *
+         */
         OTHER,
+
+        /**
+         *
+         */
         LASER
     }
     private Forms statements;

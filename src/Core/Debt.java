@@ -69,42 +69,115 @@ public class Debt extends WWBaseObject implements Reportable {
     
     // Active methods
 
+    /**
+     * Lock this debt. A locked debt cannot be changed without being unlocked 
+     * first.
+     * @return
+     */
+
     public int lock(){
         return 0;
     }
+
+    /**
+     * Unlock this debt. 
+     * @return
+     */
     public int unlock(){
         return 0;
     }
+
+    /**
+     * Prevent MatchFinding service from working with this debt. Effectively
+     * disallows automerging.
+     * @return
+     */
     public int prohibitMatching(){
         return 0;
     }
+
+    /**
+     * Allows MatchFinding service to work with this debt.
+     * @return
+     */
     public int allowMatching(){
         return 0;
     }
+
+    /**
+     * Prevent this debt from being merged with other Debts/Debtors
+     * @return
+     */
     public int prohibitMerge(){
         return 0;
     }
+
+    /**
+     * Allow merging of this debt.
+     * @return
+     */
     public int allowMerge(){
         return 0;
     }
+
+    /**
+     * Prevent this debt from being split from its current Debtor.
+     * @return
+     */
     public int prohibitSplit(){
         return 0;
     }
+
+    /**
+     * Allow this debt to be split from its current Debtor.
+     * @return
+     */
     public int allowSplit(){
         return 0;
     }
+
+    /**
+     * Anchors this debt in its current place. Prevents merging, splitting,
+     * matching, etc of this debt.
+     * @return
+     */
     public int anchor(){
         return 0;
     }
+
+    /**
+     * Reverses anchor. Allows all activities that anchor prohibits. If debt is
+     * not anchored, does nothing but throws an InvalidOperationException.
+     * @return
+     */
     public int freeDebt(){
         return 0;
     }
+
+    /**
+     * Update the fee schedule for this debt. May cause subsequent recalculations
+     * depending on the new FeeSchedule and other system settings.
+     * @param newFeeSchedule
+     * @return
+     */
     public int updateFeeSchedule(FeeSchedule newFeeSchedule){
         return 0;
     }
+
+    /**
+     * Get the amount paid on the specified paid field.
+     * @param paidIndex
+     * @return
+     */
     public long getPaid(int paidIndex){
         return 0;
     }
+
+    /**
+     * Get the amount owed on the specified owed field.
+     * @param owedIndex
+     * @return
+     */
     public long getOwed(int owedIndex){
         return 0;
     }

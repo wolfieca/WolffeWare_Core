@@ -535,18 +535,48 @@ public class ClientStats {
     }
     
     //Action methods begin here.
+
+    /**
+     *
+     * @param newDebt
+     * @return
+     */
     public int addDebt(Debt newDebt){
         return 0;
     }
+
+    /**
+     *
+     * @param debt
+     * @return
+     */
     public int cancelDebt(Debt debt){
         return 0;
     }
+
+    /**
+     *
+     * @param debt
+     * @return
+     */
     public int returnDebt(Debt debt){
         return 0;
     }
+
+    /**
+     *
+     * @param newPayment
+     * @return
+     */
     public int applyPayment(Payment newPayment){
         return 0;
     }
+
+    /**
+     *
+     * @param newPayment
+     * @return
+     */
     public int reversePayment(Payment newPayment){
         return 0;
     }
