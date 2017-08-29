@@ -29,7 +29,7 @@ public class User  extends Actor{
         this.userID = "";
         this.primaryGroup = null;
         this.supplementaryGroups = new ArrayList();
-        this.userRights                = null;
+        this.userRights = null;
         this.workHours = new boolean[24];
         this.canWorkOffHours = false;
         this.moduleAccess = new HashMap();

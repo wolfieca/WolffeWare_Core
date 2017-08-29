@@ -174,11 +174,26 @@ public class Debt extends WWBaseObject implements Reportable {
     }
 
     /**
+     * Get the total amount paid on this debt.
+     * @return
+     */
+    public long getPaid(){
+        return 0;
+    }
+    /**
      * Get the amount owed on the specified owed field.
      * @param owedIndex
      * @return
      */
     public long getOwed(int owedIndex){
+        return 0;
+    }
+
+    /**
+     * Get the total amount owed on this debt.
+     * @return
+     */
+    public long getOwed(){
         return 0;
     }
     /**
@@ -200,7 +215,11 @@ public class Debt extends WWBaseObject implements Reportable {
     }
 
     /**
-     * Reverse a payment on this debt.
+     * Reverse a payment on this debt. This will undo the effects of the payment
+     * as if it had never occurred (though it leaves history to reflect both 
+     * actions). The preferred method for most users is to create a reversal
+     * payment and apply it to this debt. This will keep all the accounting 
+     * records straight
      * @param thePayment
      * @return
      */
@@ -938,19 +957,6 @@ public class Debt extends WWBaseObject implements Reportable {
         this.debtHist = debtHist;
     }
 
-    /**
-     * @return the owed
-     */
-    public long[] getOwed() {
-        return owed;
-    }
-
-    /**
-     * @return the paid
-     */
-    public long[] getPaid() {
-        return paid;
-    }
 
     /**
      * @param owed the owed to set
