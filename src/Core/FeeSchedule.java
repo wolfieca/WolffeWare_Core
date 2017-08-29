@@ -426,6 +426,4 @@ public class FeeSchedule extends WWBaseObject{
     protected void setReturnDays(Short[] returnDays) {
         this.returnDays = returnDays;
     }
-    
-    
 }
