@@ -76,6 +76,7 @@ public class Debt extends WWBaseObject implements Reportable {
      */
 
     public int lock(){
+        this.locked = true;
         return 0;
     }
 
@@ -84,6 +85,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int unlock(){
+        this.locked = false;
         return 0;
     }
 
@@ -93,6 +95,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int prohibitMatching(){
+        this.matchable = false;
         return 0;
     }
 
@@ -101,6 +104,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int allowMatching(){
+        this.matchable = true;
         return 0;
     }
 
@@ -109,6 +113,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int prohibitMerge(){
+        this.mergeable = false;
         return 0;
     }
 
@@ -117,6 +122,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int allowMerge(){
+        this.mergeable = true;
         return 0;
     }
 
@@ -125,6 +131,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int prohibitSplit(){
+        this.splitable = false;
         return 0;
     }
 
@@ -133,15 +140,19 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int allowSplit(){
+        this.splitable = true;
         return 0;
     }
 
     /**
      * Anchors this debt in its current place. Prevents merging, splitting,
-     * matching, etc of this debt.
+     * matching, etc of this debt. Does not lock the debt, though.
      * @return
      */
     public int anchor(){
+        prohibitSplit();
+        prohibitMerge();
+        prohibitMatching();
         return 0;
     }
 
@@ -151,9 +162,20 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int freeDebt(){
+        allowSplit();
+        allowMerge();
+        allowMatching();
         return 0;
     }
 
+    /**
+     * Recalculate the amounts owed using the new FeeSchedule.
+     * @param newFeeSchedule
+     * @return 
+     */
+    public int recalculate(FeeSchedule newFeeSchedule){
+        return 0;
+    }
     /**
      * Update the fee schedule for this debt. May cause subsequent recalculations
      * depending on the new FeeSchedule and other system settings.
@@ -161,6 +183,11 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int updateFeeSchedule(FeeSchedule newFeeSchedule){
+        if (this.feeSchedule != newFeeSchedule) {
+            this.recalculate(newFeeSchedule);
+        }
+        this.feeSchedule = newFeeSchedule;
+        
         return 0;
     }
 
