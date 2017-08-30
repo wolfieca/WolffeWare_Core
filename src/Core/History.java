@@ -27,6 +27,7 @@ public class History extends WWBaseObject {
     
     //Accessors
     // Development note: Setters should not really be public, IMHO.
+    
     /**
      * Get the debtor this item is attached.
      * @return
@@ -231,6 +232,13 @@ public class History extends WWBaseObject {
      */
     protected void setReference(WWBaseObject reference) {
         this.reference = reference;
+    }
+
+    /**
+     * @return the histID
+     */
+    public Long getHistID() {
+        return histID;
     }
     
 }
