@@ -63,7 +63,7 @@ public class Debt extends WWBaseObject implements Reportable {
     private Date dateOrigInterest;
     private short interestRate;
     private ArrayList<Payment> payments;
-    private ArrayList<History> debtHist;    //History entries specific to this debt.
+    private ArrayList<History> history;    //History entries specific to this debt.
 
     
     
@@ -652,7 +652,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return the debtHist
      */
     public ArrayList<History> getDebtHist() {
-        return debtHist;
+        return history;
     }
 
     /**
@@ -981,7 +981,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @param debtHist the debtHist to set
      */
     protected void setDebtHist(ArrayList<History> debtHist) {
-        this.debtHist = debtHist;
+        this.history = debtHist;
     }
 
 
