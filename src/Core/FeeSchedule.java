@@ -6,7 +6,8 @@
 package Core;
 
 /**
- *
+ * A Fee schedule. FeeSchedules reflect how fees/interest/etc are accumulated
+ * and how payments are applied to individual debts.
  * @author rserrano
  */
 public class FeeSchedule extends WWBaseObject{

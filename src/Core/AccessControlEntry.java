@@ -13,7 +13,7 @@ public class AccessControlEntry {
     private Permission permissions;
     
     /**
-     *
+     * Can this object claim the requested access?
      * @param object
      * @param requested
      * @return

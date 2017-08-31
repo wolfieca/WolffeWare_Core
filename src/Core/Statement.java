@@ -6,7 +6,7 @@
 package Core;
 
 /**
- *
+ * A generic statement. Produced periodically by the invoicing system
  * @author odin
  */
 public class Statement extends Document{

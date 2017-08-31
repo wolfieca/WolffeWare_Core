@@ -38,17 +38,17 @@ public class Client {
     public enum  reportSeparation{
 
         /**
-         *
+         * No separation of the reports
          */
         NO_SEPARATION,
 
         /**
-         *
+         * Separate reports by client office
          */
         CLIENT_OFFICE,
 
         /**
-         *
+         * Separate reports by collector office.
          */
         COLLECTOR_OFFICE
     }
@@ -67,25 +67,26 @@ public class Client {
     private Boolean suppressReturnList;
 
     /**
-     *
+     * Billing types available for clients.
      */
     public enum billingTypes{
 
         /**
-         *
+         * Client is a net remitter.
          */
         NET,
 
         /**
-         *
+         * Gross remitter.
          */
         GROSS,
 
         /**
-         *
+         * Other billing type.
          */
         OTHER
     }
+    // The actual billing type of this client.
     private billingTypes billingType;
 
     /**
@@ -94,22 +95,22 @@ public class Client {
     public enum collectionChargeTypes {
 
         /**
-         *
+         * No collection charge
          */
         NONE,
 
         /**
-         *
+         * Collection percentage
          */
         PERCENT,
 
         /**
-         *
+         * Collection fee
          */
         FEE,
 
         /**
-         *
+         * Both percentage and fee. 
          */
         BOTH
     }
@@ -124,46 +125,46 @@ public class Client {
     private Boolean matchSelfOnly;
 
     /**
-     *
+     * Sequence of returns
      */
     public enum returnOrderSequences {
 
         /**
-         *
+         * By name
          */
         BY_NAME,
 
         /**
-         *
+         * By Client Reference Number
          */
         BY_CLI_REF,
 
         /**
-         *
+         * By for what
          */
         BY_FOR
     }
     private returnOrderSequences returnOrderSequence;
 
     /**
-     *
+     * Return Report Print Formats
      */
     public enum returnPrintFormats {
 
         /**
-         *
+         * Detailed Report
          */
         DETAILED,
 
         /**
-         *
+         * Individual Report
          */
         INDIVIDUAL,
 
         /**
-         *
+         * Both 
          */
-        BORTH
+        BOTH
     }
     private returnPrintFormats returnPrintFormat;
     private Long addressCorrectionLimit;
@@ -191,32 +192,32 @@ public class Client {
     private Boolean printDateReceived;
 
     /**
-     *
+     * Available invoice cycles
      */
     public enum invoiceCycles{
 
         /**
-         *
+         * Monthly invoices
          */
         MONTHLY,
 
         /**
-         *
+         * Annual invoices
          */
         ANNUALLY,
 
         /**
-         *
+         * Quarterly invoices
          */
         QUARTERLY,
 
         /**
-         *
+         * Semi-Annual invoices
          */
         SEMIANNUALLY,
 
         /**
-         *
+         * On-demand invoices
          */
         ONDEMAND
     }
@@ -224,47 +225,47 @@ public class Client {
     private Short bankCode;
 
     /**
-     *
+     * Invoice sequences
      */
     public enum invoiceSequence {
 
         /**
-         *
+         * No sequence specified
          */
         NONE,
 
         /**
-         *
+         * Alphabetical
          */
         ALPHABETICAL,
 
         /**
-         *
+         * Numeric
          */
         NUMERIC,
 
         /**
-         *
+         * For what
          */
         FOR,
 
         /**
-         *
+         * Client number
          */
         CLIENT_NUMBER,
 
         /**
-         *
+         * Payment Type
          */
         PAYMENT_TYPE,
 
         /**
-         *
+         * By date
          */
         DATE,
 
         /**
-         *
+         * By collection office
          */
         COLLECTION_OFFICE
     }
@@ -277,27 +278,27 @@ public class Client {
     private Boolean noCommissionIfNoPlacementLast6Months;
 
     /**
-     *
+     * Open Item Statement type
      */
     public enum openItemStatements{
 
         /**
-         *
+         * Open item only
          */
         OPEN_ITEM_ONLY,
 
         /**
-         *
+         * Activity
          */
         ACTIVITY,
 
         /**
-         *
+         * Both
          */
         BOTH,
 
         /**
-         *
+         * Neither
          */
         NEITHER
     }
@@ -309,22 +310,22 @@ public class Client {
     private Boolean feesByState;
 
     /**
-     *
+     * Acknowledgment Sequence
      */
     public enum acknowledgmentSequences{
 
         /**
-         *
+         * Alphabetical
          */
         ALPHABETICAL,
 
         /**
-         *
+         * Numeric
          */
         NUMERIC,
 
         /**
-         *
+         * For what
          */
         FOR
     }
@@ -341,24 +342,24 @@ public class Client {
     private Integer strategyWaitDays;
 
     /**
-     *
+     * Match Flags
      */
     public enum matchFlags{
 
         /**
-         *
+         * Only same match group
          */
         ONLY_SAME_MATCH_GROUP,
 
         /**
-         *
+         * Only Same consolidation client
          */
         ONLY_SAME_CONSOLIDATION_CLIENT,
 
         /**
-         *
+         * Reactivate account on match
          */
-        REACTIVATE_ACTIVATE_ON_MATCH
+        REACTIVATE_ON_MATCH
     }
     private matchFlags matchFlag;
     private Short matchGroup;
@@ -389,22 +390,22 @@ public class Client {
     private char invoiceCycleName;
 
     /**
-     *
+     * Reversal methods
      */
     public enum ReversalMethods{
 
         /**
-         *
+         *  Bill payment minus fee
          */
         BILL_PAYMENT_MINUS_FEE,
 
         /**
-         *
+         * Exact reversal
          */
         EXACT_REVERSAL,
 
         /**
-         *
+         * Refund fee bill payment
          */
         REFUND_FEE_BILL_PAYMENT
     }
@@ -412,32 +413,32 @@ public class Client {
     private Boolean electronicFundsTransfer;
 
     /**
-     *
+     * Screen five type
      */
     public enum ScreenFiveTypes{
 
         /**
-         *
+         * None. No Screen 5
          */
         NONE,
 
         /**
-         *
+         * RPS client
          */
         RPS_CLIENT,
 
         /**
-         *
+         * Lead tracked
          */
         LEAD_TRACKED,
 
         /**
-         *
+         * Check validation
          */
         CHECK_VALIDATION,
 
         /**
-         *
+         * Special Fees
          */
         SPECIAL_FEES
     }
