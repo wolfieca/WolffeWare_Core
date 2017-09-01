@@ -16,6 +16,32 @@ public class PaymentBatch {
     private ArrayList<Payment> payments;
 
     /**
+     * Default Constructor. Create an empty PaymentBatch.
+     */
+    public PaymentBatch(){
+        paymentBatchID = new Long(0);
+        paymentBatchName="";
+        payments = new ArrayList<>();
+    }
+    public PaymentBatch(String paymentBatchName){
+        paymentBatchID = new Long(0);
+        this.paymentBatchName=paymentBatchName;
+        this.payments = new ArrayList<>();
+
+    }
+    public int addPayment(Payment newPayment){
+        payments.add(newPayment);
+        return 0;
+    }
+    
+    public int deletePayment(Payment newPayment){
+        payments.remove(newPayment);
+        return 0;
+    }
+    public int commit(){
+        return 0;
+    }
+    /**
      * @param paymentBatchID the paymentBatchID to set
      */
     protected void setPaymentBatchID(Long paymentBatchID) {

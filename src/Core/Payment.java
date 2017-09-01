@@ -40,6 +40,17 @@ public class Payment {
     }
 
     /**
+     * Reverse this payments. This method remove the payment from the relevant
+     * debt and will update everything else at the same time. Like applyPayment,
+     * this method will give the Debtor owning the debt a chance to update its
+     * status. On successful completion, the applied and in...Statistics flags
+     * are cleared appropriately
+     * @return 
+     */
+    public int reversePayment(){
+        return 0;
+    }
+    /**
      * Invoice this payment. This is normally done as the typical close of 
      * period processing, when statements and invoices are produced to send to
      * the clients. On successful completion, the invoiced flag is set so that 
