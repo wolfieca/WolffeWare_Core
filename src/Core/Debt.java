@@ -62,7 +62,7 @@ public class Debt extends WWBaseObject implements Reportable {
     private long origPrinBalance;
     private Date dateOrigInterest;
     private short interestRate;
-    private ArrayList<Payment> payments;
+    private ArrayList<Payment> payments;    // Payments applied to this debt.
     private ArrayList<History> debtHist;    //History entries specific to this debt.
 
     
