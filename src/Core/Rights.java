@@ -13,13 +13,37 @@ import java.util.Map;
 
 
 public class Rights extends WWBaseObject {
-     private Long rightSet1;
-     private Long rightSet2;
-     private Long rightSet3;
-     private Long rightSet4;
-     private final Map<String,Integer> loginHours;
-     private final Map<String,Integer> rightNames;
-     private int lastPosition;
+    private boolean localLogin;
+    private boolean backup;
+    private boolean remoteLogin;
+    private boolean shutdown;
+    private boolean monitor;
+    private boolean grantAccess;
+    private boolean revokeAccess;
+    private boolean takeOwnership;
+    private boolean startServices;
+    private boolean stopServices;
+    private boolean createUsers;
+    private boolean deleteUsers;
+    private boolean registerModules;
+    private boolean unregisterModules;
+    private boolean print;
+    private boolean documentRequest;
+    private boolean eventListener;
+    private boolean reassignThreads;
+    private boolean impersonateUser;
+    private boolean viewPHI;
+    private boolean updatePHI;
+    private boolean addSupplementalCategory;
+    private boolean deleteSupplementalCategory;
+    private boolean alterSupplementalCategory;
+    private Long rightSet1;
+    private Long rightSet2;
+    private Long rightSet3;
+    private Long rightSet4;
+    private final Map<String,Integer> loginHours;
+    private final Map<String,Integer> rightNames;
+    private int lastPosition;
      
     /**
      * Default constructor
@@ -28,30 +52,35 @@ public class Rights extends WWBaseObject {
          // Initialize the rightNames
          //The default rightNames will not change order after release. 
          rightNames = new HashMap<>();
+         
+         //System rights
+        this.localLogin=false;
+        this.backup=false;
+        this.remoteLogin=false;
+        this.shutdown=false;
+        this.monitor=false;
+        this. grantAccess=false;
+        this.revokeAccess=false;
+        this.takeOwnership=false;
+        this.startServices=false;
+        this.stopServices=false;
+        this.createUsers=false;
+        this.deleteUsers=false;
+        this.registerModules=false;
+        this.unregisterModules=false;
+        this. print=false;
+        this.documentRequest=false;
+        this.eventListener=false;
+        this.reassignThreads=false;
+        this.impersonateUser=false;
+        this.viewPHI=false;
+        this.updatePHI=false;
+        this.addSupplementalCategory=false;
+        this.deleteSupplementalCategory=false;
+        this.alterSupplementalCategory=false;
+
          //Base Right Definitions should be constant
-         rightNames.put("Base.LocalLogin", lastPosition++);
-         rightNames.put("Base.Backup", lastPosition++);
-         rightNames.put("Base.RemoteLogin", lastPosition++);
-         rightNames.put("Base.Shutdown", lastPosition++);
-         rightNames.put("Base.Monitor", lastPosition++);
-         rightNames.put("Base.Grant", lastPosition++);
-         rightNames.put("Base.Revoke", lastPosition++);
-         rightNames.put("Base.TakeOwnership", lastPosition++);
-         rightNames.put("Base.StartServices", lastPosition++);
-         rightNames.put("Base.StopServices", lastPosition++);
-         rightNames.put("Base.CreateUsers", lastPosition++);
-         rightNames.put("Base.DeleteUsers", lastPosition++);
-         rightNames.put("Base.RegisterModules", lastPosition++);
-         rightNames.put("Base.UnRegisterModules", lastPosition++);
-         rightNames.put("Base.Print", lastPosition++);
-         rightNames.put("Base.DocumentRequest", lastPosition++);
-         rightNames.put("Base.EventListener", lastPosition++);
-         rightNames.put("Base.ReassignThreads", lastPosition++);
-         rightNames.put("Base.ImpersonateUser", lastPosition++);
-         rightNames.put("Base.PHI.View",lastPosition++);
-         rightNames.put("Base.PHI.Update", lastPosition++);
-         rightNames.put("Base.AddSupplemtalCategory", lastPosition++);
-         rightNames.put("Base.DelSupplementalCategpry", lastPosition++);
+         
          //Rights Definitions for built-in objects
          rightNames.put("Debtor.Merge", lastPosition++);
          rightNames.put("Debtor.Split", lastPosition++);
@@ -405,4 +434,341 @@ public class Rights extends WWBaseObject {
     public boolean getHour(String day, int hour){
          return true;
      }
+
+    /**
+     * @return the localLogin
+     */
+    public boolean isLocalLogin() {
+        return localLogin;
+    }
+
+    /**
+     * @return the backup
+     */
+    public boolean isBackup() {
+        return backup;
+    }
+
+    /**
+     * @return the remoteLogin
+     */
+    public boolean isRemoteLogin() {
+        return remoteLogin;
+    }
+
+    /**
+     * @return the shutdown
+     */
+    public boolean isShutdown() {
+        return shutdown;
+    }
+
+    /**
+     * @return the monitor
+     */
+    public boolean isMonitor() {
+        return monitor;
+    }
+
+    /**
+     * @return the grantAccess
+     */
+    public boolean isGrantAccess() {
+        return grantAccess;
+    }
+
+    /**
+     * @return the revokeAccess
+     */
+    public boolean isRevokeAccess() {
+        return revokeAccess;
+    }
+
+    /**
+     * @return the takeOwnership
+     */
+    public boolean isTakeOwnership() {
+        return takeOwnership;
+    }
+
+    /**
+     * @return the startServices
+     */
+    public boolean isStartServices() {
+        return startServices;
+    }
+
+    /**
+     * @return the stopServices
+     */
+    public boolean isStopServices() {
+        return stopServices;
+    }
+
+    /**
+     * @return the createUsers
+     */
+    public boolean isCreateUsers() {
+        return createUsers;
+    }
+
+    /**
+     * @return the deleteUsers
+     */
+    public boolean isDeleteUsers() {
+        return deleteUsers;
+    }
+
+    /**
+     * @return the registerModules
+     */
+    public boolean isRegisterModules() {
+        return registerModules;
+    }
+
+    /**
+     * @return the unregisterModules
+     */
+    public boolean isUnregisterModules() {
+        return unregisterModules;
+    }
+
+    /**
+     * @return the print
+     */
+    public boolean isPrint() {
+        return print;
+    }
+
+    /**
+     * @return the documentRequest
+     */
+    public boolean isDocumentRequest() {
+        return documentRequest;
+    }
+
+    /**
+     * @return the eventListener
+     */
+    public boolean isEventListener() {
+        return eventListener;
+    }
+
+    /**
+     * @return the reassignThreads
+     */
+    public boolean isReassignThreads() {
+        return reassignThreads;
+    }
+
+    /**
+     * @return the impersonateUser
+     */
+    public boolean isImpersonateUser() {
+        return impersonateUser;
+    }
+
+    /**
+     * @return the viewPHI
+     */
+    public boolean isViewPHI() {
+        return viewPHI;
+    }
+
+    /**
+     * @return the updatePHI
+     */
+    public boolean isUpdatePHI() {
+        return updatePHI;
+    }
+
+    /**
+     * @return the addSupplementalCategory
+     */
+    public boolean isAddSupplementalCategory() {
+        return addSupplementalCategory;
+    }
+
+    /**
+     * @return the deleteSupplementalCategory
+     */
+    public boolean isDeleteSupplementalCategory() {
+        return deleteSupplementalCategory;
+    }
+
+    /**
+     * @return the alterSupplementalCategory
+     */
+    public boolean isAlterSupplementalCategory() {
+        return alterSupplementalCategory;
+    }
+
+    /**
+     * @param localLogin the localLogin to set
+     */
+    protected void setLocalLogin(boolean localLogin) {
+        this.localLogin = localLogin;
+    }
+
+    /**
+     * @param backup the backup to set
+     */
+    protected void setBackup(boolean backup) {
+        this.backup = backup;
+    }
+
+    /**
+     * @param remoteLogin the remoteLogin to set
+     */
+    protected void setRemoteLogin(boolean remoteLogin) {
+        this.remoteLogin = remoteLogin;
+    }
+
+    /**
+     * @param shutdown the shutdown to set
+     */
+    protected void setShutdown(boolean shutdown) {
+        this.shutdown = shutdown;
+    }
+
+    /**
+     * @param monitor the monitor to set
+     */
+    protected void setMonitor(boolean monitor) {
+        this.monitor = monitor;
+    }
+
+    /**
+     * @param grantAccess the grantAccess to set
+     */
+    protected void setGrantAccess(boolean grantAccess) {
+        this.grantAccess = grantAccess;
+    }
+
+    /**
+     * @param revokeAccess the revokeAccess to set
+     */
+    protected void setRevokeAccess(boolean revokeAccess) {
+        this.revokeAccess = revokeAccess;
+    }
+
+    /**
+     * @param takeOwnership the takeOwnership to set
+     */
+    protected void setTakeOwnership(boolean takeOwnership) {
+        this.takeOwnership = takeOwnership;
+    }
+
+    /**
+     * @param startServices the startServices to set
+     */
+    protected void setStartServices(boolean startServices) {
+        this.startServices = startServices;
+    }
+
+    /**
+     * @param stopServices the stopServices to set
+     */
+    protected void setStopServices(boolean stopServices) {
+        this.stopServices = stopServices;
+    }
+
+    /**
+     * @param createUsers the createUsers to set
+     */
+    protected void setCreateUsers(boolean createUsers) {
+        this.createUsers = createUsers;
+    }
+
+    /**
+     * @param deleteUsers the deleteUsers to set
+     */
+    protected void setDeleteUsers(boolean deleteUsers) {
+        this.deleteUsers = deleteUsers;
+    }
+
+    /**
+     * @param registerModules the registerModules to set
+     */
+    protected void setRegisterModules(boolean registerModules) {
+        this.registerModules = registerModules;
+    }
+
+    /**
+     * @param unregisterModules the unregisterModules to set
+     */
+    protected void setUnregisterModules(boolean unregisterModules) {
+        this.unregisterModules = unregisterModules;
+    }
+
+    /**
+     * @param print the print to set
+     */
+    protected void setPrint(boolean print) {
+        this.print = print;
+    }
+
+    /**
+     * @param documentRequest the documentRequest to set
+     */
+    protected void setDocumentRequest(boolean documentRequest) {
+        this.documentRequest = documentRequest;
+    }
+
+    /**
+     * @param eventListener the eventListener to set
+     */
+    protected void setEventListener(boolean eventListener) {
+        this.eventListener = eventListener;
+    }
+
+    /**
+     * @param reassignThreads the reassignThreads to set
+     */
+    protected void setReassignThreads(boolean reassignThreads) {
+        this.reassignThreads = reassignThreads;
+    }
+
+    /**
+     * @param impersonateUser the impersonateUser to set
+     */
+    protected void setImpersonateUser(boolean impersonateUser) {
+        this.impersonateUser = impersonateUser;
+    }
+
+    /**
+     * @param viewPHI the viewPHI to set
+     */
+    protected void setViewPHI(boolean viewPHI) {
+        this.viewPHI = viewPHI;
+    }
+
+    /**
+     * @param updatePHI the updatePHI to set
+     */
+    protected void setUpdatePHI(boolean updatePHI) {
+        this.updatePHI = updatePHI;
+    }
+
+    /**
+     * @param addSupplementalCategory the addSupplementalCategory to set
+     */
+    protected void setAddSupplementalCategory(boolean addSupplementalCategory) {
+        this.addSupplementalCategory = addSupplementalCategory;
+    }
+
+    /**
+     * @param deleteSupplementalCategory the deleteSupplementalCategory to set
+     */
+    protected void setDeleteSupplementalCategory(boolean deleteSupplementalCategory) {
+        this.deleteSupplementalCategory = deleteSupplementalCategory;
+    }
+
+    /**
+     * @param alterSupplementalCategory the alterSupplementalCategory to set
+     */
+    protected void setAlterSupplementalCategory(boolean alterSupplementalCategory) {
+        this.alterSupplementalCategory = alterSupplementalCategory;
+    }
+    
 }
