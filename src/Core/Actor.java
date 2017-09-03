@@ -10,6 +10,7 @@ package Core;
 
 public class Actor extends WWBaseObject {
     private long id;    
+    private Rights rights;
 
     /**
      *
@@ -31,6 +32,20 @@ public class Actor extends WWBaseObject {
      */
     public Actor(long id) {
         this.id = id;
+    }
+
+    /**
+     * @return the rights
+     */
+    public Rights getRights() {
+        return rights;
+    }
+
+    /**
+     * @param rights the rights to set
+     */
+    protected void setRights(Rights rights) {
+        this.rights = rights;
     }
     
 }

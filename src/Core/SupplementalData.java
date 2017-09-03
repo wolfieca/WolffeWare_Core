@@ -33,11 +33,28 @@ public class SupplementalData extends WWBaseObject {
     
     // SupplementalData methods
     
-    public SupplementalDataItem item(String category){
-        
-        return items.get(category);
+    public SupplementalDataItem getItem(String category){
+        if ( !items.get(category).isPHI() )
+            return items.get(category);
+        else {
+            if ( getCaller().getRights().isViewPHI())
+                return items.get(category);
+            else
+                return null;
+        }
     }
-    
+    public int setItem(String category, SupplementalDataItem item){
+        if(!items.get(category).isPHI()) {
+            items.put(category, item);
+            return 0;
+        } else {
+            if (getCaller().getRights().isUpdatePHI()) {
+                items.put(category, item);
+                return 0;
+            } else
+                return -1;
+        }
+    }
     public int addItem(String category, SupplementalDataItem newItem){
             this.items.put(category, newItem);
             return 0;
