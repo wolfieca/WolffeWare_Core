@@ -32,6 +32,12 @@ public class SupplementalData extends WWBaseObject {
     }
     
     // SupplementalData methods
+
+    /**
+     *
+     * @param category
+     * @return
+     */
     
     public SupplementalDataItem getItem(String category){
         if ( !items.get(category).isPHI() )
@@ -43,6 +49,13 @@ public class SupplementalData extends WWBaseObject {
                 return null;
         }
     }
+
+    /**
+     *
+     * @param category
+     * @param item
+     * @return
+     */
     public int setItem(String category, SupplementalDataItem item){
         if(!items.get(category).isPHI()) {
             items.put(category, item);
@@ -55,6 +68,13 @@ public class SupplementalData extends WWBaseObject {
                 return -1;
         }
     }
+
+    /**
+     *
+     * @param category
+     * @param newItem
+     * @return
+     */
     public int addItem(String category, SupplementalDataItem newItem){
             this.items.put(category, newItem);
             return 0;

@@ -23,21 +23,42 @@ public class PaymentBatch {
         paymentBatchName="";
         payments = new ArrayList<>();
     }
+
+    /**
+     *
+     * @param paymentBatchName
+     */
     public PaymentBatch(String paymentBatchName){
         paymentBatchID = new Long(0);
         this.paymentBatchName=paymentBatchName;
         this.payments = new ArrayList<>();
 
     }
+
+    /**
+     *
+     * @param newPayment
+     * @return
+     */
     public int addPayment(Payment newPayment){
         payments.add(newPayment);
         return 0;
     }
     
+    /**
+     *
+     * @param newPayment
+     * @return
+     */
     public int deletePayment(Payment newPayment){
         payments.remove(newPayment);
         return 0;
     }
+
+    /**
+     *
+     * @return
+     */
     public int commit(){
         return 0;
     }
