@@ -1,6 +1,7 @@
 package Core;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 /**
@@ -87,7 +88,7 @@ public class Debtor extends WWBaseObject implements Reportable {
     // Wizard does not put SSN or birthdate in the MASTER data, and we have to
     // put it in the NI window, even though it is always pertinent
     private DemographicField<String> ssn;
-    private DemographicField<Date> birthDate;
+    private DemographicField<GregorianCalendar> birthDate;
     // Wizard system puts most of the address in the Ancil A1 window, keeping
     // only the City, State, and Zip portions here. I don't see a real reason
     // to carry that practice over.
@@ -108,6 +109,42 @@ public class Debtor extends WWBaseObject implements Reportable {
     private ActivityQueue activity;
     
     
+    // Utility methods. The public API should not have any direct access to the
+    // internal implementations of the demographic fields.
+    public String getName(){
+        if ( lastName.isPHI() || firstName.isPHI() || middleName.isPHI() ){
+            if ( getCaller().getRights().canViewPHI() )
+                return lastName.getField()+", " + firstName.getField()
+                    +" "+ middleName.getField();
+            else
+                return lastName.getField();
+        } else 
+            return lastName.getField() + ", " + firstName.getField() +
+                    " " + middleName.getField();
+    }
+    public String getNormalName(){
+        if ( lastName.isPHI() || firstName.isPHI() || middleName.isPHI() ||
+                title.isPHI() || suffix.isPHI()){
+            if ( getCaller().getRights().canViewPHI() )
+                return title.getField()+" "+firstName.getField()+" "+
+                        middleName.getField()+" "+lastName.getField()+
+                        (suffix.getField().equals("")?"":", "+suffix.getField());
+            else
+                return title.getField()+" "+lastName.getField();
+        } else
+            return title.getField()+" "+firstName.getField()+" "+
+                middleName.getField()+" "+lastName.getField()+
+                (suffix.getField().equals("")?"":", "+suffix.getField());
+    }
+    public String getPhoneNumber(){
+        if (phone.isPHI()){
+            if(getCaller().getRights().canViewPHI()){
+                return phone.getField();
+            } else
+                return null;
+        } else
+            return phone.getField();
+    }
     // Accessor methods
 
     /**
@@ -119,19 +156,31 @@ public class Debtor extends WWBaseObject implements Reportable {
     }
 
     /**
-     * Retrieve the last name of the debtor
+     * Retrieve the last name of the debtor. Allow last name to be sent, 
+     * regardless of the PHI settings.
      * @return
      */
-    public DemographicField<String> getLastName() {
-        return lastName;
+    public String getLastName() {
+        return lastName.getField();
     }
 
     /**
      * Set the last name of the debtor
      * @param lastName
      */
-    protected void setLastName(DemographicField<String> lastName) {
-        this.lastName = lastName;
+    protected void setLastName(String lastName) {
+        if ( this.lastName.isPHI() ) {
+            if ( getCaller().getRights().canUpdatePHI() )
+                try {
+                    this.lastName.setField(lastName);
+                }catch(AccessDeniedException e){
+                    
+                }
+        } else
+            try {
+                this.lastName.setField(lastName);
+            }catch (AccessDeniedException e){
+            }
     }
 
     /**
@@ -139,6 +188,11 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public DemographicField<String> getFirstName() {
+        if ( firstName.isPHI()){
+            if ( getCaller().getRights().canViewPHI() )
+                return firstName;
+            else return null;
+        }
         return firstName;
     }
 
@@ -146,168 +200,360 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Set the first name of the debtor
      * @param firstName
      */
-    protected void setFirstName(DemographicField<String> firstName) {
-        this.firstName = firstName;
+    protected void setFirstName(String firstName) {
+        if ( this.firstName.isPHI() ) {
+            if ( getCaller().getRights().canUpdatePHI() )
+                try {
+                    this.firstName.setField(firstName);
+                }catch(AccessDeniedException e){
+                    
+                }
+        } else
+            try {
+                this.firstName.setField(firstName);
+            }catch (AccessDeniedException e){
+            }
     }
 
     /**
      * Get the debtor middle name
      * @return
      */
-    public DemographicField<String> getMiddleName() {
-        return middleName;
+    public String getMiddleName() {
+        if (middleName.isPHI()){
+            if ( getCaller().getRights().canViewPHI())
+                return middleName.getField();
+            else 
+                return null;
+        } else
+            return middleName.getField();
     }
 
     /**
      *
      * @param middleName
      */
-    protected void setMiddleName(DemographicField<String> middleName) {
-        this.middleName = middleName;
+    protected void setMiddleName(String middleName) {
+                if ( this.middleName.isPHI() ) {
+            if ( getCaller().getRights().canUpdatePHI() )
+                try {
+                    this.middleName.setField(middleName);
+                }catch(AccessDeniedException e){
+                    
+                }
+        } else
+            try {
+                this.middleName.setField(middleName);
+            }catch (AccessDeniedException e){
+            }
+
+        //this.middleName = middleName;
     }
 
     /**
      *
      * @return
      */
-    public DemographicField<String> getSuffix() {
-        return suffix;
+    public String getSuffix() {
+        if ( this.suffix.isPHI()) {
+            if(getCaller().getRights().canUpdatePHI()){
+                return suffix.getField();
+            } else
+                return null;
+        } else
+            return suffix.getField();
     }
 
     /**
      *
      * @param suffix
      */
-    protected void setSuffix(DemographicField<String> suffix) {
-        this.suffix = suffix;
+    protected void setSuffix(String suffix) {
+            if ( this.suffix.isPHI() ) {
+            if ( getCaller().getRights().canUpdatePHI() )
+                try {
+                    this.suffix.setField(suffix);
+                }catch(AccessDeniedException e){
+                    
+                }
+        } else
+            try {
+                this.suffix.setField(suffix);
+            }catch (AccessDeniedException e){
+            
+            }
     }
 
     /**
      * Get the debtor title/salutation
      * @return
      */
-    public DemographicField<String> getTitle() {
-        return title;
+    public String getTitle() {
+        if(this.title.isPHI()){
+            if (getCaller().getRights().canViewPHI())
+                return title.getField();
+            else
+                return null;
+        } else {
+            return title.getField();
+        }
     }
 
     /**
      *
      * @param title
      */
-    protected void setTitle(DemographicField<String> title) {
-        this.title = title;
+    protected void setTitle(String title) {
+         if ( this.title.isPHI() ) {
+            if ( getCaller().getRights().canUpdatePHI() )
+                try {
+                    this.title.setField(title);
+                }catch(AccessDeniedException e){
+                    
+                }
+        } else
+            try {
+                this.title.setField(title);
+            }catch (AccessDeniedException e){
+            }
     }
 
     /**
      * Get the debtor phone number
      * @return
      */
-    public DemographicField<String> getPhone() {
-        return phone;
+    public String getPhone() {
+        if ( phone.isPHI() ){
+            if ( getCaller().getRights().canViewPHI())
+                return phone.getField();
+            else
+                return null;
+        } else
+            return phone.getField();
     }
 
     /**
      * Set/Update the debtor phone number
      * @param phone
      */
-    protected void setPhone(DemographicField<String> phone) {
-        this.phone = phone;
+    protected void setPhone(String phone) {
+        if (this.phone.isPHI()){
+            if(getCaller().getRights().canUpdatePHI()){
+                try{
+                    this.phone.setField(phone);
+                } catch (AccessDeniedException e){
+                    
+                }
+            }
+        } else
+            try{
+                this.phone.setField(phone);
+            } catch (AccessDeniedException e){
+                
+            }
     }
 
     /**
      *
      * @return
      */
-    public DemographicField<String> getSsn() {
-        return ssn;
+    public String getSsn() {
+        if (this.ssn.isPHI()) {
+            if ( getCaller().getRights().canViewPHI())
+                return this.ssn.getField();
+            else
+                return null;
+        }else
+            return this.ssn.getField();
     }
 
     /**
      *
      * @param ssn
      */
-    protected void setSsn(DemographicField<String> ssn) {
-        this.ssn = ssn;
+    protected void setSsn(String ssn) {
+        if ( this.ssn.isPHI() ) {
+            if ( getCaller().getRights().canUpdatePHI())
+                try{
+                    this.ssn.setField(ssn);
+                } catch (AccessDeniedException e){
+                    
+                }
+        } else
+            try{
+                this.ssn.setField(ssn);
+            } catch (AccessDeniedException e) {
+                
+            }
     }
 
     /**
      *
      * @return
      */
-    public DemographicField<Date> getBirthDate() {
-        return birthDate;
+    public GregorianCalendar getBirthDate() {
+        if ( this.birthDate.isPHI() ) {
+            if ( getCaller().getRights().canViewPHI())
+                return this.birthDate.getField();
+            else
+                return null;
+        } else
+            return this.birthDate.getField();
     }
 
     /**
      *
      * @param birthDate
      */
-    protected void setBirthDate(DemographicField<Date> birthDate) {
-        this.birthDate = birthDate;
+    protected void setBirthDate(GregorianCalendar birthDate) {
+        if ( this.birthDate.isPHI() ) {
+            if ( getCaller().getRights().canUpdatePHI())
+                try {
+                    this.birthDate.setField(birthDate);
+                } catch (AccessDeniedException e){
+                    
+                }
+        } else
+            try{
+                this.birthDate.setField(birthDate);
+            } catch (AccessDeniedException e) {
+                
+            }
     }
 
     /**
      *
      * @return
      */
-    public DemographicField<String> getAddressLine1() {
-        return addressLine1;
+    public String getAddressLine1() {
+        if ( this.addressLine1.isPHI() )
+            if ( getCaller().getRights().canViewPHI())
+                return addressLine1.getField();
+            else
+                return null;
+        else
+            return this.addressLine1.getField();
     }
 
     /**
      *
      * @param addressLine1
      */
-    protected void setAddressLine1(DemographicField<String> addressLine1) {
-        this.addressLine1 = addressLine1;
+    protected void setAddressLine1(String addressLine1) {
+        if ( this.addressLine1.isPHI() )
+            if(getCaller().getRights().canUpdatePHI())
+                try{
+                    this.addressLine1.setField(addressLine1);
+                }catch (AccessDeniedException e){
+                    
+                }
+        else
+            try{
+                this.addressLine1.setField(addressLine1);
+            } catch (AccessDeniedException e){
+            }
     }
 
     /**
      *
      * @return
      */
-    public DemographicField<String> getAddressLine2() {
-        return addressLine2;
+    public String getAddressLine2() {
+        if ( this.addressLine2.isPHI())
+            if(getCaller().getRights().canViewPHI())
+                return this.addressLine2.getField();
+            else
+                return null;
+        else
+            return this.addressLine2.getField();
     }
 
     /**
      *
      * @param addressLine2
      */
-    protected void setAddressLine2(DemographicField<String> addressLine2) {
-        this.addressLine2 = addressLine2;
+    protected void setAddressLine2(String addressLine2) {
+        if ( this.addressLine2.isPHI())
+            if ( getCaller().getRights().canUpdatePHI())
+                try{
+                    this.addressLine2.setField(addressLine2);
+                } catch(AccessDeniedException e){
+                }
+
+        else
+            try{
+                this.addressLine2.setField(addressLine2);
+            } catch (AccessDeniedException e){
+                
+            }
     }
 
     /**
      *
      * @return
      */
-    public DemographicField<String> getAddressLine3() {
-        return addressLine3;
+    public String getAddressLine3() {
+        if ( this.addressLine3.isPHI())
+            if(getCaller().getRights().canViewPHI())
+                return this.addressLine3.getField();
+            else
+                return null;
+        else
+            return this.addressLine3.getField();
     }
 
     /**
      *
      * @param addressLine3
      */
-    protected void setAddressLine3(DemographicField<String> addressLine3) {
-        this.addressLine3 = addressLine3;
+    protected void setAddressLine3(String addressLine3) {
+        if ( this.addressLine3.isPHI())
+            if ( getCaller().getRights().canUpdatePHI())
+                try{
+                    this.addressLine3.setField(addressLine3);
+                } catch(AccessDeniedException e){
+                }
+
+        else
+            try{
+                this.addressLine3.setField(addressLine3);
+            } catch (AccessDeniedException e){
+                
+            }
     }
 
     /**
      *
      * @return
      */
-    public DemographicField<String> getCity() {
-        return city;
+    public String getCity() {
+        if ( this.city.isPHI())
+            if(getCaller().getRights().canViewPHI())
+                return this.city.getField();
+            else
+                return null;
+        else
+            return this.city.getField();
     }
 
     /**
      *
      * @param city
      */
-    protected void setCity(DemographicField<String> city) {
-        this.city = city;
+    protected void setCity(String city) {
+        if ( this.city.isPHI())
+            if ( getCaller().getRights().canUpdatePHI())
+                try{
+                    this.addressLine3.setField(city);
+                } catch(AccessDeniedException e){
+                }
+
+        else
+            try{
+                this.addressLine3.setField(city);
+            } catch (AccessDeniedException e){
+                
+            }
     }
 
     /**

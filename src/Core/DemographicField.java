@@ -85,7 +85,7 @@ public class DemographicField<T> extends WWBaseObject{
      */
     protected T getField() {
         if (isPHI()){
-            if ( getCaller().getRights().isViewPHI()){
+            if ( getCaller().getRights().canViewPHI()){
                 return field;
             } else 
                 return null;
@@ -101,7 +101,7 @@ public class DemographicField<T> extends WWBaseObject{
      */
     protected void setField(T field) throws AccessDeniedException{
         if (isPHI()){
-            if(getCaller().getRights().isUpdatePHI()){
+            if(getCaller().getRights().canUpdatePHI()){
                 this.field = field;
             } else
                 throw new AccessDeniedException();

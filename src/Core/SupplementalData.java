@@ -43,7 +43,7 @@ public class SupplementalData extends WWBaseObject {
         if ( !items.get(category).isPHI() )
             return items.get(category);
         else {
-            if ( getCaller().getRights().isViewPHI())
+            if ( getCaller().getRights().canViewPHI())
                 return items.get(category);
             else
                 return null;
@@ -61,7 +61,7 @@ public class SupplementalData extends WWBaseObject {
             items.put(category, item);
             return 0;
         } else {
-            if (getCaller().getRights().isUpdatePHI()) {
+            if (getCaller().getRights().canUpdatePHI()) {
                 items.put(category, item);
                 return 0;
             } else
