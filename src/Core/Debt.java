@@ -205,11 +205,11 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public long getPaid(){
-        long totalPaid = 0;
+        long totPaid = 0;
         for ( int x = 0; x < paid.length; x++){
-            totalPaid = totalPaid + paid[x];
+            totPaid = totPaid + paid[x];
         }
-        return totalPaid;
+        return totPaid;
     }
     /**
      * Get the amount owed on the specified owed field.
@@ -660,7 +660,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return the debtHist
      */
     public ArrayList<History> getDebtHist() {
-        return history;
+        return debtHist;
     }
 
     /**
@@ -989,7 +989,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @param debtHist the debtHist to set
      */
     protected void setDebtHist(ArrayList<History> debtHist) {
-        this.history = debtHist;
+        this.debtHist = debtHist;
     }
 
 
