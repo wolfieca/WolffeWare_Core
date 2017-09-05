@@ -12,17 +12,53 @@ package Core;
  * @author rserrano
  * @param <T> The type of this Demographic field
  */
-public class DemographicField<T> {
+public class DemographicField<T> extends WWBaseObject{
     private boolean PHI;
     private T field;
-    private enum source {
+
+    /**
+     *
+     */
+    public enum source {
+
+        /**
+         *
+         */
         NBIZ,
+
+        /**
+         *
+         */
         SKP_TLO,
+
+        /**
+         *
+         */
         SKP_TUW,
+
+        /**
+         *
+         */
         SKP_TWN,
+
+        /**
+         *
+         */
         NCOA,
+
+        /**
+         *
+         */
         DEBTOR,
+
+        /**
+         *
+         */
         ACS,
+
+        /**
+         *
+         */
         CLIENT,
     }
     private source fieldSource;
@@ -48,21 +84,35 @@ public class DemographicField<T> {
      * @return
      */
     protected T getField() {
-        return field;
+        if (isPHI()){
+            if ( getCaller().getRights().canViewPHI()){
+                return field;
+            } else 
+                return null;
+        } else {
+            return field;
+        }
     }
 
     /**
      *
      * @param field
+     * @throws Core.AccessDeniedException
      */
-    protected void setField(T field) {
-        this.field = field;
+    protected void setField(T field) throws AccessDeniedException{
+        if (isPHI()){
+            if(getCaller().getRights().canUpdatePHI()){
+                this.field = field;
+            } else
+                throw new AccessDeniedException();
+        } else
+            this.field = field;
     }
 
     /**
      * @return the fieldSource
      */
-    protected source getFieldSource() {
+    public source getFieldSource() {
         return fieldSource;
     }
 

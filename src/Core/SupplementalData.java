@@ -1,6 +1,6 @@
 package Core;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * The SupplementalData class represents non-primary demographic data. This is
@@ -13,27 +13,73 @@ import java.util.ArrayList;
 
 public class SupplementalData extends WWBaseObject {
     private Debtor owner;
-    private String suppDataName;
-    private ArrayList<SupplementalDataItem> items;
+    private HashMap<String,SupplementalDataItem> items;
 
     /**
-     *
+     * Constructor
      * @param owner
-     * @param suppDataName
      * @param items
      */
-    public SupplementalData(Debtor owner, String suppDataName, ArrayList<SupplementalDataItem> items) {
+    public SupplementalData(Debtor owner, HashMap<String,SupplementalDataItem> items) {
         this.owner = owner;
-        this.suppDataName = suppDataName;
         this.items = items;
     }
 
     /**
-     *
+     * Default constructor
      */
     public SupplementalData() {
     }
     
+    // SupplementalData methods
+
+    /**
+     *
+     * @param category
+     * @return
+     */
+    
+    public SupplementalDataItem getItem(String category){
+        if ( !items.get(category).isPHI() )
+            return items.get(category);
+        else {
+            if ( getCaller().getRights().canViewPHI())
+                return items.get(category);
+            else
+                return null;
+        }
+    }
+
+    /**
+     *
+     * @param category
+     * @param item
+     * @return
+     */
+    public int setItem(String category, SupplementalDataItem item){
+        if(!items.get(category).isPHI()) {
+            items.put(category, item);
+            return 0;
+        } else {
+            if (getCaller().getRights().canUpdatePHI()) {
+                items.put(category, item);
+                return 0;
+            } else
+                return -1;
+        }
+    }
+
+    /**
+     *
+     * @param category
+     * @param newItem
+     * @return
+     */
+    public int addItem(String category, SupplementalDataItem newItem){
+            this.items.put(category, newItem);
+            return 0;
+    }
+    // Accessors
     /**
      *
      * @return
@@ -50,27 +96,12 @@ public class SupplementalData extends WWBaseObject {
         this.owner = owner;
     }
 
-    /**
-     *
-     * @return
-     */
-    public String getSuppDataName() {
-        return suppDataName;
-    }
-
-    /**
-     *
-     * @param suppDataName
-     */
-    public void setSuppDataName(String suppDataName) {
-        this.suppDataName = suppDataName;
-    }
 
     /**
      *
      * @return
      */
-    public ArrayList<SupplementalDataItem> getItems() {
+    public HashMap<String,SupplementalDataItem> getItems() {
         return items;
     }
 
@@ -78,7 +109,7 @@ public class SupplementalData extends WWBaseObject {
      *
      * @param items
      */
-    public void setItems(ArrayList<SupplementalDataItem> items) {
+    public void setItems(HashMap<String,SupplementalDataItem> items) {
         this.items = items;
     }
     

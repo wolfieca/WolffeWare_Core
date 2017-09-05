@@ -37,14 +37,50 @@ public class FeeSchedule extends WWBaseObject{
     private Short[] agencyPercents;
     private Long[]  minimumAgencyFees;
     private Long[]  maximumAgencyFees;
+
+    /**
+     *
+     */
     public enum type{
+
+        /**
+         *
+         */
         TOTAL_PAID,
+
+        /**
+         *
+         */
         INCREMENTAL,
+
+        /**
+         *
+         */
         ORIGINAL_BALANCE,
+
+        /**
+         *
+         */
         ORIGINAL_PRINCIPAL_BALANCE,
+
+        /**
+         *
+         */
         AGE_AT_PLACEMENT,
+
+        /**
+         *
+         */
         AGE_SINCE_PLACEMENT,
+
+        /**
+         *
+         */
         AGE_SINCE_ORIGINAL_CHARGE,
+
+        /**
+         *
+         */
         COLLECTION_PERFORMANCE,
     }
     private Short[] returnDays;

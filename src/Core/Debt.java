@@ -62,8 +62,8 @@ public class Debt extends WWBaseObject implements Reportable {
     private long origPrinBalance;
     private Date dateOrigInterest;
     private short interestRate;
-    private ArrayList<Payment> payments;
-    private ArrayList<History> history;    //History entries specific to this debt.
+    private ArrayList<Payment> payments;    // Payments applied to this debt.
+    private ArrayList<History> debtHist;    //History entries specific to this debt.
 
     
     
@@ -197,7 +197,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public long getPaid(int paidIndex){
-        return 0;
+        return this.paid[paidIndex];
     }
 
     /**
@@ -205,7 +205,11 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public long getPaid(){
-        return 0;
+        long totalPaid = 0;
+        for ( int x = 0; x < paid.length; x++){
+            totalPaid = totalPaid + paid[x];
+        }
+        return totalPaid;
     }
     /**
      * Get the amount owed on the specified owed field.
@@ -213,7 +217,7 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public long getOwed(int owedIndex){
-        return 0;
+        return this.owed[owedIndex];
     }
 
     /**
@@ -221,7 +225,11 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public long getOwed(){
-        return 0;
+        long totalOwed = 0;
+        for ( int x = 0; x < owed.length; x++ ){
+            totalOwed = totalOwed + owed[x];
+        }
+        return totalOwed;
     }
     /**
      * Update the interest on this debt, subject to restrictions such as being

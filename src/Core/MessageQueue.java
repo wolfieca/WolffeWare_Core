@@ -12,5 +12,27 @@ import java.util.concurrent.PriorityBlockingQueue;
  * @author odin
  */
 public class MessageQueue extends WWBaseObject{
-    private PriorityBlockingQueue msgQueue;
+    private PriorityBlockingQueue<Message> msgQueue;
+
+    public Message get() throws InterruptedException{
+        return msgQueue.take();
+    }
+    public boolean put(Message newMessage){
+        return msgQueue.add(newMessage);
+    }
+    
+    /**
+     * @return the msgQueue
+     */
+    public PriorityBlockingQueue<Message> getMsgQueue() {
+        return msgQueue;
+    }
+
+    /**
+     * @param msgQueue the msgQueue to set
+     */
+    protected void setMsgQueue(PriorityBlockingQueue<Message> msgQueue) {
+        this.msgQueue = msgQueue;
+    }
+    
 }
