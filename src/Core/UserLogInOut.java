@@ -19,7 +19,7 @@ package Core;
 
 /**
  * User has either logged into or out of the system
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class UserLogInOut extends Message{
     

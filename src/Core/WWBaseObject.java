@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 /**
  * WWBaseObject is the base of the entire hierarchy
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

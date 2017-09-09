@@ -22,7 +22,7 @@ package Core;
  * to produces, what to include in the report and whatever other report
  * parameters might be necessary. This message should generally be asynchronous,
  * since users should not have to wait around for a report to be produced.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class ReportRequest extends Message {
     

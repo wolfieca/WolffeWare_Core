@@ -24,7 +24,7 @@ import java.util.GregorianCalendar;
  * can be used to manage the system as a whole. There is one, server-wide
  * System object instance that contains all of this information, and it can
  * only by modified by users with the correct permissions.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

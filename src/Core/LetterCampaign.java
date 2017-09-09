@@ -19,7 +19,7 @@ package Core;
 
 /**
  *
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

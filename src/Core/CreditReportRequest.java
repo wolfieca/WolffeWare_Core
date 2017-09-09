@@ -36,7 +36,7 @@ package Core;
  * sent to the Administrator. This ticket is low priority unless too many 
  * requests fail, (the failure/success ration of requests goes past a certain
  * threshold)
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class CreditReportRequest extends ReportRequest{
     

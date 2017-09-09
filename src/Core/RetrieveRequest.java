@@ -22,7 +22,7 @@ package Core;
  * data. Typically, it is used to allow users to pull a specific debtor that 
  * was not next in their message queue (for example, a debtor called in). A 
  * ResultMessage is produced on successful preparation of the data.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class RetrieveRequest extends Message {
     

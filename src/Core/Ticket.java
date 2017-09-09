@@ -32,7 +32,7 @@ package Core;
  * have been finished when the initiator accepts the ticket solution, though
  * a follow-up can be specified to make sure the entire problem was dealt 
  * with. 
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Ticket extends Message {
     

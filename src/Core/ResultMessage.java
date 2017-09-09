@@ -23,7 +23,7 @@ package Core;
  * meant to be used as a compliment to RequestMessage and ActionMessage, or
  * any message class that is a request for the system to do some work on the 
  * caller's behalf.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class ResultMessage extends Message {
     

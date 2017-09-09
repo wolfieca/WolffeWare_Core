@@ -24,7 +24,7 @@ import java.util.HashMap;
  * for those data that are not always going to be present on a debtor. This is
  * designed to allow individual companies flexibility, to best reflect 
  * individual client needs.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

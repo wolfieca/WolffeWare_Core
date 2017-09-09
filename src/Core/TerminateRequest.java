@@ -21,7 +21,7 @@ package Core;
  * Employee has been terminated, includes date of termination, reasons, etc.
  * Automatically locks user's account on the system. Note this is completely
  * distinct from a legal termination.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class TerminateRequest extends Message{
     

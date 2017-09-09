@@ -25,7 +25,7 @@ import java.util.Map;
  * system and specified subsystems (run-time modules, for example). 
  * Note that Rights are a configuration specification mechanism, there is no
  * enforcement of the rights here. Enforcement is up to individual modules.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

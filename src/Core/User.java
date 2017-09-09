@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 /**
  * A user on the system
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

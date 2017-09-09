@@ -22,7 +22,7 @@ import java.util.Dictionary;
 /**
  * A description of an objects capabilities. Primarily useful for User objects,
  * which are the primary active entities in the system.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

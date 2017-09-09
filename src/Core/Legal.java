@@ -20,7 +20,7 @@ package Core;
 /**
  * Legal data. Based on the SupplementalData class, since it is basically a
  * special case of that class.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Legal extends SupplementalData{
     

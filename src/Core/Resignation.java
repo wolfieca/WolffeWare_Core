@@ -20,7 +20,7 @@ package Core;
 /**
  * Employee has resigned from the company. Automatically locks the user's
  * accounts on the system.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Resignation extends Message{
     

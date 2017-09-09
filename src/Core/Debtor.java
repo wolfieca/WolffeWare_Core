@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 /**
  * Debtor represents a single debtor/collection account on the system.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 
@@ -128,6 +128,11 @@ public class Debtor extends WWBaseObject implements Reportable {
     
     // Utility methods. The public API should not have any direct access to the
     // internal implementations of the demographic fields.
+
+    /**
+     *
+     * @return
+     */
     public String getName(){
         if ( lastName.isPHI() || firstName.isPHI() || middleName.isPHI() ){
             if ( getCaller().getRights().canViewPHI() )
@@ -139,6 +144,11 @@ public class Debtor extends WWBaseObject implements Reportable {
             return lastName.getField() + ", " + firstName.getField() +
                     " " + middleName.getField();
     }
+
+    /**
+     *
+     * @return
+     */
     public String getNormalName(){
         if ( lastName.isPHI() || firstName.isPHI() || middleName.isPHI() ||
                 title.isPHI() || suffix.isPHI()){
@@ -153,6 +163,11 @@ public class Debtor extends WWBaseObject implements Reportable {
                 middleName.getField()+" "+lastName.getField()+
                 (suffix.getField().equals("")?"":", "+suffix.getField());
     }
+
+    /**
+     *
+     * @return
+     */
     public String getPhoneNumber(){
         if (phone.isPHI()){
             if(getCaller().getRights().canViewPHI()){

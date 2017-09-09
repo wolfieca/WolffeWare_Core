@@ -21,7 +21,7 @@ import java.util.Dictionary;
 
 /**
  * AccessControlList is the basic
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

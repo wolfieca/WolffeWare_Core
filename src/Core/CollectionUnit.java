@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 /**
  * A collection unit and all the support bits (work queue, etc).
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class CollectionUnit extends WWBaseObject{
     private int office;     // The office number for this collector

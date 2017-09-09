@@ -22,7 +22,7 @@ import java.util.GregorianCalendar;
 /**
  * ClientStats represents a single client statistical record. A single record
  * represents a single month of activity for a client
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class ClientStats {
     private Integer year;

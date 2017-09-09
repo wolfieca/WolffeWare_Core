@@ -19,7 +19,7 @@ package Core;
 
 /**
  * Base class for all documents (Credit Reports, Letters, Reports, etc)
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

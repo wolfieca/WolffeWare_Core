@@ -21,7 +21,7 @@ package Core;
  * Permission describes a set of permissions for an object.
  * Exact interpretation of the Permissions is up to the objects protected
  * by them.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

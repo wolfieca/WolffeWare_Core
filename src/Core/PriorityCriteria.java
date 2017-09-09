@@ -19,7 +19,7 @@ package Core;
 
 /**
  * A list of the available criteria to be used for the PriorityCalculator
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public enum PriorityCriteria {
     

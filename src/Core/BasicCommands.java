@@ -19,7 +19,7 @@ package Core;
 
 /**
  * The Base command set for the CommandParser
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public enum BasicCommands {
 

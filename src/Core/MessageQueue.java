@@ -21,14 +21,25 @@ import java.util.concurrent.PriorityBlockingQueue;
 
 /**
  * A system message queue
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class MessageQueue extends WWBaseObject{
     private PriorityBlockingQueue<Message> msgQueue;
 
+    /**
+     *
+     * @return
+     * @throws InterruptedException
+     */
     public Message get() throws InterruptedException{
         return msgQueue.take();
     }
+
+    /**
+     *
+     * @param newMessage
+     * @return
+     */
     public boolean put(Message newMessage){
         return msgQueue.add(newMessage);
     }

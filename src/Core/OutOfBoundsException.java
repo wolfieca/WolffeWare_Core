@@ -19,7 +19,7 @@ package Core;
 
 /**
  * Thrown when a number of out of bounds.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class OutOfBoundsException extends Exception {
 

@@ -22,7 +22,7 @@ package Core;
  * object it is attached to until the specified time in the future. Other
  * than the synchronous aspect of the message, it works largely like a 
  * schedule message.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Hold extends Message{
     

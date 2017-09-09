@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 /**
  * Client represents clients of the company. 
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

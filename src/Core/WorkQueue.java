@@ -19,14 +19,14 @@ package Core;
 
 /**
  * A WorkQueue holds accounts that have been queued for a particular day
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 import java.util.concurrent.PriorityBlockingQueue;
 
 /**
  *
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class WorkQueue extends WWBaseObject {
     private int maxQueueSize;

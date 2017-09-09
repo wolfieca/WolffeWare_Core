@@ -19,7 +19,7 @@ package Core;
 
 /**
  * Message priorities. Determines message delivery speed.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public enum MessagePriority {
 

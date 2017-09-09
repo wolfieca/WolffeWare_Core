@@ -19,7 +19,7 @@ package Core;
 
 /**
  * Sent when a user either goes on or comes off break.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class UserBreak extends Message{
     

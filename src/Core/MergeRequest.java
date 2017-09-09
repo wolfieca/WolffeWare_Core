@@ -21,7 +21,7 @@ package Core;
  * Merge request between two or more Debtors/Debts, etc. Caller just needs
  * to be notified of success or failure of the merge, but may or may not need 
  * to wait for the results (caller chooses).
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class MergeRequest extends Message{
     

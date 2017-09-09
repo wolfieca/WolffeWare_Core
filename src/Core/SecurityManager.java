@@ -22,7 +22,7 @@ package Core;
  * is the system-level security gatekeeper. It keeps all objects from taking
  * inappropriate actions. The Rights class allows individual parts of the 
  * system to allow or disallow access to various pieces of system functionality.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

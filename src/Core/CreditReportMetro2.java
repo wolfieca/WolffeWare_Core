@@ -33,7 +33,7 @@ package Core;
  * debt is unable to comply with the debtor's request, that entire debt is kept 
  * out of the credit file (since there is nothing to return), but the debtor can 
  * continue on with the requests of the other debts. 
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

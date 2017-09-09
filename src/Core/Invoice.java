@@ -20,7 +20,7 @@ package Core;
 /**
  * A client invoice. Like Statements Invoices are produced automatically by the
  * invoicing subsystem.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Invoice extends Document{
     

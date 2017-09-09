@@ -19,7 +19,7 @@ package Core;
 
 /**
  * The types of messages available to the system.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public enum MessageType {
 

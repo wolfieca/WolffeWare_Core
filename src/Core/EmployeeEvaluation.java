@@ -19,7 +19,7 @@ package Core;
 
 /**
  * An EmployeeEvaluation
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class EmployeeEvaluation extends WWBaseObject{
     

@@ -20,7 +20,7 @@ package Core;
 /**
  * A Fee schedule. FeeSchedules reflect how fees/interest/etc are accumulated
  * and how payments are applied to individual debts.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class FeeSchedule extends WWBaseObject{
     private Long    feeSchedID;

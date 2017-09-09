@@ -20,7 +20,7 @@ package Core;
 /**
  * A Campaign is a grouping of debtors and/or debts that are all being acted on 
  * in some way (ie mail or phone campaign)
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Campaign {
     

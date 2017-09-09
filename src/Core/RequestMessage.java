@@ -21,7 +21,7 @@ package Core;
  * See Message for more documentation.
  * A RequestMessage is like an ActionMessage, except that the caller isn't 
  * waiting for the results.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class RequestMessage extends Message{
     

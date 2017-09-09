@@ -23,7 +23,7 @@ package Core;
  * period that can be attached by specifying a late_date for the promise. A
  * promise can be recurring and can be for any of several different payment
  * methods.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class PromiseMessage extends Message{
     

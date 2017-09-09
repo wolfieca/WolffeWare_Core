@@ -21,7 +21,7 @@ package Core;
  * Supplemental data for a debtor. If the Actor requesting this record is
  * not authorized to view this record for whatever reason, then do not return 
  * the data.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class SupplementalDataItem extends WWBaseObject{
     private String name;

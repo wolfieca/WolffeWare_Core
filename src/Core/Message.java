@@ -42,7 +42,7 @@ import java.util.GregorianCalendar;
  * In the hierarchy of system objects, messages are near the bottom in terms of
  * how long they typically stick around. There is a configurable option to turn
  * disposal on or off and another to determine retention time if disposal is on.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Message extends WWBaseObject {
     private Actor sender;

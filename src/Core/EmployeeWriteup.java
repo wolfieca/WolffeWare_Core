@@ -24,7 +24,7 @@ package Core;
  * the employee and if they go past a particular threshold, they initiate
  * a disciplinary message to be sent to the managers/supervisors responsible
  * for that employee.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class EmployeeWriteup extends Message{
     

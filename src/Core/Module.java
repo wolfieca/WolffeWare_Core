@@ -20,7 +20,7 @@ package Core;
 /**
  * An external module for the WolffeWare system. This is the top of the hierarchy
  * for modules to add in to the system.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Module {
     

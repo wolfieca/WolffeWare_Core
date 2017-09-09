@@ -19,7 +19,7 @@ package Core;
 
 /**
  *
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class AccountStatus {
     

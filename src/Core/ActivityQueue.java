@@ -19,7 +19,7 @@ package Core;
 
 /**
  * Activities that are scheduled for the future.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 public class ActivityQueue {

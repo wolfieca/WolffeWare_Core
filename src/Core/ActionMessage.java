@@ -26,7 +26,7 @@ package Core;
  * user if they are used indiscriminately. The use of these messages is best
  * limited to those situations where the user needs to have a result before they
  * can continue.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class ActionMessage extends Message{
     

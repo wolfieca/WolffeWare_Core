@@ -19,7 +19,7 @@ package Core;
 
 /**
  * A company asset (primarily equipment).
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Asset {
     

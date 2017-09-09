@@ -25,7 +25,7 @@ package Core;
  * completed by and the date that the WorkOrder needs to be completed by. As each
  * step is completed, the WorkOrder is updated and forwarded to the next person
  * in the chain.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class WorkOrder extends Message {
     

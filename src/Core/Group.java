@@ -20,7 +20,7 @@ package Core;
 /**
  * A security group. A group is like a user in many ways. A user can be a member
  * of one or more groups.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

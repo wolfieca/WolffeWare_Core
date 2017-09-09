@@ -21,7 +21,7 @@ package Core;
  * An account Status. This includes the name of the status, any description
  * that is appropriate, and various miscellaneous data (ie bankruptcy status),
  * for accounts in this status.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Status {
     

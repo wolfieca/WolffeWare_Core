@@ -21,7 +21,7 @@ package Core;
  * A Generic Demographic Field. To simplify things, the accessibility of these
  * fields will be tested by the Debtor object as far as PHI goes (doesn't make
  * sense to have to implement an entire WWBaseObject for each individual field).
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  * @param <T> The type of this Demographic field
  */
 public class DemographicField<T> extends WWBaseObject{

@@ -19,7 +19,7 @@ package Core;
 
 /**
  * The account has been purged from the system
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class PurgeRequest extends Message{
     

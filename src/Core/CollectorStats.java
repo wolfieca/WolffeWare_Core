@@ -19,7 +19,7 @@ package Core;
 
 /**
  *
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class CollectorStats {
     //Unlike Wizard, since collector stats is managed and maintained by the

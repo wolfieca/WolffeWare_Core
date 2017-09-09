@@ -22,7 +22,7 @@ import java.util.Date;
 
 /**
  * A history record.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

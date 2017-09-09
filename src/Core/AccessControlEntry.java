@@ -23,7 +23,7 @@ package Core;
  * a particular access is possible. AccessControlEntry objects are immutable. 
  * Once they're created, changes can only be made by creating a new 
  * AccessControlEntry object with the desired permissions.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

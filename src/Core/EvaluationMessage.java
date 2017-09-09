@@ -32,7 +32,7 @@ package Core;
  * data. While the individual evaluations remain available to management
  * the employee record only notes the averages of the evaluations the 
  * employee has received.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class EvaluationMessage extends Message {
     

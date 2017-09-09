@@ -21,7 +21,7 @@ package Core;
  * CommandParser is the base class for the token parsing classes in the 
  * system. The first argument will be the object this command is being applied
  * to. Basic syntax is Test [args[,...] action
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class CommandParser extends WWBaseObject {
     private Test test;

@@ -23,7 +23,7 @@ import java.util.Date;
 /**
  * Debt represents a single debt on the system. Debt data is mostly not PHI data, 
  * so the PHI checks should be avoidable here, for the most part.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

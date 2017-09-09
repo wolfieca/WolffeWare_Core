@@ -21,7 +21,7 @@ package Core;
  * A compiled instruction. Used for Strategies, for instance. An initial text
  * program is turned into a series of individual instructions that can be run
  * as the system requires. These will be packed into messages
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Instruction {
     private Test condition;

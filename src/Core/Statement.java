@@ -19,7 +19,7 @@ package Core;
 
 /**
  * A generic statement. Produced periodically by the invoicing system
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Statement extends Document{
     

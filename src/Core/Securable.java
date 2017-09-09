@@ -20,7 +20,7 @@ package Core;
 /**
  * Securable interface. The core of the security interface for the whole
  * system.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 

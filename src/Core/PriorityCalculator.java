@@ -22,7 +22,7 @@ package Core;
  * priority of an Account/Debtor. PriorityCalculator provides static methods 
  * related to the calculation, and not much else. Internally, it has a set
  * of available criteria to help it with the calculations.
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class PriorityCalculator {
     

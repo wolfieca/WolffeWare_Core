@@ -19,7 +19,7 @@ package Core;
 
 /**
  * Thrown when a change is attempted on a locked object.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class LockedItemException extends Exception {
 

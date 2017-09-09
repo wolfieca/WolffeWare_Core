@@ -20,7 +20,7 @@ package Core;
 /**
  * The account has been returned to the client. No further work is to be 
  * done on the account.
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class ReturnRequest extends Message{
     

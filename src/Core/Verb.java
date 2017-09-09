@@ -19,7 +19,7 @@ package Core;
 
 /**
  * An action statement for the CommandParser. 
- * @author rserrano
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public enum Verb {
 

@@ -21,7 +21,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author odin
+ * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 
