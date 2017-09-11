@@ -15,6 +15,7 @@
             <word>mergeable</word>
             <word>Securable</word>
             <word>splitable</word>
+            <word>judgment</word>
         </spellchecker-wordlist>
     </configuration>
 </project>
