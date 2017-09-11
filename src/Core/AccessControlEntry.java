@@ -21,7 +21,11 @@ package Core;
  * AccessControlEntry is a single entry in an AccessControlList. Objects of this
  * class are responsible for maintaining the permissions and testing whether
  * a particular access is possible. AccessControlEntry objects are immutable. 
- * Once they're created, changes can only be made by creating a new 
+ * Once they're created, changes can only be made by creating a new AccessControlEntry
+ * object and replacing the old entry on the AccessControlList. Note that the
+ * sole responsibility of this class is to answer inquiries about whether a
+ * given Actor is allowed the specified access to the managed object. This class
+ * works as the glue between Actors and Permissions
  * AccessControlEntry object with the desired permissions.
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */

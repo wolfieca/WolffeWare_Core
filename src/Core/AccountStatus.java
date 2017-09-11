@@ -18,7 +18,13 @@
 package Core;
 
 /**
- *
+ * Represents the statuses that can be placed on accounts on the system. Includes
+ * data on how accounts with these statuses should be handled by the system,
+ * whether the status indicates that the account is bankrupt, whether or not 
+ * debts attached to accounts with this status can be reported to the CRAs, 
+ * whether the status indicates that the account has been closed, and various 
+ * other things. There are also additional, site-specific flags that can also be 
+ * defined.
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class AccountStatus {
