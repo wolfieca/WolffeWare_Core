@@ -28,5 +28,11 @@ package Core;
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class AccountStatus {
+    private String status;
+    private AccountStatusType type;
+    private AccountStatusGroup group;
+    private Boolean bankrupt;
+    private Boolean debtsAccrueInterest;
+    private Boolean creditReportable;
     
 }
