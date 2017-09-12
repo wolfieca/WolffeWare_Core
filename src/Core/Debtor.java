@@ -79,8 +79,44 @@ public class Debtor extends WWBaseObject implements Reportable {
     private int origBal;
     private int payments;
     private boolean mailReturn;
+    private boolean paidInFull;
+    private boolean workedSinceLastNewbiz;
+    private boolean hasAssetWindow;
+    private boolean hasEmploymentWindow;
+    private boolean hasAddressWindow;
+    private boolean hasPhone;
+    private boolean withAttorney;
+    private boolean withForward;
+    private boolean hasRestrictionsWindow;
+    private boolean doNotCall;
+    private boolean doNotCallHome;
+    private boolean doNotWriteWork;
+    private boolean doNotCallWork;
+    private boolean debtReturned;
+    private boolean everNSF;
+    private boolean everSkipTracedPhone;
+    private boolean everSkipTracedAddress;
+    private boolean everSkipTracedOther;
+    private boolean preCollect;
+    private boolean mergeInProgress;
+    private boolean splitInProgress;
+    private AttorneyForwarder attorneyForwarder;
+    private GregorianCalendar dateSentOut;
+    private GregorianCalendar dateLastPaid;
+    private GregorianCalendar dateLastSeen;
+    private GregorianCalendar dateLastNewbiz;
+    private GregorianCalendar dateOriginallyReceived;
+    private GregorianCalendar dateClosed;
+    private GregorianCalendar dateLastUpdated;
+    private int collectorRetrySendDays;
+    private int lettersLeft;
+    private Priority priority;
+    private CollectionUnit priorCollector;
     private Promise paymentPromise;
     private AccountStatus status;
+    private int keptPromises;
+    private int brokenPromises;
+    
     // Matchable debtors can be processed by the match finding routines.
     private boolean matchable;
     // Mergeable debtors can be merged with other debtors.
@@ -218,13 +254,13 @@ public class Debtor extends WWBaseObject implements Reportable {
      * Retrieve the first name of the debtor
      * @return
      */
-    public DemographicField<String> getFirstName() {
+    public String getFirstName() {
         if ( firstName.isPHI()){
             if ( getCaller().getRights().canViewPHI() )
-                return firstName;
+                return firstName.getField();
             else return null;
         }
-        return firstName;
+        return firstName.getField();
     }
 
     /**
@@ -1197,6 +1233,580 @@ public class Debtor extends WWBaseObject implements Reportable {
      */
     public boolean isMatch(Debtor testDebtor){
         return true;
+    }
+
+    /**
+     * @return the paidInFull
+     */
+    public boolean isPaidInFull() {
+        return paidInFull;
+    }
+
+    /**
+     * @return the workedSinceLastNewbiz
+     */
+    public boolean isWorkedSinceLastNewbiz() {
+        return workedSinceLastNewbiz;
+    }
+
+    /**
+     * @return the hasAssetWindow
+     */
+    public boolean isHasAssetWindow() {
+        return hasAssetWindow;
+    }
+
+    /**
+     * @return the hasEmploymentWindow
+     */
+    public boolean isHasEmploymentWindow() {
+        return hasEmploymentWindow;
+    }
+
+    /**
+     * @return the hasAddressWindow
+     */
+    public boolean isHasAddressWindow() {
+        return hasAddressWindow;
+    }
+
+    /**
+     * @return the hasPhone
+     */
+    public boolean isHasPhone() {
+        return hasPhone;
+    }
+
+    /**
+     * @return the withAttorney
+     */
+    public boolean isWithAttorney() {
+        return withAttorney;
+    }
+
+    /**
+     * @return the withForward
+     */
+    public boolean isWithForward() {
+        return withForward;
+    }
+
+    /**
+     * @return the hasRestrictionsWindow
+     */
+    public boolean isHasRestrictionsWindow() {
+        return hasRestrictionsWindow;
+    }
+
+    /**
+     * @return the doNotCall
+     */
+    public boolean isDoNotCall() {
+        return doNotCall;
+    }
+
+    /**
+     * @return the doNotCallHome
+     */
+    public boolean isDoNotCallHome() {
+        return doNotCallHome;
+    }
+
+    /**
+     * @return the doNotWriteWork
+     */
+    public boolean isDoNotWriteWork() {
+        return doNotWriteWork;
+    }
+
+    /**
+     * @return the doNotCallWork
+     */
+    public boolean isDoNotCallWork() {
+        return doNotCallWork;
+    }
+
+    /**
+     * @return the debtReturned
+     */
+    public boolean isDebtReturned() {
+        return debtReturned;
+    }
+
+    /**
+     * @return the everNSF
+     */
+    public boolean isEverNSF() {
+        return everNSF;
+    }
+
+    /**
+     * @return the everSkipTracedPhone
+     */
+    public boolean isEverSkipTracedPhone() {
+        return everSkipTracedPhone;
+    }
+
+    /**
+     * @return the everSkipTracedAddress
+     */
+    public boolean isEverSkipTracedAddress() {
+        return everSkipTracedAddress;
+    }
+
+    /**
+     * @return the everSkipTracedOther
+     */
+    public boolean isEverSkipTracedOther() {
+        return everSkipTracedOther;
+    }
+
+    /**
+     * @return the preCollect
+     */
+    public boolean isPreCollect() {
+        return preCollect;
+    }
+
+    /**
+     * @return the mergeInProgress
+     */
+    public boolean isMergeInProgress() {
+        return mergeInProgress;
+    }
+
+    /**
+     * @return the splitInProgress
+     */
+    public boolean isSplitInProgress() {
+        return splitInProgress;
+    }
+
+    /**
+     * @return the attorneyForwarder
+     */
+    public AttorneyForwarder getAttorneyForwarder() {
+        return attorneyForwarder;
+    }
+
+    /**
+     * @return the dateSentOut
+     */
+    public GregorianCalendar getDateSentOut() {
+        return dateSentOut;
+    }
+
+    /**
+     * @return the dateLastPaid
+     */
+    public GregorianCalendar getDateLastPaid() {
+        return dateLastPaid;
+    }
+
+    /**
+     * @return the dateLastSeen
+     */
+    public GregorianCalendar getDateLastSeen() {
+        return dateLastSeen;
+    }
+
+    /**
+     * @return the dateLastNewbiz
+     */
+    public GregorianCalendar getDateLastNewbiz() {
+        return dateLastNewbiz;
+    }
+
+    /**
+     * @return the dateOriginallyReceived
+     */
+    public GregorianCalendar getDateOriginallyReceived() {
+        return dateOriginallyReceived;
+    }
+
+    /**
+     * @return the dateClosed
+     */
+    public GregorianCalendar getDateClosed() {
+        return dateClosed;
+    }
+
+    /**
+     * @return the dateLastUpdated
+     */
+    public GregorianCalendar getDateLastUpdated() {
+        return dateLastUpdated;
+    }
+
+    /**
+     * @return the collectorRetrySendDays
+     */
+    public int getCollectorRetrySendDays() {
+        return collectorRetrySendDays;
+    }
+
+    /**
+     * @return the lettersLeft
+     */
+    public int getLettersLeft() {
+        return lettersLeft;
+    }
+
+    /**
+     * @return the priority
+     */
+    public Priority getPriority() {
+        return priority;
+    }
+
+    /**
+     * @return the priorCollector
+     */
+    public CollectionUnit getPriorCollector() {
+        return priorCollector;
+    }
+
+    /**
+     * @return the keptPromises
+     */
+    public int getKeptPromises() {
+        return keptPromises;
+    }
+
+    /**
+     * @return the brokenPromises
+     */
+    public int getBrokenPromises() {
+        return brokenPromises;
+    }
+
+    /**
+     * @param paidInFull the paidInFull to set
+     */
+    protected void setPaidInFull(boolean paidInFull) {
+        this.paidInFull = paidInFull;
+    }
+
+    /**
+     * @param workedSinceLastNewbiz the workedSinceLastNewbiz to set
+     */
+    protected void setWorkedSinceLastNewbiz(boolean workedSinceLastNewbiz) {
+        this.workedSinceLastNewbiz = workedSinceLastNewbiz;
+    }
+
+    /**
+     * @param hasAssetWindow the hasAssetWindow to set
+     */
+    protected void setHasAssetWindow(boolean hasAssetWindow) {
+        this.hasAssetWindow = hasAssetWindow;
+    }
+
+    /**
+     * @param hasEmploymentWindow the hasEmploymentWindow to set
+     */
+    protected void setHasEmploymentWindow(boolean hasEmploymentWindow) {
+        this.hasEmploymentWindow = hasEmploymentWindow;
+    }
+
+    /**
+     * @param hasAddressWindow the hasAddressWindow to set
+     */
+    protected void setHasAddressWindow(boolean hasAddressWindow) {
+        this.hasAddressWindow = hasAddressWindow;
+    }
+
+    /**
+     * @param hasPhone the hasPhone to set
+     */
+    protected void setHasPhone(boolean hasPhone) {
+        this.hasPhone = hasPhone;
+    }
+
+    /**
+     * @param withAttorney the withAttorney to set
+     */
+    protected void setWithAttorney(boolean withAttorney) {
+        this.withAttorney = withAttorney;
+    }
+
+    /**
+     * @param withForward the withForward to set
+     */
+    protected void setWithForward(boolean withForward) {
+        this.withForward = withForward;
+    }
+
+    /**
+     * @param hasRestrictionsWindow the hasRestrictionsWindow to set
+     */
+    protected void setHasRestrictionsWindow(boolean hasRestrictionsWindow) {
+        this.hasRestrictionsWindow = hasRestrictionsWindow;
+    }
+
+    /**
+     * @param doNotCall the doNotCall to set
+     */
+    protected void setDoNotCall(boolean doNotCall) {
+        this.doNotCall = doNotCall;
+    }
+
+    /**
+     * @param doNotCallHome the doNotCallHome to set
+     */
+    protected void setDoNotCallHome(boolean doNotCallHome) {
+        this.doNotCallHome = doNotCallHome;
+    }
+
+    /**
+     * @param doNotWriteWork the doNotWriteWork to set
+     */
+    protected void setDoNotWriteWork(boolean doNotWriteWork) {
+        this.doNotWriteWork = doNotWriteWork;
+    }
+
+    /**
+     * @param doNotCallWork the doNotCallWork to set
+     */
+    protected void setDoNotCallWork(boolean doNotCallWork) {
+        this.doNotCallWork = doNotCallWork;
+    }
+
+    /**
+     * @param debtReturned the debtReturned to set
+     */
+    protected void setDebtReturned(boolean debtReturned) {
+        this.debtReturned = debtReturned;
+    }
+
+    /**
+     * @param everNSF the everNSF to set
+     */
+    protected void setEverNSF(boolean everNSF) {
+        this.everNSF = everNSF;
+    }
+
+    /**
+     * @param everSkipTracedPhone the everSkipTracedPhone to set
+     */
+    protected void setEverSkipTracedPhone(boolean everSkipTracedPhone) {
+        this.everSkipTracedPhone = everSkipTracedPhone;
+    }
+
+    /**
+     * @param everSkipTracedAddress the everSkipTracedAddress to set
+     */
+    protected void setEverSkipTracedAddress(boolean everSkipTracedAddress) {
+        this.everSkipTracedAddress = everSkipTracedAddress;
+    }
+
+    /**
+     * @param everSkipTracedOther the everSkipTracedOther to set
+     */
+    protected void setEverSkipTracedOther(boolean everSkipTracedOther) {
+        this.everSkipTracedOther = everSkipTracedOther;
+    }
+
+    /**
+     * @param preCollect the preCollect to set
+     */
+    protected void setPreCollect(boolean preCollect) {
+        this.preCollect = preCollect;
+    }
+
+    /**
+     * @param mergeInProgress the mergeInProgress to set
+     */
+    protected void setMergeInProgress(boolean mergeInProgress) {
+        this.mergeInProgress = mergeInProgress;
+    }
+
+    /**
+     * @param splitInProgress the splitInProgress to set
+     */
+    protected void setSplitInProgress(boolean splitInProgress) {
+        this.splitInProgress = splitInProgress;
+    }
+
+    /**
+     * @param attorneyForwarder the attorneyForwarder to set
+     */
+    protected void setAttorneyForwarder(AttorneyForwarder attorneyForwarder) {
+        this.attorneyForwarder = attorneyForwarder;
+    }
+
+    /**
+     * @param dateSentOut the dateSentOut to set
+     */
+    protected void setDateSentOut(GregorianCalendar dateSentOut) {
+        this.dateSentOut = dateSentOut;
+    }
+
+    /**
+     * @param dateLastPaid the dateLastPaid to set
+     */
+    protected void setDateLastPaid(GregorianCalendar dateLastPaid) {
+        this.dateLastPaid = dateLastPaid;
+    }
+
+    /**
+     * @param dateLastSeen the dateLastSeen to set
+     */
+    protected void setDateLastSeen(GregorianCalendar dateLastSeen) {
+        this.dateLastSeen = dateLastSeen;
+    }
+
+    /**
+     * @param dateLastNewbiz the dateLastNewbiz to set
+     */
+    protected void setDateLastNewbiz(GregorianCalendar dateLastNewbiz) {
+        this.dateLastNewbiz = dateLastNewbiz;
+    }
+
+    /**
+     * @param dateOriginallyReceived the dateOriginallyReceived to set
+     */
+    protected void setDateOriginallyReceived(GregorianCalendar dateOriginallyReceived) {
+        this.dateOriginallyReceived = dateOriginallyReceived;
+    }
+
+    /**
+     * @param dateClosed the dateClosed to set
+     */
+    protected void setDateClosed(GregorianCalendar dateClosed) {
+        this.dateClosed = dateClosed;
+    }
+
+    /**
+     * @param dateLastUpdated the dateLastUpdated to set
+     */
+    protected void setDateLastUpdated(GregorianCalendar dateLastUpdated) {
+        this.dateLastUpdated = dateLastUpdated;
+    }
+
+    /**
+     * @param collectorRetrySendDays the collectorRetrySendDays to set
+     */
+    protected void setCollectorRetrySendDays(int collectorRetrySendDays) {
+        this.collectorRetrySendDays = collectorRetrySendDays;
+    }
+
+    /**
+     * @param lettersLeft the lettersLeft to set
+     */
+    protected void setLettersLeft(int lettersLeft) {
+        this.lettersLeft = lettersLeft;
+    }
+
+    /**
+     * @param priority the priority to set
+     */
+    protected void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    /**
+     * @param priorCollector the priorCollector to set
+     */
+    protected void setPriorCollector(CollectionUnit priorCollector) {
+        this.priorCollector = priorCollector;
+    }
+
+    /**
+     * @param keptPromises the keptPromises to set
+     */
+    protected void setKeptPromises(int keptPromises) {
+        this.keptPromises = keptPromises;
+    }
+
+    /**
+     * @param brokenPromises the brokenPromises to set
+     */
+    protected void setBrokenPromises(int brokenPromises) {
+        this.brokenPromises = brokenPromises;
+    }
+
+    /**
+     * @param lastName the lastName to set
+     */
+    protected void setLastName(DemographicField<String> lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
+     * @param firstName the firstName to set
+     */
+    protected void setFirstName(DemographicField<String> firstName) {
+        this.firstName = firstName;
+    }
+
+    /**
+     * @param middleName the middleName to set
+     */
+    protected void setMiddleName(DemographicField<String> middleName) {
+        this.middleName = middleName;
+    }
+
+    /**
+     * @param suffix the suffix to set
+     */
+    protected void setSuffix(DemographicField<String> suffix) {
+        this.suffix = suffix;
+    }
+
+    /**
+     * @param title the title to set
+     */
+    protected void setTitle(DemographicField<String> title) {
+        this.title = title;
+    }
+
+    /**
+     * @param phone the phone to set
+     */
+    protected void setPhone(DemographicField<String> phone) {
+        this.phone = phone;
+    }
+
+    /**
+     * @param ssn the ssn to set
+     */
+    protected void setSsn(DemographicField<String> ssn) {
+        this.ssn = ssn;
+    }
+
+    /**
+     * @param birthDate the birthDate to set
+     */
+    protected void setBirthDate(DemographicField<GregorianCalendar> birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    /**
+     * @param addressLine1 the addressLine1 to set
+     */
+    protected void setAddressLine1(DemographicField<String> addressLine1) {
+        this.addressLine1 = addressLine1;
+    }
+
+    /**
+     * @param addressLine2 the addressLine2 to set
+     */
+    protected void setAddressLine2(DemographicField<String> addressLine2) {
+        this.addressLine2 = addressLine2;
+    }
+
+    /**
+     * @param addressLine3 the addressLine3 to set
+     */
+    protected void setAddressLine3(DemographicField<String> addressLine3) {
+        this.addressLine3 = addressLine3;
+    }
+
+    /**
+     * @param city the city to set
+     */
+    protected void setCity(DemographicField<String> city) {
+        this.city = city;
     }
     
 }
