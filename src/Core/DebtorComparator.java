@@ -25,7 +25,7 @@ import java.util.Comparator;
 public class DebtorComparator implements Comparator<Debtor>{
     @Override
     public int compare (Debtor a, Debtor b){
-        if ( a.)
+        return 0;
     }
     
 }
