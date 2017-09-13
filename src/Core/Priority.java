@@ -17,9 +17,13 @@
 package Core;
 
 /**
- *
+ * The priority associated with a debtor. Debtor priorities propagate to 
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class Priority {
+    private Integer priority;
+    public Integer getPriority(){
+        return this.priority;
+    }
     
 }

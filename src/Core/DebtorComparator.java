@@ -19,13 +19,13 @@ package Core;
 import java.util.Comparator;
 
 /**
- *
+ * Compare two debtors. This is mostly used for messageQueues.
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class DebtorComparator implements Comparator<Debtor>{
     @Override
     public int compare (Debtor a, Debtor b){
-        return 0;
+        return a.getPriority().getPriority() - (int)b.getPriority().getPriority();
     }
     
 }
