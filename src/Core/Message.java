@@ -88,13 +88,17 @@ public class Message extends WWBaseObject {
         this.messageType = MessageType.MESSAGE;
     }
     
-    /**
-     *
-     * @param origMessage
-     */
-    public Message(Message origMessage){
+    public Message(Actor sender, Actor receiver, WWBaseObject[] reference, 
+            GregorianCalendar releaseDate){
+        this.sender = sender;
+        this.receiver = receiver;
+        this.reference = reference;
+        this.created = new GregorianCalendar();
+        this.release = releaseDate;
+        this.seen = false;
+        this.done = false;
+        this.messageType = MessageType.MESSAGE;
     }
-    
     /**
      * Get the sender of this message
      * @return
@@ -104,7 +108,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Set the sender of this Message.
      * @param sender
      */
     protected void setSender(Actor sender) {
@@ -112,7 +116,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Return the intended receiver of this message.
      * @return
      */
     public Actor getReceiver() {
@@ -120,7 +124,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Set the receiver of this message.
      * @param receiver
      */
     protected void setReceiver(Actor receiver) {
@@ -128,7 +132,8 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Returns the references of this message (the objects that this message
+     * refers to).
      * @return
      */
     public WWBaseObject[] getReference() {
@@ -136,7 +141,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Returns a specific reference this message refers to.
      * @param index
      * @return
      */
@@ -144,7 +149,7 @@ public class Message extends WWBaseObject {
         return reference[index];
     }
     /**
-     *
+     * Set the references for this message.
      * @param reference
      */
     protected void setReference(WWBaseObject[] reference) {
@@ -152,7 +157,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Is the caller (sender) waiting for this message.
      * @return
      */
     public boolean isCallerWaiting() {
@@ -160,7 +165,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Set the caller waiting state for this message.
      * @param waiting
      */
     protected void setWaiting(boolean waiting) {
@@ -168,7 +173,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Get a list of objects waiting on this message.
      * @return
      */
     public WWBaseObject[] getWaiters() {
@@ -176,7 +181,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Set the list of waiters for this message.
      * @param waiters
      */
     protected void setWaiters(WWBaseObject[] waiters) {
@@ -202,7 +207,7 @@ public class Message extends WWBaseObject {
 
 
     /**
-     *
+     * Has this message been completed?
      * @return
      */
     public boolean isDone() {
@@ -210,7 +215,7 @@ public class Message extends WWBaseObject {
     }
 
     /**
-     *
+     * Set the done state of this message.
      * @param done
      */
     protected void setDone(boolean done) {
@@ -250,7 +255,7 @@ public class Message extends WWBaseObject {
     }
     
     /**
-     *
+     * Dispose of this message (mark it as disposable and done).
      */
     public void dispose(){
     }
