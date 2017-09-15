@@ -19,7 +19,9 @@ package Core;
 import java.util.Comparator;
 
 /**
- * Compare two debtors. This is mostly used for messageQueues.
+ * Compare two debtors. This is mostly for the benefit of the Scheduler, as it
+ * is schedule debtor messages for the same (current) day, and release them in
+ * the correct order.
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class DebtorComparator implements Comparator<Debtor>{
