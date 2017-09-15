@@ -35,6 +35,16 @@ public class AccessControlEntry {
     private Actor object;
     private Permission permissions;
     
+    public AccessControlEntry(){
+        object = null;
+        permissions = null;
+    }
+    
+    public AccessControlEntry(Actor object, Permission permissions){
+        this.object = object;
+        this.permissions = permissions;
+    }
+    
     /**
      * Can this object claim the requested access?
      * @param object
