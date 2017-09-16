@@ -34,42 +34,42 @@ public class DemographicField<T> extends WWBaseObject{
     public enum source {
 
         /**
-         *
+         * Field comes from NewBiz
          */
         NBIZ,
 
         /**
-         *
+         * Field came from a TLO lookup
          */
         SKP_TLO,
 
         /**
-         *
+         * Field came from Tranunsion/TLO Watch processes.
          */
         SKP_TUW,
 
         /**
-         *
+         * 
          */
         SKP_TWN,
 
         /**
-         *
+         * Field came from NCOA address correction.
          */
         NCOA,
 
         /**
-         *
+         * Field came from information provided by the Debtor.
          */
         DEBTOR,
 
         /**
-         *
+         * Field came from the Address Correction Service.
          */
         ACS,
 
         /**
-         *
+         * Field came from the client, outside of NewBiz
          */
         CLIENT,
     }
@@ -92,7 +92,7 @@ public class DemographicField<T> extends WWBaseObject{
     }
 
     /**
-     *
+     * Return the value of the field, if permissions permit it.
      * @return
      */
     protected T getField() {
@@ -107,7 +107,7 @@ public class DemographicField<T> extends WWBaseObject{
     }
 
     /**
-     *
+     * Set the value of the field, if permissions allow it.
      * @param field
      * @throws Core.AccessDeniedException
      */

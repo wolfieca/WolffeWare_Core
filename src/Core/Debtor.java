@@ -97,9 +97,11 @@ public class Debtor extends WWBaseObject implements Reportable {
     private boolean everSkipTracedPhone;
     private boolean everSkipTracedAddress;
     private boolean everSkipTracedOther;
+    private boolean everMailReturn;
     private boolean preCollect;
     private boolean mergeInProgress;
     private boolean splitInProgress;
+    private boolean debtsCanAccrueInterest;
     private AttorneyForwarder attorneyForwarder;
     private GregorianCalendar dateSentOut;
     private GregorianCalendar dateLastPaid;
