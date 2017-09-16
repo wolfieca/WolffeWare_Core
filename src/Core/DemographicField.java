@@ -76,7 +76,7 @@ public class DemographicField<T> extends WWBaseObject{
     private source fieldSource;
 
     /**
-     *
+     * Is the field PHI?
      * @return
      */
     protected boolean isPHI() {
@@ -84,7 +84,7 @@ public class DemographicField<T> extends WWBaseObject{
     }
 
     /**
-     *
+     * Set the PHI flag
      * @param PHI
      */
     protected void setPHI(boolean PHI) {
