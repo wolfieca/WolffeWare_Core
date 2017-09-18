@@ -31,7 +31,7 @@ public class DemographicField<T> extends WWBaseObject{
     /**
      *
      */
-    public enum source {
+    public enum sources {
 
         /**
          * Field comes from NewBiz
@@ -73,7 +73,7 @@ public class DemographicField<T> extends WWBaseObject{
          */
         CLIENT,
     }
-    private source fieldSource;
+    private sources fieldSource;
 
     /**
      * Is the field PHI?
@@ -121,17 +121,25 @@ public class DemographicField<T> extends WWBaseObject{
             this.field = field;
     }
 
+    public void setField(T field, sources sourceName){
+        try{
+            this.setField(field);
+            this.setFieldSource(sourceName);
+        } catch (AccessDeniedException e){
+            e.toString();
+        }
+    }
     /**
      * @return the fieldSource
      */
-    public source getFieldSource() {
+    public sources getFieldSource() {
         return fieldSource;
     }
 
     /**
      * @param fieldSource the fieldSource to set
      */
-    protected void setFieldSource(source fieldSource) {
+    protected void setFieldSource(sources fieldSource) {
         this.fieldSource = fieldSource;
     }
     

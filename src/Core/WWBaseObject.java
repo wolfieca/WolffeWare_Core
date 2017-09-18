@@ -27,6 +27,12 @@ import java.util.ArrayList;
 
 
 public class WWBaseObject implements Securable, Serializable {
+    /**
+     * System Object. Used to make various configuration options and system
+     * variables.
+     */
+    private Core.System systemObject;
+    
     private Actor caller;
     /**
      * The Global ID for this object. Useful for when all I have is the ID of

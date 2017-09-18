@@ -88,7 +88,7 @@ public class Debt extends WWBaseObject implements Reportable {
 
     /**
      * Lock this debt. A locked debt cannot be changed without being unlocked 
-     * first.
+      * first.
      * @return
      */
 
@@ -250,10 +250,14 @@ public class Debt extends WWBaseObject implements Reportable {
     }
     /**
      * Update the interest on this debt, subject to restrictions such as being
-     * locked.
+     * locked. The Interest percentage is found in the FeeSchedule for the debt,
+     * and the type of interest accumulation (simple or compound) is part of the
+     * company setup.
      * @return
      */
     public int updateInterest(){
+        double interestRate = (this.getFeeSchedule().getInterestPercent())/365.25;
+        this.setInterestOwed(0);
         return 0;
     }
     
