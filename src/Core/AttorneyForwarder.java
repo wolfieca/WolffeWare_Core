@@ -17,7 +17,7 @@
 package Core;
 
 /**
- *
+ * An attorney or forwarder
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 public class AttorneyForwarder {

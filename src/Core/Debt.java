@@ -257,12 +257,15 @@ public class Debt extends WWBaseObject implements Reportable {
      */
     public int updateInterest(){
         double interestRate = (this.getFeeSchedule().getInterestPercent())/365.25;
+        double interestAmount = interestRate*this.getPrincipalOwed();
+        
         this.setInterestOwed(0);
         return 0;
     }
     
     /**
-     * Apply a payment to this debt, adjusting the related fields, and 
+     * Apply a payment to this debt, adjusting the related fields, and attaching
+     * the payment to this debt. 
      * @param thePayment
      * @return
      */

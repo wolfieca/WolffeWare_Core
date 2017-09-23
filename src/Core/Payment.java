@@ -65,7 +65,7 @@ public class Payment {
      * @return 
      */
     public int reversePayment(){
-        return 0;
+        return this.getPaidOn().reversePayment(this);
     }
     /**
      * Invoice this payment. This is normally done as the typical close of 
@@ -79,6 +79,8 @@ public class Payment {
      * @return
      */
     public int invoicePayment(){
+        this.setInvoicedDate(new GregorianCalendar());
+        this.setInvoiced(true);
         return 0;
     }
     

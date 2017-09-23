@@ -18,11 +18,11 @@
 package Core;
 
 /**
- *
+ * The Company object is a base for all Company-specific data.
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
 
-public class Company {
+public class Company extends WWBaseObject{
     
 }
