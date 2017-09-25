@@ -256,10 +256,11 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int updateInterest(){
-        double interestRate = (this.getFeeSchedule().getInterestPercent())/365.25;
-        double interestAmount = interestRate*this.getPrincipalOwed();
+        double interestRte = (this.getFeeSchedule().getInterestPercent())/365.25;
+        double interestAmount = interestRte*this.getPrincipalOwed();
+        Double newInterest = this.getInterestOwed()+interestAmount;
         
-        this.setInterestOwed(0);
+        this.setInterestOwed(newInterest.longValue());
         return 0;
     }
     
@@ -270,6 +271,10 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int applyPayment(Payment thePayment){
+        int paidLoc = 0;
+        for (long x : thePayment.getPaidAmt()){
+            this.getPaid(paidLoc);
+        }
         return 0;
     }
 

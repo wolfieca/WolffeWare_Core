@@ -26,3 +26,4 @@ package Core;
 public class Company extends WWBaseObject{
     
 }
+ 
