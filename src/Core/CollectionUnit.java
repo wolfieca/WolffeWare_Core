@@ -38,6 +38,7 @@ public class CollectionUnit extends WWBaseObject{
     private PriorityCalculator priorityCalculator;
     private int maxIdleDays;
     private int waitDays;
+    // The collector stats are indexed by month and year
     private HashMap<String,CollectorStats> collStats;
     private HashMap<String,CollectorStats> collStats2;
     

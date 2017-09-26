@@ -61,6 +61,55 @@ public class ClientStats {
     private Long    mailingCosts;
 
     
+    // Interface methods.
+    protected int addNewbiz(Debt newbiz){
+        this.newbizCount ++;
+        this.newbizDollars += newbiz.getPrincipalOwed();
+        return 0;
+    }
+    
+    protected int addPayment(Payment newPayment){
+        this.paidCount++;
+        this.paidDollars += 1;
+        return 0;
+    }
+    
+    protected int addWhollyRetainedDollars(long retainedAmount){
+        return 0;
+    }
+    protected int addPaidInFull(Debt pifDebt){
+        return 0;
+    }
+    protected int purgeDebt(Debt toPurge){
+        return 0;
+    }
+    protected int returnDebt(Debt toReturn){
+        return 0;
+    }
+    protected int transferDebt(Debt toTransfer, Client toClient){
+        return 0;
+    }
+    protected int addFees(Long fees){
+        return 0;
+    }
+    protected int addAdjustment(Long adjustment){
+        return 0;
+    }
+    protected int addAttyFees(Long attyFees){
+        return 0;
+    }
+    protected int addFwdrFees(Long fwdrFees){
+        return 0;
+    }
+    protected int addLaborCosts(Long laborCosts){
+        return 0;
+    }
+    protected int addNonLaborCosts(Long nonLaborCosts){
+        return 0;
+    }
+    protected int addMailingCosts(Long mailingCosts){
+        return 0;
+    }
     // Design Note: In the new design, these are calculated on the fly whenever
     // changes are made that would require it. The Client object is also capable
     // forcing it's ClientStats object to re-calculate itself from scratch.
@@ -571,9 +620,9 @@ public class ClientStats {
      * @param debt
      * @return
      */
-    public int returnDebt(Debt debt){
-        return 0;
-    }
+//    public int returnDebt(Debt debt){
+//        return 0;
+ //   }
 
     /**
      *

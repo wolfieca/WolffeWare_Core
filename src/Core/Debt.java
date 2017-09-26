@@ -266,14 +266,18 @@ public class Debt extends WWBaseObject implements Reportable {
     
     /**
      * Apply a payment to this debt, adjusting the related fields, and attaching
-     * the payment to this debt. 
+     * the payment to this debt. I update the debt paid fields here, just for
+     * optimization purposes, so I don't need to keep recalculating them every
+     * time I open this debt.
      * @param thePayment
      * @return
      */
     public int applyPayment(Payment thePayment){
+        this.payments.add(thePayment);
         int paidLoc = 0;
         for (long x : thePayment.getPaidAmt()){
-            this.getPaid(paidLoc);
+            //this.getPaid(paidLoc);
+            this.paid[paidLoc++] += x;
         }
         return 0;
     }
@@ -288,6 +292,11 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return
      */
     public int reversePayment(Payment thePayment){
+        this.payments.add(thePayment);
+        int paidLoc = 0;
+        for(long x:thePayment.getPaidAmt()){
+            this.paid[paidLoc++] -= x;
+        }
         return 0;
     }
 
