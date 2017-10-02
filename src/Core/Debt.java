@@ -313,11 +313,14 @@ public class Debt extends WWBaseObject implements Reportable {
     }
 
     /**
-     * Change the Debtor this debt is attached to.
+     * Change the Debtor this debt is attached to. This is mostly a passive
+     * operation. It is performed by the Debt Object as a part of the merge and
+     * split operations.
      * @param newDebtor
      * @return
      */
     public int changeDebtor(Debtor newDebtor){
+        this.debtor = newDebtor;
         return 0;
     }
     /**
