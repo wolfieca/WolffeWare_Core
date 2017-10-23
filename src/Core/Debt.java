@@ -38,8 +38,8 @@ public class Debt extends WWBaseObject implements Reportable {
     private boolean splitable;
     private boolean locked;
     private Client client;
-    private String clientReferenceNumber;
-    private String forWhat;
+    private DemographicField<String> clientReferenceNumber;
+    private DemographicField<String> forWhat;
     private FeeSchedule feeSchedule;
     private String newBizBatch;
     private int serviceType;
@@ -428,14 +428,14 @@ public class Debt extends WWBaseObject implements Reportable {
      * @return the clientReferenceNumber
      */
     public String getClientReferenceNumber() {
-        return clientReferenceNumber;
+        return clientReferenceNumber.getField();
     }
 
     /**
      * @return the forWhat
      */
     public String getForWhat() {
-        return forWhat;
+        return forWhat.getField();
     }
 
     /**
@@ -757,14 +757,22 @@ public class Debt extends WWBaseObject implements Reportable {
      * @param clientReferenceNumber the clientReferenceNumber to set
      */
     protected void setClientReferenceNumber(String clientReferenceNumber) {
-        this.clientReferenceNumber = clientReferenceNumber;
+        try{
+            this.clientReferenceNumber.setField(clientReferenceNumber);
+        } catch (Exception e){
+            
+        }
     }
 
     /**
      * @param forWhat the forWhat to set
      */
     protected void setForWhat(String forWhat) {
-        this.forWhat = forWhat;
+        try{
+            this.forWhat.setField(forWhat);
+        }catch (Exception e){
+            
+        }
     }
 
     /**

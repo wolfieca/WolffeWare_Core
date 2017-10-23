@@ -27,7 +27,6 @@ import java.util.HashMap;
 
 
 public class Debtor extends WWBaseObject implements Reportable {
-
     /**
      * @return the unit
      */
@@ -161,6 +160,95 @@ public class Debtor extends WWBaseObject implements Reportable {
     //private HashMap<Integer,Payment> payment;
     private HashMap<Integer,Legal> legal;
     private ActivityQueue activity;
+
+    /**
+     * Copy Constructor
+     * @param theDebtor 
+     */   
+    public Debtor(Debtor theDebtor){
+        activity = theDebtor.getActivity();
+        try{
+            addressLine1.setField(theDebtor.getAddressLine1());
+        } catch(AccessDeniedException e){
+        }
+        
+        try{
+            addressLine2.setField(theDebtor.getAddressLine2());
+        } catch (AccessDeniedException e){
+        }
+            
+        try{
+            addressLine3.setField(theDebtor.getAddressLine3());
+        } catch (AccessDeniedException e){
+            
+        }
+        
+        try{
+            city.setField(theDebtor.getCity());
+        } catch (AccessDeniedException e){
+            
+        }
+        
+        try{
+            state.setField(theDebtor.getState().getField());
+        } catch (AccessDeniedException e){
+            
+        }
+        
+        try{
+            zip.setField(theDebtor.getZip().getField());
+        } catch(AccessDeniedException e) {
+            
+        }
+        
+        try{
+            birthDate.setField(theDebtor.getBirthDate());
+        } catch(AccessDeniedException e){
+            
+        }
+        
+        try{
+            lastName.setField(theDebtor.getLastName());
+        } catch(AccessDeniedException e){
+            
+        }
+        
+        try{
+            firstName.setField(theDebtor.getFirstName());
+        } catch (AccessDeniedException e){
+            
+        }
+        
+        try{
+            middleName.setField(theDebtor.getMiddleName());
+        } catch (AccessDeniedException e){
+            
+        }
+        
+        try{
+            title.setField(theDebtor.getTitle());
+        } catch(AccessDeniedException e){
+            
+        }
+        
+        try{
+            suffix.setField(theDebtor.getSuffix());
+        } catch (AccessDeniedException e){
+            
+        }
+        
+        try {
+            phone.setField(theDebtor.getPhone());
+        } catch (AccessDeniedException e){
+            
+        }
+        
+        try {
+            ssn.setField(theDebtor.getSsn());
+        } catch (AccessDeniedException e){
+            
+        }
+    }
     
     
     // Utility methods. The public API should not have any direct access to the
@@ -171,7 +259,8 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getName(){
-        if ( lastName.isPHI() || firstName.isPHI() || middleName.isPHI() ){
+        return lastName.getField() + ", " + firstName.getField() + " " + middleName.getField();
+        /*if ( lastName.isPHI() || firstName.isPHI() || middleName.isPHI() ){
             if ( getCaller().getRights().canViewPHI() )
                 return lastName.getField()+", " + firstName.getField()
                     +" "+ middleName.getField();
@@ -179,7 +268,7 @@ public class Debtor extends WWBaseObject implements Reportable {
                 return lastName.getField();
         } else 
             return lastName.getField() + ", " + firstName.getField() +
-                    " " + middleName.getField();
+                    " " + middleName.getField();*/
     }
 
     /**
@@ -187,7 +276,10 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getNormalName(){
-        if ( lastName.isPHI() || firstName.isPHI() || middleName.isPHI() ||
+        return title.getField() + " " + firstName.getField() + " " +
+                middleName.getField() + " " + lastName.getField() +
+                (suffix.getField().equals("")?"":", ") + suffix.getField();
+        /*if ( lastName.isPHI() || firstName.isPHI() || middleName.isPHI() ||
                 title.isPHI() || suffix.isPHI()){
             if ( getCaller().getRights().canViewPHI() )
                 return title.getField()+" "+firstName.getField()+" "+
@@ -198,7 +290,7 @@ public class Debtor extends WWBaseObject implements Reportable {
         } else
             return title.getField()+" "+firstName.getField()+" "+
                 middleName.getField()+" "+lastName.getField()+
-                (suffix.getField().equals("")?"":", "+suffix.getField());
+                (suffix.getField().equals("")?"":", "+suffix.getField()); */
     }
 
     /**
@@ -206,13 +298,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getPhoneNumber(){
-        if (phone.isPHI()){
+        return phone.getField();
+        /*if (phone.isPHI()){
             if(getCaller().getRights().canViewPHI()){
                 return phone.getField();
             } else
                 return null;
         } else
-            return phone.getField();
+            return phone.getField(); */
     }
     // Accessor methods
 
@@ -238,7 +331,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param lastName
      */
     protected void setLastName(String lastName) {
-        if ( this.lastName.isPHI() ) {
+        try {
+            this.lastName.setField(lastName);
+        }catch(Exception e){
+            
+        }
+        /*if ( this.lastName.isPHI() ) {
             if ( getCaller().getRights().canUpdatePHI() )
                 try {
                     this.lastName.setField(lastName);
@@ -249,7 +347,7 @@ public class Debtor extends WWBaseObject implements Reportable {
             try {
                 this.lastName.setField(lastName);
             }catch (AccessDeniedException e){
-            }
+            }*/
     }
 
     /**
@@ -257,12 +355,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getFirstName() {
-        if ( firstName.isPHI()){
+
+        return firstName.getField();
+        /*if ( firstName.isPHI()){
             if ( getCaller().getRights().canViewPHI() )
                 return firstName.getField();
             else return null;
         }
-        return firstName.getField();
+        return firstName.getField();*/
     }
 
     /**
@@ -270,7 +370,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param firstName
      */
     protected void setFirstName(String firstName) {
-        if ( this.firstName.isPHI() ) {
+        try{
+            this.firstName.setField(firstName);
+        } catch (Exception e){
+            
+        }
+        /*if ( this.firstName.isPHI() ) {
             if ( getCaller().getRights().canUpdatePHI() )
                 try {
                     this.firstName.setField(firstName);
@@ -281,7 +386,7 @@ public class Debtor extends WWBaseObject implements Reportable {
             try {
                 this.firstName.setField(firstName);
             }catch (AccessDeniedException e){
-            }
+            }*/
     }
 
     /**
@@ -289,13 +394,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getMiddleName() {
-        if (middleName.isPHI()){
+        return middleName.getField();
+        /*if (middleName.isPHI()){
             if ( getCaller().getRights().canViewPHI())
                 return middleName.getField();
             else 
                 return null;
         } else
-            return middleName.getField();
+            return middleName.getField();*/
     }
 
     /**
@@ -303,7 +409,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param middleName
      */
     protected void setMiddleName(String middleName) {
-                if ( this.middleName.isPHI() ) {
+        try {
+            this.middleName.setField(middleName);
+        }catch (Exception e){
+        
+        }
+        /*        if ( this.middleName.isPHI() ) {
             if ( getCaller().getRights().canUpdatePHI() )
                 try {
                     this.middleName.setField(middleName);
@@ -316,7 +427,7 @@ public class Debtor extends WWBaseObject implements Reportable {
             }catch (AccessDeniedException e){
             }
 
-        //this.middleName = middleName;
+        //this.middleName = middleName;*/
     }
 
     /**
@@ -324,13 +435,15 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getSuffix() {
+        return suffix.getField();
+        /*
         if ( this.suffix.isPHI()) {
             if(getCaller().getRights().canUpdatePHI()){
                 return suffix.getField();
             } else
                 return null;
         } else
-            return suffix.getField();
+            return suffix.getField(); */
     }
 
     /**
@@ -338,7 +451,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param suffix
      */
     protected void setSuffix(String suffix) {
-            if ( this.suffix.isPHI() ) {
+        try {
+            this.suffix.setField(suffix);
+        } catch (Exception e){
+            
+        }
+        /*    if ( this.suffix.isPHI() ) {
             if ( getCaller().getRights().canUpdatePHI() )
                 try {
                     this.suffix.setField(suffix);
@@ -351,6 +469,7 @@ public class Debtor extends WWBaseObject implements Reportable {
             }catch (AccessDeniedException e){
             
             }
+        */
     }
 
     /**
@@ -358,14 +477,15 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getTitle() {
-        if(this.title.isPHI()){
+        return title.getField();
+        /*if(this.title.isPHI()){
             if (getCaller().getRights().canViewPHI())
                 return title.getField();
             else
                 return null;
         } else {
             return title.getField();
-        }
+        }*/
     }
 
     /**
@@ -373,7 +493,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param title
      */
     protected void setTitle(String title) {
-         if ( this.title.isPHI() ) {
+        try{
+            this.title.setField(title);
+        } catch (Exception e) {
+            
+        }
+        /* if ( this.title.isPHI() ) {
             if ( getCaller().getRights().canUpdatePHI() )
                 try {
                     this.title.setField(title);
@@ -384,7 +509,7 @@ public class Debtor extends WWBaseObject implements Reportable {
             try {
                 this.title.setField(title);
             }catch (AccessDeniedException e){
-            }
+            }*/
     }
 
     /**
@@ -392,13 +517,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getPhone() {
-        if ( phone.isPHI() ){
+        return phone.getField();
+        /*if ( phone.isPHI() ){
             if ( getCaller().getRights().canViewPHI())
                 return phone.getField();
             else
                 return null;
         } else
-            return phone.getField();
+            return phone.getField();*/
     }
 
     /**
@@ -406,7 +532,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param phone
      */
     protected void setPhone(String phone) {
-        if (this.phone.isPHI()){
+        try {
+            this.phone.setField(phone);
+        } catch ( Exception e){
+            
+        }
+        /*if (this.phone.isPHI()){
             if(getCaller().getRights().canUpdatePHI()){
                 try{
                     this.phone.setField(phone);
@@ -419,7 +550,7 @@ public class Debtor extends WWBaseObject implements Reportable {
                 this.phone.setField(phone);
             } catch (AccessDeniedException e){
                 
-            }
+            }*/
     }
 
     /**
@@ -427,13 +558,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getSsn() {
-        if (this.ssn.isPHI()) {
+        return ssn.getField();
+        /*if (this.ssn.isPHI()) {
             if ( getCaller().getRights().canViewPHI())
                 return this.ssn.getField();
             else
                 return null;
         }else
-            return this.ssn.getField();
+            return this.ssn.getField(); */
     }
 
     /**
@@ -441,7 +573,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param ssn
      */
     protected void setSsn(String ssn) {
-        if ( this.ssn.isPHI() ) {
+        try {
+            this.ssn.setField(ssn);
+        } catch (Exception e){
+            
+        }
+        /*if ( this.ssn.isPHI() ) {
             if ( getCaller().getRights().canUpdatePHI())
                 try{
                     this.ssn.setField(ssn);
@@ -453,7 +590,7 @@ public class Debtor extends WWBaseObject implements Reportable {
                 this.ssn.setField(ssn);
             } catch (AccessDeniedException e) {
                 
-            }
+            }*/
     }
 
     /**
@@ -461,13 +598,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public GregorianCalendar getBirthDate() {
-        if ( this.birthDate.isPHI() ) {
+        return birthDate.getField();
+        /*if ( this.birthDate.isPHI() ) {
             if ( getCaller().getRights().canViewPHI())
                 return this.birthDate.getField();
             else
                 return null;
         } else
-            return this.birthDate.getField();
+            return this.birthDate.getField();*/
     }
 
     /**
@@ -475,7 +613,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param birthDate
      */
     protected void setBirthDate(GregorianCalendar birthDate) {
-        if ( this.birthDate.isPHI() ) {
+        try {
+            this.birthDate.setField(birthDate);
+        }catch (Exception e){
+            
+        }
+        /*if ( this.birthDate.isPHI() ) {
             if ( getCaller().getRights().canUpdatePHI())
                 try {
                     this.birthDate.setField(birthDate);
@@ -487,7 +630,7 @@ public class Debtor extends WWBaseObject implements Reportable {
                 this.birthDate.setField(birthDate);
             } catch (AccessDeniedException e) {
                 
-            }
+            } */
     }
 
     /**
@@ -495,13 +638,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getAddressLine1() {
-        if ( this.addressLine1.isPHI() )
+        return addressLine1.getField();
+        /*if ( this.addressLine1.isPHI() )
             if ( getCaller().getRights().canViewPHI())
                 return addressLine1.getField();
             else
                 return null;
         else
-            return this.addressLine1.getField();
+            return this.addressLine1.getField(); */
     }
 
     /**
@@ -509,7 +653,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param addressLine1
      */
     protected void setAddressLine1(String addressLine1) {
-        if ( this.addressLine1.isPHI() )
+        try{
+            this.addressLine1.setField(addressLine1);
+        } catch (Exception e){
+            
+        }
+        /*if ( this.addressLine1.isPHI() )
             if(getCaller().getRights().canUpdatePHI())
                 try{
                     this.addressLine1.setField(addressLine1);
@@ -520,7 +669,7 @@ public class Debtor extends WWBaseObject implements Reportable {
             try{
                 this.addressLine1.setField(addressLine1);
             } catch (AccessDeniedException e){
-            }
+            }*/
     }
 
     /**
@@ -528,13 +677,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getAddressLine2() {
-        if ( this.addressLine2.isPHI())
+        return addressLine2.getField();
+/*        if ( this.addressLine2.isPHI())
             if(getCaller().getRights().canViewPHI())
                 return this.addressLine2.getField();
             else
                 return null;
         else
-            return this.addressLine2.getField();
+            return this.addressLine2.getField(); */
     }
 
     /**
@@ -542,7 +692,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param addressLine2
      */
     protected void setAddressLine2(String addressLine2) {
-        if ( this.addressLine2.isPHI())
+        try {
+            this.addressLine2.setField(addressLine2);
+        } catch (Exception e) {
+            
+        }
+/*        if ( this.addressLine2.isPHI())
             if ( getCaller().getRights().canUpdatePHI())
                 try{
                     this.addressLine2.setField(addressLine2);
@@ -554,7 +709,7 @@ public class Debtor extends WWBaseObject implements Reportable {
                 this.addressLine2.setField(addressLine2);
             } catch (AccessDeniedException e){
                 
-            }
+            } */
     }
 
     /**
@@ -562,13 +717,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getAddressLine3() {
-        if ( this.addressLine3.isPHI())
+        return addressLine3.getField();
+/*        if ( this.addressLine3.isPHI())
             if(getCaller().getRights().canViewPHI())
                 return this.addressLine3.getField();
             else
                 return null;
         else
-            return this.addressLine3.getField();
+            return this.addressLine3.getField(); */
     }
 
     /**
@@ -576,7 +732,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param addressLine3
      */
     protected void setAddressLine3(String addressLine3) {
-        if ( this.addressLine3.isPHI())
+        try {
+            this.addressLine3.setField(addressLine3);
+        } catch (Exception e){
+            
+        }
+/*        if ( this.addressLine3.isPHI())
             if ( getCaller().getRights().canUpdatePHI())
                 try{
                     this.addressLine3.setField(addressLine3);
@@ -588,7 +749,7 @@ public class Debtor extends WWBaseObject implements Reportable {
                 this.addressLine3.setField(addressLine3);
             } catch (AccessDeniedException e){
                 
-            }
+            } */
     }
 
     /**
@@ -596,13 +757,14 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @return
      */
     public String getCity() {
-        if ( this.city.isPHI())
+       return city.getField();
+/*        if ( this.city.isPHI())
             if(getCaller().getRights().canViewPHI())
                 return this.city.getField();
             else
                 return null;
         else
-            return this.city.getField();
+            return this.city.getField(); */
     }
 
     /**
@@ -610,7 +772,12 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param city
      */
     protected void setCity(String city) {
-        if ( this.city.isPHI())
+        try {
+            this.city.setField(city);
+        } catch (Exception e){
+            
+        }
+/*        if ( this.city.isPHI())
             if ( getCaller().getRights().canUpdatePHI())
                 try{
                     this.addressLine3.setField(city);
@@ -622,7 +789,7 @@ public class Debtor extends WWBaseObject implements Reportable {
                 this.addressLine3.setField(city);
             } catch (AccessDeniedException e){
                 
-            }
+            } */
     }
 
     /**
@@ -941,19 +1108,19 @@ public class Debtor extends WWBaseObject implements Reportable {
     }
     
     // Work methods
-
+    // Merge and Split treat Debtors as immutable.
     /**
-     * Merges an debtor with this one. Debts from the debtorToMerge are added
+     * Merges a debtor with this one. Debts from the debtorToMerge are added
      * to this debtor, and removed from the debtorToMerge. History, payments, etc
      * are also likewise added to this debtor. Supplemental data are not merged,
      * but differences are placed in the history. The debtorToMerge is left in 
      * place, but is just used to allow lookups against its debtor number to 
      * work properly. Both debtors must be mergeable and not locked.
      * @param debtorToMerge
-     * @return      0 if successful
+     * @return      the resulting debtors
      */
-    public int merge(Debtor debtorToMerge){
-        return 0;
+    public Debtor[] merge(Debtor debtorToMerge){
+        return null;
     }
 
     /**
@@ -965,57 +1132,60 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param debtsToMerge
      * @return
      */
-    public int merge(Debtor debtorToMerge, int[] debtsToMerge){
-        return 0;
+    public Debtor[] merge(Debtor debtorToMerge, int[] debtsToMerge){
+        return null;
     }
 
     /**
-     *
+     * Merge a single debt into this debtor. This will detach the target debt
+     * from its owning debtor, and attach it to this debtor, at the same time
+     * adjusting the statistics for both debtors to reflect this change.
      * @param debtToMerge
      * @return
      */
-    public int merge(Debt debtToMerge){
-        return 0;
+    public Debtor[] merge(Debt debtToMerge){
+        return null;
     }
 
     /**
-     *
+     * Merge a set of debts into this debtor. See comment for merge(debt).
      * @param debtsToMerge
      * @return
      */
-    public int merge(Debt[] debtsToMerge){
-        return 0;
+    public Debtor[] merge(Debt[] debtsToMerge){
+        return null;
     }
 
     /**
-     *
+     * Merge two debtors together, and returns the resulting debtors.
      * @param primary
      * @param secondary
      * @return
      */
-    public static int merge(Debtor primary, Debtor secondary){
-        return 0;
+    public static Debtor[] merge(Debtor primary, Debtor secondary){
+        return null;
     }
 
     /**
-     *
+     * Merge two Debtors together, combining selected debts to the new debtor.
+     * Returns the combined debtor
      * @param primary
      * @param secondary
      * @param debtsToMerge
      * @return
      */
-    public static int merge(Debtor primary, Debtor secondary, int[] debtsToMerge){
-        return 0;
+    public static Debtor[] merge(Debtor primary, Debtor secondary, int[] debtsToMerge){
+        return null;
     }
 
     /**
-     *
+     * Merge the specified debts into the specified debtor.
      * @param primary
      * @param debtsToMerge
      * @return
      */
-    public static int merge(Debtor primary, Debt[] debtsToMerge){
-        return 0;
+    public static Debtor[] merge(Debtor primary, Debt[] debtsToMerge){
+        return null;
     }
 
     // NOTE: All split operations create a copy of this debtor to attach the
@@ -1027,8 +1197,8 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param debtToSplit
      * @return
      */
-    public int split(int debtToSplit){
-        return 0;
+    public Debtor[] split(int debtToSplit){
+        return null;
     }
 
     /**
@@ -1040,18 +1210,18 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param debtsToSplit
      * @return
      */
-    public int split (int[] debtsToSplit){
-        return 0;
+    public Debtor[] split (int[] debtsToSplit){
+        return null;
     }
 
     /**
-     *
+     * 
      * @param debtor
      * @param debtsToSplit
      * @return
      */
-    public static int split(Debtor debtor, int[] debtsToSplit){
-        return 0;
+    public static Debtor[] split(Debtor debtor, int[] debtsToSplit){
+        return null;
     }
 
     /**
@@ -1059,16 +1229,16 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param debtsToSplit
      * @return
      */
-    public static int split(Debt[] debtsToSplit){
-        return 0;
+    public static Debtor[] split(Debt[] debtsToSplit){
+        return null;
     }
     /**
      *
      * @param debtsToSplit
      * @return
      */
-    public int detachDebt(int[] debtsToSplit){
-        return 0;
+    public Debt detachDebt(int[] debtsToSplit){
+        return null;
     }
 
     /**
@@ -1076,8 +1246,8 @@ public class Debtor extends WWBaseObject implements Reportable {
      * @param debtsToSplit
      * @return
      */
-    public int attachDebt(int[] debtsToSplit){
-        return 0;
+    public Debt[] attachDebt(int[] debtsToSplit){
+        return null;
     }
     /**
      * Update the interest on the account. Iterate over each debt and have
