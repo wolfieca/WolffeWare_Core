@@ -25,6 +25,8 @@ package Core;
  */
 public class SupplementalDataItem extends WWBaseObject{
     private String name;
+    private String category;
+    private String subcategory;
     private int line;
     private boolean PHI;
     private String theData;
@@ -94,6 +96,34 @@ public class SupplementalDataItem extends WWBaseObject{
      */
     public void setLine(int line) {
         this.line = line;
+    }
+
+    /**
+     * @return the category
+     */
+    public String getCategory() {
+        return category;
+    }
+
+    /**
+     * @return the sub-category
+     */
+    public String getSubcategory() {
+        return subcategory;
+    }
+
+    /**
+     * @param category the category to set
+     */
+    protected void setCategory(String category) {
+        this.category = category;
+    }
+
+    /**
+     * @param subcategory the subcategory to set
+     */
+    protected void setSubcategory(String subcategory) {
+        this.subcategory = subcategory;
     }
     
 }
