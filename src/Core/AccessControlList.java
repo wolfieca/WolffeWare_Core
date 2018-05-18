@@ -20,7 +20,8 @@ package Core;
 import java.util.Dictionary;
 
 /**
- * AccessControlList is the basic
+ * AccessControlList is the basic security class in the system, allowing for 
+ * fine-grained control of access to specific objects
  * @author Robert Serrano <wolfieca.rs@gmail.com>
  */
 
